@@ -1,0 +1,36 @@
+Folder PATH listing
+Volume serial number is 00000008 AE43:A6AC
+C:.
+|   struktura.txt
+|   trening.html
+|   
++---assets
+|   +---audio
+|   |       wrong.mp3
+|   |       
+|   \---images
+|           ONeilSW2.png
+|           Peter2.png
+|           Ripley2.png
+|           Robbie.png
+|           
++---css
+|       trening.css
+|       
++---docs
+|       readme.txt
+|       struktura.txt
+|       
+\---js
+    |   admin.js
+    |   login.js
+    |   questions.js
+    |   reminder.js
+    |   trening.js
+    |   user.js
+    |   
+    \---data
+            year-one.js
+            year-three.js
+            year-two.js
+            

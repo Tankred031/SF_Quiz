@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SF Quiz Progression</title>
+
+    <link rel="stylesheet" href="css/trening.css">
+
+    <script src="js/login.js" defer></script>
+    <script src="js/admin.js" defer></script>
+    <script src="js/user.js" defer></script>
+
+    <script src="js/questions.js" defer></script>
+
+    <script src="js/data/year-one.js" defer></script>
+    <script src="js/data/year-two.js" defer></script>
+    <script src="js/data/year-three.js" defer></script>
+
+    <script src="js/trening.js" defer></script>
+</head>
+
+<body class="logged-out">
+
+    <!-- HERO -->
+
+    <section class="hero" id="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+
+                <div class="hero-label">
+                    SF QUIZ PROGRESSION
+                </div>
+
+                <div id="adminBadge" class="admin-badge">
+                    ADMIN MODE
+                </div>
+
+                <h1 id="heroTitle" class="hero-main-text">
+                    Dani prošle budućnosti
+                </h1>
+
+                <div id="heroSubtext" class="hero-subtext">
+                    Prođi kroz kultne SF filmove, otključavaj sve teže kvizove i testiraj znanje o distopijama,
+                    strojevima i izvanzemaljcima.
+                </div>
+
+                <!-- ADMIN YEAR SELECT -->
+
+                <div class="year-selector admin-only">
+
+                    <label for="yearSelect">
+                        Program
+                    </label>
+
+                    <select id="yearSelect">
+
+                        <option value="1">
+                            Level 1 — Mainstream SF
+                        </option>
+
+                        <option value="2">
+                            Level 2 — Cult Following
+                        </option>
+
+                        <option value="3">
+                            Level 3 — Advanced SF
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- USER YEAR TITLE -->
+
+                <div id="userYearDisplay" class="user-year-display"></div>
+
+            </div>
+
+            <div class="hero-image">
+                <img id="heroImage" class="zoomable-image" src="assets/images/Ripley2.png" alt="SF quiz">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- APP -->
+
+    <div id="appView" style="display:none;">
+        <div id="app"></div>
+    </div>
+
+    <!-- LOGOUT -->
+
+    <button id="logoutBtn" onclick="logout()">
+        LOGOUT
+    </button>
+
+    <!-- LOGIN -->
+
+    <div id="loginView">
+        <div class="login-box">
+
+            <div class="login-screen">
+
+                <div class="login-screen-inner">
+
+                    <div class="login-kicker">
+                        AKO SE POISTOVJEĆUJEŠ S OVIM:
+                    </div>
+
+                    <h2 class="login-title">
+                        POZDRAVLJAMO TE KORISNIČE
+                    </h2>
+
+                    <div class="login-subtitle">
+
+                        <p>
+                            Bojiš se da će nas vlastiti izumi prerasti?                       
+                            Želimo stvoriti savršenu inteligenciju, ali joj ne znamo dati dušu.
+                        </p>
+
+                        <p>
+                            Bojimo se sustava koji postane važniji od čovjeka?                       
+                            Gradimo red, ali lako završimo u zatvoru koji sami održavamo.
+                        </p>
+
+                        <p>
+                            Bojimo se Drugog, ali ga i očajnički tražimo.                        
+                            Nepoznato je nekad čudovište, nekad spasitelj, a nekad ogledalo nas samih.
+                        </p>
+
+                    </div>
+
+                    <input id="password" type="password" placeholder="ACCESS CODE">
+
+                    <button onclick="login()">
+                        START MISSION
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    <div id="imageOverlay"></div>
+</body>
+
+</html>
