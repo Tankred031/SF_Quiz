@@ -92,10 +92,10 @@ function renderUserYearTitle(year) {
     };
 
     const images = {
-        1: "assets/images/Ripley2.png",
-        2: "assets/images/ONeilSW2.png",
-        3: "assets/images/Peter2.png",
-        4: "assets/images/Robbie.png"
+        1: "assets/images/year1.png",
+        2: "assets/images/year2.png",
+        3: "assets/images/year3b.png",
+        4: "assets/images/year4.png"
     };
 
     if (heroTitleEl) {
