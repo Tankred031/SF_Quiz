@@ -25,6 +25,10 @@
    - dopušteni i teži 80/90 filmovi ako su manje poznati
 ========================================= */
 
+/* =========================================
+   MULTIPLE CHOICE QUESTIONS
+   Several options - one correct answer
+========================================= */
 
 const questions = {
     light: [
@@ -38,7 +42,7 @@ const questions = {
             ]
         },
         {
-            group: "dystopia",
+            group: "machines",
             question: "Pravo ime Doc-a iz 'Back to the Future' je:",
             answers: [
                 "=== Seth Brundle",
@@ -57,7 +61,7 @@ const questions = {
         },
         {
             group: "machines",
-            question: "U kojem filmu kiborg dolazi iz budućnosti da bi ubio još nerođenog vođu pokreta otpora",
+            question: "U kojem filmu kiborg dolazi iz budućnosti da bi ubio još nerođenog vođu pokreta otpora?",
             answers: [
                 "=== Predator",
                 "=== Alien",
@@ -66,7 +70,7 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "Snake Plissken se pojavljuje u filmu",
+            question: "Snake Plissken se pojavljuje u filmu:",
             answers: [
                 "=*= Escape from New York",
                 "=== Universal Soldier",
@@ -77,9 +81,9 @@ const questions = {
             group: "aliens",
             question: "Michael Biehn glumi koga u filmu Aliens?",
             answers: [
-                "=== Scott Gormana",
-                "=*= Dwayne Hicksa",
-                "=== William Hudsona"
+                "=== Williama Gormana",
+                "=*= Dwaynea Hicksa",
+                "=== Williama Hudsona"
             ]
         },
         {
@@ -110,7 +114,7 @@ const questions = {
             ]
         },
         {
-            group: "machines",
+            group: "aliens",
             question: "Osim The Terminator, James Cameron je režirao i:",
             answers: [
                 "=== RoboCop",
@@ -129,13 +133,12 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "Kako se zove malo stvorenje koja se ne smije hraniti nakon ponoći?",
+            question: "Kako se zove malo stvorenje koje se ne smije hraniti nakon ponoći?",
             answers: [
                 "=*= Mogwai",
-                "=== Ewoks",
-                "=== Morloc"
+                "=== Ewok",
+                "=== Morlock"
             ]
-
         },
         {
             group: "machines",
@@ -157,7 +160,7 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "Tko je glavni negativac u - 'The Abyss' - kojeg glumi Michael Biehn",
+            question: "Kako se zove glavni antagonist u filmu 'The Abyss', kojeg glumi Michael Biehn?",
             answers: [
                 "=== Virgil Brigman",
                 "=== Dwayne Hicks",
@@ -232,11 +235,11 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "***",
+            question: "Tko prvi ustaje nakon hibernacije u Alienu?",
             answers: [
-                "=== krivi odgovor",
-                "=== krivi odgovor",
-                "=*= točan odgovor"
+                "=== Arthur Dallas",
+                "=== Dennis Parker",
+                "=*= Gilbert Kane"
             ]
         },
         {
@@ -376,19 +379,19 @@ const questions = {
         },
         {
             group: "machines",
-            question: "Koga HAL sabotira? ",
+            question: "Koga HAL sabotira?",
             answers: [
-                "=== Cindy i George-a",
-                "=== Bob i Jules-a",
-                "=*= Frank i Dave-a"
+                "=== Cindy i Georgea",
+                "=== Boba i Julesa",
+                "=*= Franka i Davea"
             ]
         },
         {
-            group: "dystopia",
-            question: "kuhar iz 'Forbidden Planet' je od Robbija tražio što?",
+            group: "machines",
+            question: "Kuhar iz 'Forbidden Planet' je od Robbyja tražio što?",
             answers: [
                 "=== Zabranjeno voće (Forbidden fruit)",
-                "=== Zabranjene začine (Forbidden ingrediets)",
+                "=== Zabranjene začine (Forbidden ingredients)",
                 "=*= Pravu stvar (Real stuff)"
             ]
         }
@@ -415,9 +418,9 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "U filmu 'Andromeda Strain' susret prežive samo:",
+            question: "U filmu 'The Andromeda Strain' susret prežive samo:",
             answers: [
-                "=== 2 onesvještena narkomana",
+                "=== 2 onesviještena narkomana",
                 "=== ptice i ribe",
                 "=*= beba i alkoholičar"
             ]
@@ -523,7 +526,7 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "Tko ne može otići jer ima važan eksperiment koji....",
+            question: "Tko ne može otići jer ima važan eksperiment koji je u kritičnoj fazi?",
             answers: [
                 "=== Dr. Jeremy Stone",
                 "=== Dr. Mark Hall",
@@ -567,12 +570,100 @@ const questions = {
             ]
         },
         {
-            group: "dystopia",
+            group: "aliens",
             question: "Ime kćeri Dr. Edwarda Morbiusa iz 'Forbidden Planet' je:",
             answers: [
                 "=== Eve",
                 "=== Annabelle",
                 "=*= Altaira"
+            ]
+        }
+    ]
+};
+
+/* =========================================
+   YES / NO QUESTIONS
+   Two offered answers - one correct answer
+========================================= */
+
+const yesNoQuestions = {
+    light: [
+        {
+            group: "machines",
+            question: "Je li RoboCop istovremeno čovjek i stroj?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li osnovni svijet filma Mad Max vezan uz raspad društva i nasilnu postapokaliptičnu budućnost?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "U filmu 'Alien' Ripley je jedini preživjeli putnik Nostroma?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        }
+    ],
+
+    medium: [
+        {
+            group: "machines",
+            question: "Jesu li HAL 9000 i Skynet isti tip umjetne inteligencije?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li They Live dobar primjer filma o skrivenoj društvenoj kontroli?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "Je li The Abyss klasični alien horror poput filma Alien?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        }
+    ],
+
+    hard: [
+        {
+            group: "machines",
+            question: "Prikazuje li Videodrome tehnologiju i medij kao silu koja mijenja ljudsku stvarnost?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Govori li Soylent Green o društvu obilja, stabilnosti i neograničenih resursa?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "Je li The Andromeda Strain hladniji i znanstveniji oblik SF prijetnje od klasičnog čudovišnog alien filma?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
             ]
         }
     ]
