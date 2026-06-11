@@ -418,11 +418,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Što je 'Snake' dobio za misiju?",
             answers: [
-                "=== krivi odgovor",
-                "=*= točan odgovor",
-                "=== krivi odgovor"
+                "=== mikrofilm",
+                "=*= otrovnu injekciju",
+                "=== eksploziv"
             ]
         },
         {
@@ -499,11 +499,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Snake na Manhattan dolazi:",
             answers: [
-                "=== krivi odgovor",
-                "=== krivi odgovor",
-                "=*= točan odgovor"
+                "=== Helikopterom",
+                "=== Padobranom",
+                "=*= Jedrilicom"
             ]
         },
         {
@@ -526,11 +526,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Radnja filma 'Outland' se događa na:",
             answers: [
-                "=== krivi odgovor",
-                "=*= točan odgovor",
-                "=== krivi odgovor"
+                "=== Callisto",
+                "=*= Io",
+                "=== Europa"
             ]
         },
         {
@@ -586,8 +586,609 @@ const questions = {
                 "=== Annabelle",
                 "=*= Altaira"
             ]
+        },   
+        {
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },{
+            group: "machines",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"]
+        },
+        {
+            group: "dystopia",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "***",
+            answers: [
+                "=*= točan odgovor",
+                "=== krivi odgovor",
+                "=== krivi odgovor"
+            ]
         }
-    ]
+    ]      
 };
 
 /* =========================================
@@ -639,6 +1240,102 @@ const yesNoQuestions = {
         },
         {
             group: "aliens",
+            question: "U filmu 'Alien' Ripley je jedini preživjeli putnik Nostroma?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "machines",
+            question: "Jesu li HAL 9000 i Skynet isti tip umjetne inteligencije?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li They Live dobar primjer filma o skrivenoj društvenoj kontroli?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "U filmu 'Alien' Ripley je jedini preživjeli putnik Nostroma?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "machines",
+            question: "Jesu li HAL 9000 i Skynet isti tip umjetne inteligencije?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li They Live dobar primjer filma o skrivenoj društvenoj kontroli?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "U filmu 'Alien' Ripley je jedini preživjeli putnik Nostroma?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "machines",
+            question: "Jesu li HAL 9000 i Skynet isti tip umjetne inteligencije?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li They Live dobar primjer filma o skrivenoj društvenoj kontroli?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
+            question: "U filmu 'Alien' Ripley je jedini preživjeli putnik Nostroma?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "machines",
+            question: "Jesu li HAL 9000 i Skynet isti tip umjetne inteligencije?",
+            answers: [
+                "=== Da",
+                "=*= Ne"
+            ]
+        },
+        {
+            group: "dystopia",
+            question: "Je li They Live dobar primjer filma o skrivenoj društvenoj kontroli?",
+            answers: [
+                "=*= Da",
+                "=== Ne"
+            ]
+        },
+        {
+            group: "aliens",
             question: "Je li The Abyss klasični alien horror poput filma Alien?",
             answers: [
                 "=== Da",
@@ -655,10 +1352,10 @@ const yesNoQuestions = {
         },
         {
             group: "dystopia",
-            question: "Govori li Soylent Green o društvu obilja, stabilnosti i neograničenih resursa?",
+            question: "Pravo ime korporacije zadužene za eksploataciju sirovina u filmu 'Outland' je Con-algamate?",
             answers: [
                 "=== Da",
-                "=*= Ne"
+                "=*= Ne" //Con-amalgamate
             ]
         },
         {

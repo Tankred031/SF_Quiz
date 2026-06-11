@@ -2,8 +2,12 @@
    QUIZ REWARD SYSTEM
 ========================================= */
 
-function getRewardKey(month, week) {
-    return `quiz-reward-${month}-${week}`;
+function getRewardKey(year, month, week) {
+    return `quiz-reward-${year}-${month}-${week}`;
+}
+
+function getRewardImage(year, month, week) {
+    return `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
 }
 
 function unlockQuizReward(rewardCard) {
@@ -11,6 +15,16 @@ function unlockQuizReward(rewardCard) {
         return;
     }
 
+    const frontImg = rewardCard.querySelector(".reward-front img");
+
+    if (
+        rewardCard.classList.contains("placeholder-reward") ||
+        (frontImg && frontImg.src.includes("placeholder.png"))
+    ) {
+        return;
+    }
+
+    const year = rewardCard.dataset.rewardYear;
     const month = rewardCard.dataset.rewardMonth;
     const week = rewardCard.dataset.rewardWeek;
 
@@ -19,15 +33,9 @@ function unlockQuizReward(rewardCard) {
     rewardCard.classList.add("newly-unlocked");
 
     localStorage.setItem(
-        getRewardKey(month, week),
+        getRewardKey(year, month, week),
         "unlocked"
     );
-
-    const rewardMessage = rewardCard.querySelector(".reward-message");
-
-    if (rewardMessage) {
-        rewardMessage.textContent = "Nagrada otključana!";
-    }
 
     setTimeout(() => {
         rewardCard.classList.remove("newly-unlocked");
@@ -67,21 +75,27 @@ function restoreQuizRewards() {
     const rewardCards = document.querySelectorAll(".quiz-reward-card");
 
     rewardCards.forEach(card => {
+        const frontImg = card.querySelector(".reward-front img");
+
+        if (
+            card.classList.contains("placeholder-reward") ||
+            (frontImg && frontImg.src.includes("placeholder.png"))
+        ) {
+            card.classList.remove("unlocked");
+            card.classList.add("locked");
+            return;
+        }
+
+        const year = card.dataset.rewardYear;
         const month = card.dataset.rewardMonth;
         const week = card.dataset.rewardWeek;
 
         const isUnlocked =
-            localStorage.getItem(getRewardKey(month, week)) === "unlocked";
+            localStorage.getItem(getRewardKey(year, month, week)) === "unlocked";
 
         if (isUnlocked) {
             card.classList.remove("locked");
             card.classList.add("unlocked");
-
-            const rewardMessage = card.querySelector(".reward-message");
-
-            if (rewardMessage) {
-                rewardMessage.textContent = "Nagrada otključana!";
-            }
         }
     });
 }

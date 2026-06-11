@@ -15,14 +15,16 @@ function applyYearTheme(year) {
     document.body.classList.remove(
         "year-1",
         "year-2",
-        "year-3"
+        "year-3",
+        "year-4"
     );
 
     if (hero) {
         hero.classList.remove(
             "hero-year-1",
             "hero-year-2",
-            "hero-year-3"
+            "hero-year-3",
+            "hero-year-4"
         );
     }
 
@@ -30,7 +32,8 @@ function applyYearTheme(year) {
         app.classList.remove(
             "year-1",
             "year-2",
-            "year-3"
+            "year-3",
+            "year-4"
         );
     }
 
@@ -53,8 +56,12 @@ function setMonthsByYear() {
         months = yearOne;
     } else if (selectedYear === "2") {
         months = yearTwo;
-    } else {
+    } else if (selectedYear === "3") {
         months = yearThree;
+    } else if (selectedYear === "4") {
+        months = yearFour;
+    } else {
+        months = yearOne;
     }
 
     applyYearTheme(selectedYear);
@@ -70,9 +77,9 @@ function renderUserYearTitle(year) {
 
     const titles = {
         1: "LEVEL 1 — Dead or Alive - You're coming with me!",
-        2: "LEVEL 2 — Roads? Where we're going, we don't need, roads!",
+        2: "LEVEL 2 — Roads? Where we're going, we don't need roads!",
         3: "LEVEL 3 — My experiment's at the critical stage, I can't just leave now!",
-        4: "SECRET LEVEL - Open the pod bay doors, HAL. But it's not for him Baba, it's for me Baba."
+        4: "SECRET LEVEL — There can be only one."
     };
 
     const heroTitleEl = document.getElementById("heroTitle");
@@ -82,13 +89,15 @@ function renderUserYearTitle(year) {
     const heroTitles = {
         1: "Dani prošle budućnosti",
         2: "Neobjašnjivi signali iz dubine žanra",
-        3: "Arhiva zabranjenih svjetova"
+        3: "Arhiva zabranjenih svjetova",
+        4: "Tajna arhiva nemogućih svjetova"
     };
 
     const heroSubtexts = {
-        1: "Kreni od najpoznatijih SF filmova i provjeri temelje: distopije, strojevi, vanzemaljci, ajme!.",
+        1: "Kreni od najpoznatijih SF filmova i provjeri temelje: distopije, strojevi i vanzemaljci.",
         2: "Uđi u kultne naslove, čudnije ideje i filmove koje najbolje pamte pravi SF znalci.",
-        3: "Uz dubina prošlosti vodimo te kroz nepoznate filmove, starije klasike i naprednija pitanja."
+        3: "Kroz dubinu prošlosti vodi te arhiva starijih klasika, opskurnijih naslova i naprednijih pitanja.",
+        4: "Secret level za VHS preživjele: mythic SF, čudni hibridi, zabranjeni svjetovi i pitanja koja ne opraštaju."
     };
 
     const images = {
@@ -203,7 +212,7 @@ function getQuizQuestionCount(difficulty) {
     return 10;
 }
 
-function getRandomQuestions(difficulty, count, group = "all") {
+function getRandomQuestions(difficulty, count, group = "all", includeYesNo = false) {
     let questionPool = [];
 
     if (difficulty === "mixed") {
@@ -212,8 +221,28 @@ function getRandomQuestions(difficulty, count, group = "all") {
             ...questions.medium,
             ...questions.hard
         ];
+
+        if (includeYesNo && typeof yesNoQuestions !== "undefined") {
+            questionPool = [
+                ...questionPool,
+                ...yesNoQuestions.light,
+                ...yesNoQuestions.medium,
+                ...yesNoQuestions.hard
+            ];
+        }
     } else {
         questionPool = questions[difficulty] || [];
+
+        if (
+            includeYesNo &&
+            typeof yesNoQuestions !== "undefined" &&
+            yesNoQuestions[difficulty]
+        ) {
+            questionPool = [
+                ...questionPool,
+                ...yesNoQuestions[difficulty]
+            ];
+        }
     }
 
     if (group !== "all") {
@@ -227,9 +256,8 @@ function getRandomQuestions(difficulty, count, group = "all") {
         .map(prepareQuestion);
 }
 
-
 /* =========================================
-   IMAGE ZOOM / LIGHTBOX SYSTEM
+IMAGE ZOOM / LIGHTBOX SYSTEM
 ========================================= */
 
 function initImageZoom() {
@@ -341,16 +369,23 @@ function initImageZoom() {
 QUIZ RENDER
 ========================================= */
 
-function renderQuizReward(month, week) {
-    const frontImage = `assets/images/rewards/reward-${month}-${week}.png`;
-    const backImage = "assets/images/rewards/back.png";
-    const placeholderImage = "assets/images/rewards/placeholder.png";
+function renderQuizReward(year, month, week) {
+    const frontImage =
+        `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
+
+    const backImage =
+        "assets/images/rewards/back.png";
+
+    const placeholderImage =
+        "assets/images/rewards/placeholder.png";
 
     return `
         <div
             class="quiz-reward-card locked"
+            data-reward-year="${year}"
             data-reward-month="${month}"
             data-reward-week="${week}"
+            data-has-reward="true"
         >
             <div class="reward-inner">
 
@@ -362,7 +397,24 @@ function renderQuizReward(month, week) {
                     <img
                         src="${frontImage}"
                         alt="Otključana nagrada"
-                        onerror="this.onerror=null; this.src='${placeholderImage}';"
+                        onerror="
+                            this.onerror=null;
+                            this.src='${placeholderImage}';
+
+                            const card = this.closest('.quiz-reward-card');
+                            card.dataset.hasReward = 'false';
+                            card.classList.add('placeholder-reward');
+                            card.classList.remove('unlocked');
+                            card.classList.remove('newly-unlocked');
+                            card.classList.add('locked');
+
+                            localStorage.removeItem(
+                                'quiz-reward-' +
+                                card.dataset.rewardYear + '-' +
+                                card.dataset.rewardMonth + '-' +
+                                card.dataset.rewardWeek
+                            );
+                        "
                     >
                 </div>
 
@@ -370,7 +422,6 @@ function renderQuizReward(month, week) {
         </div>
     `;
 }
-
 
 function renderQuizWeek(month, monthIndex, week) {
     const status = getWeekStatus(
@@ -433,13 +484,16 @@ function renderQuizWeek(month, monthIndex, week) {
     `;
     }
 
+    const includeYesNoQuestions =
+        month.year === 4 || weekData.includeYesNoQuestions === true;
+
     const quizQuestions =
         getRandomQuestions(
             difficulty,
             questionCount,
-            group
-        )
-
+            group,
+            includeYesNoQuestions
+        );
 
     return `
         <div class="
@@ -495,7 +549,7 @@ function renderQuizWeek(month, monthIndex, week) {
 
             </div>
 
-            ${renderQuizReward(month.month, week)}
+            ${renderQuizReward(month.year, month.month, week)}
             ${renderWeekReport(month, week)}
 
         </div>
@@ -664,12 +718,12 @@ function renderApp() {
                 </div>
 
                 ${renderAdminControls(
-            month.month
-        )}
+                    month.month
+                )}
 
-            <div class="levels-grid">
-                ${weeksHTML}
-            </div>
+                <div class="levels-grid">
+                    ${weeksHTML}
+                </div>
 
             </div>
         `;
@@ -678,6 +732,136 @@ function renderApp() {
     app.innerHTML = html;
 
     applyRoleUI();
+}
+
+/* =========================================
+QUIZ REWARD SYSTEM
+========================================= */
+
+function getRewardKey(year, month, week) {
+    return `quiz-reward-${year}-${month}-${week}`;
+}
+
+function getRewardImage(year, month, week) {
+    return `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
+}
+
+function isPlaceholderRewardCard(rewardCard) {
+    if (!rewardCard) {
+        return true;
+    }
+
+    const frontImg = rewardCard.querySelector(".reward-front img");
+
+    return (
+        rewardCard.dataset.hasReward === "false" ||
+        rewardCard.classList.contains("placeholder-reward") ||
+        (
+            frontImg &&
+            frontImg.src.includes("placeholder.png")
+        )
+    );
+}
+
+function lockRewardCard(rewardCard) {
+    if (!rewardCard) {
+        return;
+    }
+
+    rewardCard.classList.remove("unlocked");
+    rewardCard.classList.remove("newly-unlocked");
+    rewardCard.classList.add("locked");
+}
+
+function unlockQuizReward(rewardCard) {
+    if (!rewardCard) {
+        return;
+    }
+
+    if (isPlaceholderRewardCard(rewardCard)) {
+        lockRewardCard(rewardCard);
+        return;
+    }
+
+    const year = rewardCard.dataset.rewardYear;
+    const month = rewardCard.dataset.rewardMonth;
+    const week = rewardCard.dataset.rewardWeek;
+
+    rewardCard.classList.remove("locked");
+    rewardCard.classList.add("unlocked");
+    rewardCard.classList.add("newly-unlocked");
+
+    localStorage.setItem(
+        getRewardKey(year, month, week),
+        "unlocked"
+    );
+
+    const rewardMessage = rewardCard.querySelector(".reward-message");
+
+    if (rewardMessage) {
+        rewardMessage.textContent = "Nagrada otključana!";
+    }
+
+    setTimeout(() => {
+        rewardCard.classList.remove("newly-unlocked");
+    }, 1200);
+}
+
+function checkQuizReward(weekBlock) {
+    if (!weekBlock) {
+        return;
+    }
+
+    const quizCards = weekBlock.querySelectorAll(".quiz-card");
+    const rewardCard = weekBlock.querySelector(".quiz-reward-card");
+
+    if (!quizCards.length || !rewardCard) {
+        return;
+    }
+
+    if (rewardCard.classList.contains("unlocked")) {
+        return;
+    }
+
+    if (isPlaceholderRewardCard(rewardCard)) {
+        lockRewardCard(rewardCard);
+        return;
+    }
+
+    const allAnswered = [...quizCards].every(card => {
+        return card.querySelector(".quiz-answer-btn:disabled");
+    });
+
+    const allCorrect = [...quizCards].every(card => {
+        return !card.querySelector(".quiz-answer-btn.answer-wrong");
+    });
+
+    if (allAnswered && allCorrect) {
+        unlockQuizReward(rewardCard);
+    }
+}
+
+function restoreQuizRewards() {
+    const rewardCards = document.querySelectorAll(".quiz-reward-card");
+
+    rewardCards.forEach(card => {
+        if (isPlaceholderRewardCard(card)) {
+            lockRewardCard(card);
+            return;
+        }
+
+        const year = card.dataset.rewardYear;
+        const month = card.dataset.rewardMonth;
+        const week = card.dataset.rewardWeek;
+
+        const isUnlocked =
+            localStorage.getItem(getRewardKey(year, month, week)) === "unlocked";
+
+        if (isUnlocked) {
+            card.classList.remove("locked");
+            card.classList.add("unlocked");
+        }
+    });
 }
 
 /* =========================================
@@ -728,7 +912,6 @@ document.addEventListener("click", function (e) {
 
     const weekBlock = e.target.closest(".week-block");
     checkQuizReward(weekBlock);
-
 });
 
 /* =========================================
@@ -780,6 +963,36 @@ document.addEventListener("input", (e) => {
     }
 });
 
+/* =========================================
+TEST REWARD BUTTON
+Only for development/testing
+========================================= */
+
+function createTestRewardButton() {
+    if (document.getElementById("testRewardButton")) {
+        return;
+    }
+
+    const button = document.createElement("button");
+
+    button.id = "testRewardButton";
+    button.textContent = "TEST: Okreni sve nagrade";
+
+    document.body.appendChild(button);
+
+    button.addEventListener("click", () => {
+        const rewardCards = document.querySelectorAll(".quiz-reward-card");
+
+        rewardCards.forEach(card => {
+            unlockQuizReward(card);
+        });
+    });
+}
+
+/* =========================================
+INIT
+========================================= */
+
 window.addEventListener("load", () => {
     const yearSelect =
         document.getElementById("yearSelect");
@@ -799,12 +1012,20 @@ window.addEventListener("load", () => {
                 );
 
                 renderApp();
-                restoreQuizRewards();
+
+                setTimeout(() => {
+                    restoreQuizRewards();
+                }, 100);
             }
         );
     }
 
     renderApp();
     initImageZoom();
-    restoreQuizRewards();
+
+    setTimeout(() => {
+        restoreQuizRewards();
+    }, 100);
+
+    createTestRewardButton();
 });
