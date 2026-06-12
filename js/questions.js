@@ -151,11 +151,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Tko je ukrao plutonij u 'Back to the Future'?",
             answers: [
-                "=== krivi odgovor",
-                "=*= točan odgovor",
-                "=== krivi odgovor"
+                "=== Sirijci",
+                "=*= Libijci",
+                "=== Iračani"
             ]
         },
         {
@@ -280,11 +280,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Kako se zove Martyjeva djevojka u 'Back to the Future'?",
             answers: [
-                "=== krivi odgovor",
-                "=== krivi odgovor",
-                "=*= točan odgovor"
+                "=== Amanda",
+                "=*= Jennifer",
+                "=== Pamela"
             ]
         },
         {
@@ -445,11 +445,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Koji je najvažniji dan u filmu 'Back to the Future'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=== 5. Studenog 1985",
+                "=*= 5. Studenog 1955",
+                "=== 12. Studenog 1955"
             ]
         },
         {
