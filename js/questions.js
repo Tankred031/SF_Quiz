@@ -262,7 +262,7 @@ const questions = {
         },
         {
             group: "aliens",
-            question: "***",
+            question: "U kojem filmu ***",
             answers: [
                 "=== krivi odgovor",
                 "=*= točan odgovor",
@@ -1139,19 +1139,19 @@ const questions = {
             ]
         },{
             group: "machines",
-            question: "***",
+            question: "Koja je šifra za ulazak u WOPR u filmu 'Wargames'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"]
+                "=*= Joshua",
+                "=== David",
+                "=== Ezekiel"]
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Tko pomaže O'Nielu u filmu 'Outland'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= doktor Lazarus",
+                "=== narednik Montone",
+                "=== narednik Ballard"
             ]
         },
         {
@@ -1164,19 +1164,19 @@ const questions = {
             ]
         },{
             group: "machines",
-            question: "***",
+            question: "Tko glumi glavnu ulogu u 'Wargames'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"]
+                "=*= David Lightman",
+                "=== Kevin Sorbo",
+                "=== Gary Busey"]
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Tko sve uspije pobjeći iz 'New Yorka'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= Snake i predsjednik",
+                "=== Snake, Maggie, predsjednik i Brain",
+                "=== Snake, predsjednik i Cabbie"
             ]
         },
         {
