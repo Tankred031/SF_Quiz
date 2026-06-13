@@ -7,7 +7,7 @@
 *.webm
 *.avi
 *.mkv
-
+*.py
 
 media/copyright-risk/
 assets/images/copyright-risk/
