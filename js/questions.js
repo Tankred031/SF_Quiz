@@ -997,11 +997,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Što kaže Taylor prvi put nakon što ga zarobe majmuni?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= Makni svoje smrdljive šape s mene, ti prokleti prljavi majmune!",
+                "=== Makni svoje prljave šape s mene, ti prokleti prljavi majmune!",
+                "=== Makni svoje prljave šape s mene, ti prokleti smrdljivi majmune!"
             ]
         },
         {
