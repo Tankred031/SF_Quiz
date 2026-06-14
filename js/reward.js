@@ -7,7 +7,7 @@ function getRewardKey(year, month, week) {
 }
 
 function getRewardImage(year, month, week) {
-    return `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
+    return `images/copyright-risk/reward-${year}-${month}-${week}.png`;
 }
 
 function unlockQuizReward(rewardCard) {

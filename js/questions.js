@@ -334,11 +334,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Glavni negativac u 'Battle Beyond Stars' koje glumi John Saxon je:",
             answers: [
-                "=== krivi odgovor",
-                "=*= točan odgovor",
-                "=== krivi odgovor"
+                "=== Gelt",
+                "=*= Sador",
+                "=== Zardoz"
             ]
         },
         {
@@ -361,11 +361,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Glavnog junaka u 'Battle Beyond Stars' Shada glumi",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= Richard Thomas",
+                "=== Julia Duffy",
+                "=== Robert Vaughn"
             ]
         },
         {

@@ -371,7 +371,7 @@ QUIZ RENDER
 
 function renderQuizReward(year, month, week) {
     const frontImage =
-        `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
+        `assets/images/copyright-risk/reward-${year}-${month}-${week}.png`;
 
     const backImage =
         "assets/images/rewards/back.png";
@@ -390,7 +390,10 @@ function renderQuizReward(year, month, week) {
             <div class="reward-inner">
 
                 <div class="reward-face reward-back">
-                    <img src="${backImage}" alt="Zaključana nagrada">
+                    <img
+                        src="${backImage}"
+                        alt="Zaključana nagrada"
+                    >
                 </div>
 
                 <div class="reward-face reward-front">
@@ -398,10 +401,11 @@ function renderQuizReward(year, month, week) {
                         src="${frontImage}"
                         alt="Otključana nagrada"
                         onerror="
-                            this.onerror=null;
-                            this.src='${placeholderImage}';
+                            this.onerror = null;
+                            this.src = '${placeholderImage}';
 
                             const card = this.closest('.quiz-reward-card');
+
                             card.dataset.hasReward = 'false';
                             card.classList.add('placeholder-reward');
                             card.classList.remove('unlocked');
