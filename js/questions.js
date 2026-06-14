@@ -178,11 +178,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "He-mana u filmu 'Masters of the Universe' glumi:",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= Dolph Lundgren",
+                "=== Arnold Schwarzenegger",
+                "=== Lou Ferrigno"
             ]
         },
         {
