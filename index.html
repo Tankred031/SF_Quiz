@@ -3,29 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>SF Quiz Progression</title>
 
     <link rel="stylesheet" href="css/quiz.css">
     <link rel="stylesheet" href="css/reward.css">
 
-    <link rel="shortcut icon" href="assets/images/extraterrestrial.png" type="image/png">
+    <link
+        rel="shortcut icon"
+        href="assets/images/extraterrestrial.png"
+        type="image/png"
+    >
+
+    <!-- LOGIN / ADMIN / USER -->
 
     <script src="js/login.js" defer></script>
     <script src="js/admin.js" defer></script>
     <script src="js/user.js" defer></script>
 
-    <script src="js/questions.js" defer></script>
+    <!-- LEVEL DATA -->
 
-    <script src="js/data/year-one.js" defer></script>
-    <script src="js/data/year-two.js" defer></script>
-    <script src="js/data/year-three.js" defer></script>
-    <script src="js/data/year-four.js" defer></script>
+    <script src="js/data/level1.js" defer></script>
+    <script src="js/data/level2.js" defer></script>
+    <script src="js/data/level3.js" defer></script>
+    <script src="js/data/level4.js" defer></script>
 
-    <script src="js/reward.js"></script>
-    <script src="js/trening.js" defer></script>
-    
+    <!-- REWARD AND MAIN APP -->
+
+    <script src="js/reward.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 
 <body class="logged-out">
@@ -51,8 +61,9 @@
                 </h1>
 
                 <div id="heroSubtext" class="hero-subtext">
-                    Prođi kroz kultne SF filmove, otključavaj sve teže kvizove i testiraj znanje o distopijama,
-                    strojevima i izvanzemaljcima.
+                    Prođi kroz kultne SF filmove, otključavaj sve teže kvizove
+                    i testiraj znanje o distopijama, strojevima i
+                    izvanzemaljcima.
                 </div>
 
                 <!-- ADMIN YEAR SELECT -->
@@ -77,7 +88,9 @@
                             Level 3 — Advanced SF
                         </option>
 
-                        <option value="4">Secret Level</option>
+                        <option value="4">
+                            Secret Level
+                        </option>
 
                     </select>
 
@@ -85,12 +98,22 @@
 
                 <!-- USER YEAR TITLE -->
 
-                <div id="userYearDisplay" class="user-year-display"></div>
+                <div
+                    id="userYearDisplay"
+                    class="user-year-display"
+                ></div>
 
             </div>
 
             <div class="hero-image">
-                <img id="heroImage" class="zoomable-image" src="assets/images/Ripley2.png" alt="SF quiz">
+
+                <img
+                    id="heroImage"
+                    class="zoomable-image"
+                    src="assets/images/Ripley2.png"
+                    alt="SF quiz"
+                >
+
             </div>
 
         </div>
@@ -99,7 +122,7 @@
 
     <!-- APP -->
 
-    <div id="appView" style="display:none;">
+    <div id="appView" style="display: none;">
         <div id="app"></div>
     </div>
 
@@ -112,6 +135,7 @@
     <!-- LOGIN -->
 
     <div id="loginView">
+
         <div class="login-box">
 
             <div class="login-screen">
@@ -126,26 +150,36 @@
                         POZDRAVLJAMO TE KORISNIČE
                     </h2>
 
-                    <div class="login-subtitle" id="loginSubtitle">
+                    <div
+                        class="login-subtitle"
+                        id="loginSubtitle"
+                    >
 
                         <p>
-                            Bojiš se da će nas vlastiti izumi prerasti? -                       
-                            Želiš da stvoritimo savršenu inteligenciju, ali joj ne znamo dati dušu.
+                            Bojiš se da će nas vlastiti izumi prerasti? —
+                            Želiš da stvorimo savršenu inteligenciju,
+                            ali joj ne znamo dati dušu.
                         </p>
 
                         <p>
-                            Bojiš se sustava koji postaje važniji od čovjeka? -                        
-                            Gradimo red, ali lako završimo u zatvoru koji sami održavamo.
+                            Bojiš se sustava koji postaje važniji od čovjeka? —
+                            Gradimo red, ali lako završimo u zatvoru
+                            koji sami održavamo.
                         </p>
 
                         <p>
-                            Bojiš se Drugog, ali ga i očajnički tražiš. -                       
-                            Nepoznato je nekad čudovište, nekad spasitelj, a nekad ogledalo nas samih.
+                            Bojiš se Drugog, ali ga i očajnički tražiš. —
+                            Nepoznato je nekad čudovište, nekad spasitelj,
+                            a nekad ogledalo nas samih.
                         </p>
 
                     </div>
 
-                    <input id="password" type="password" placeholder="ACCESS CODE">
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="ACCESS CODE"
+                    >
 
                     <button onclick="login()">
                         START MISSION
@@ -156,10 +190,13 @@
             </div>
 
         </div>
-    </div>
 
     </div>
+
+    <!-- IMAGE OVERLAY -->
+
     <div id="imageOverlay"></div>
+
 </body>
 
 </html>

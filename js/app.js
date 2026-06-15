@@ -171,12 +171,33 @@ function getWeekStatusIcon(status) {
 QUIZ HELPERS
 ========================================= */
 
+/* =========================================
+QUIZ HELPERS
+========================================= */
+
 function shuffleArray(array) {
-    return [...array].sort(() => Math.random() - 0.5);
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(
+            Math.random() * (i + 1)
+        );
+
+        [
+            shuffled[i],
+            shuffled[randomIndex]
+        ] = [
+            shuffled[randomIndex],
+            shuffled[i]
+        ];
+    }
+
+    return shuffled;
 }
 
 function parseAnswer(answerText) {
-    const isCorrect = answerText.startsWith("=*= ");
+    const isCorrect =
+        answerText.startsWith("=*= ");
 
     return {
         text: answerText
@@ -186,74 +207,183 @@ function parseAnswer(answerText) {
     };
 }
 
-function prepareQuestion(question) {
+function prepareQuestion(question, group) {
     return {
-        group: question.group,
+        id: question.id || "",
+        film: question.film || "",
+        group: group || question.group || "",
         question: question.question,
+
         answers: shuffleArray(
             question.answers.map(parseAnswer)
         )
     };
 }
 
-function getQuizQuestionCount(difficulty) {
-    if (difficulty === "light") {
-        return 10;
+/* =========================================
+QUESTION DATABASE
+========================================= */
+
+function getQuestionDatabase(year) {
+    const numericYear = Number(year);
+
+    if (
+        numericYear === 1 &&
+        typeof questions1 !== "undefined"
+    ) {
+        return questions1;
     }
 
-    if (difficulty === "medium") {
-        return 12;
+    if (
+        numericYear === 2 &&
+        typeof questions2 !== "undefined"
+    ) {
+        return questions2;
     }
 
-    if (difficulty === "hard") {
-        return 8;
+    if (
+        numericYear === 3 &&
+        typeof questions3 !== "undefined"
+    ) {
+        return questions3;
     }
 
-    return 10;
+    if (
+        numericYear === 4 &&
+        typeof questions4 !== "undefined"
+    ) {
+        return questions4;
+    }
+
+    console.error(
+        `[SF Quiz] Baza pitanja za Level ${year} nije pronađena.`
+    );
+
+    return null;
 }
 
-function getRandomQuestions(difficulty, count, group = "all", includeYesNo = false) {
-    let questionPool = [];
+function getDefaultQuestionCount(year) {
+    const counts = {
+        1: 8,
+        2: 12,
+        3: 10,
+        4: 5
+    };
 
-    if (difficulty === "mixed") {
-        questionPool = [
-            ...questions.light,
-            ...questions.medium,
-            ...questions.hard
-        ];
+    return counts[Number(year)] || 8;
+}
 
-        if (includeYesNo && typeof yesNoQuestions !== "undefined") {
-            questionPool = [
-                ...questionPool,
-                ...yesNoQuestions.light,
-                ...yesNoQuestions.medium,
-                ...yesNoQuestions.hard
-            ];
-        }
-    } else {
-        questionPool = questions[difficulty] || [];
+function getQuestionPool(
+    year,
+    group,
+    questionType = "multipleChoice"
+) {
+    const database =
+        getQuestionDatabase(year);
 
-        if (
-            includeYesNo &&
-            typeof yesNoQuestions !== "undefined" &&
-            yesNoQuestions[difficulty]
-        ) {
-            questionPool = [
-                ...questionPool,
-                ...yesNoQuestions[difficulty]
-            ];
-        }
+    if (!database) {
+        return [];
     }
 
-    if (group !== "all") {
-        questionPool = questionPool.filter(question =>
-            question.group === group
+    /*
+       LEVEL 4:
+
+       questions4 = {
+           multipleChoice: {
+               machines: [],
+               dystopia: [],
+               aliens: []
+           },
+
+           yesNo: {
+               machines: [],
+               dystopia: [],
+               aliens: []
+           }
+       };
+    */
+
+    if (Number(year) === 4) {
+        const typeDatabase =
+            database[questionType];
+
+        if (!typeDatabase) {
+            console.warn(
+                `[SF Quiz] Tip pitanja "${questionType}" ne postoji u questions4.`
+            );
+
+            return [];
+        }
+
+        if (!Array.isArray(typeDatabase[group])) {
+            console.warn(
+                `[SF Quiz] Grupa "${group}" ne postoji u questions4.${questionType}.`
+            );
+
+            return [];
+        }
+
+        return typeDatabase[group];
+    }
+
+    /*
+       LEVEL 1–3:
+
+       questions1 = {
+           machines: [],
+           dystopia: [],
+           aliens: []
+       };
+    */
+
+    if (!Array.isArray(database[group])) {
+        console.warn(
+            `[SF Quiz] Grupa "${group}" ne postoji u questions${year}.`
+        );
+
+        return [];
+    }
+
+    return database[group];
+}
+
+function getRandomQuestions(
+    year,
+    count,
+    group,
+    questionType = "multipleChoice"
+) {
+    const questionPool =
+        getQuestionPool(
+            year,
+            group,
+            questionType
+        );
+
+    if (questionPool.length < count) {
+        console.warn(
+            `[SF Quiz] Level ${year}, grupa "${group}", ` +
+            `tip "${questionType}": traženo ${count}, ` +
+            `dostupno ${questionPool.length}.`
         );
     }
 
     return shuffleArray(questionPool)
         .slice(0, count)
-        .map(prepareQuestion);
+        .map(question =>
+            prepareQuestion(
+                question,
+                group
+            )
+        );
+}
+
+function getQuestionTypeLabel(questionType) {
+    if (questionType === "yesNo") {
+        return "Da / ne";
+    }
+
+    return "Multiple choice";
 }
 
 /* =========================================
@@ -674,249 +804,186 @@ function renderApp() {
 
     let html = "";
 
-    months.forEach((month, monthIndex) => {
-        if (
-            !canUserSeeMonth(
-                month.month
-            )
-        ) {
-            return;
-        }
-
-        let weeksHTML = "";
-
-        for (
-            let week = 1;
-            week <= 3;
-            week++
-        ) {
-            weeksHTML += renderQuizWeek(
-                month,
-                monthIndex,
-                week
-            );
-        }
-
-        html += `
-            <div class="
-                month-block
-                year-${month.year}
-            ">
-
-                <div class="month-title">
-                    ${month.title}
-                </div>
-
-                <div class="month-focus">
-
-                    <strong>
-                        Fokus:
-                    </strong>
-
-                    <ul>
-                        ${month.focus.user.map(item => `
-                            <li>${item}</li>
-                        `).join("")}
-                    </ul>
-
-                </div>
-
-                ${renderAdminControls(
+    months.forEach(
+        (
+            month,
+            monthIndex
+        ) => {
+            if (
+                !canUserSeeMonth(
                     month.month
-                )}
+                )
+            ) {
+                return;
+            }
 
-                <div class="levels-grid">
-                    ${weeksHTML}
+            let weeksHTML = "";
+
+            const numberOfWeeks =
+                month.weeks?.length || 0;
+
+            for (
+                let week = 1;
+                week <= numberOfWeeks;
+                week++
+            ) {
+                weeksHTML +=
+                    renderQuizWeek(
+                        month,
+                        monthIndex,
+                        week
+                    );
+            }
+
+            html += `
+                <div class="
+                    month-block
+                    year-${month.year}
+                ">
+
+                    <div class="month-title">
+                        ${month.title}
+                    </div>
+
+                    <div class="month-focus">
+
+                        <strong>
+                            Fokus:
+                        </strong>
+
+                        <ul>
+                            ${month.focus?.user
+                                ?.map(
+                                    item => `
+                                        <li>${item}</li>
+                                    `
+                                )
+                                .join("") || ""
+                            }
+                        </ul>
+
+                    </div>
+
+                    ${renderAdminControls(
+                        month.month
+                    )}
+
+                    <div class="levels-grid">
+                        ${weeksHTML}
+                    </div>
+
                 </div>
-
-            </div>
-        `;
-    });
+            `;
+        }
+    );
 
     app.innerHTML = html;
 
     applyRoleUI();
-}
 
-/* =========================================
-QUIZ REWARD SYSTEM
-========================================= */
-
-function getRewardKey(year, month, week) {
-    return `quiz-reward-${year}-${month}-${week}`;
-}
-
-function getRewardImage(year, month, week) {
-    return `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
-}
-
-function isPlaceholderRewardCard(rewardCard) {
-    if (!rewardCard) {
-        return true;
-    }
-
-    const frontImg = rewardCard.querySelector(".reward-front img");
-
-    return (
-        rewardCard.dataset.hasReward === "false" ||
-        rewardCard.classList.contains("placeholder-reward") ||
-        (
-            frontImg &&
-            frontImg.src.includes("placeholder.png")
-        )
-    );
-}
-
-function lockRewardCard(rewardCard) {
-    if (!rewardCard) {
-        return;
-    }
-
-    rewardCard.classList.remove("unlocked");
-    rewardCard.classList.remove("newly-unlocked");
-    rewardCard.classList.add("locked");
-}
-
-function unlockQuizReward(rewardCard) {
-    if (!rewardCard) {
-        return;
-    }
-
-    if (isPlaceholderRewardCard(rewardCard)) {
-        lockRewardCard(rewardCard);
-        return;
-    }
-
-    const year = rewardCard.dataset.rewardYear;
-    const month = rewardCard.dataset.rewardMonth;
-    const week = rewardCard.dataset.rewardWeek;
-
-    rewardCard.classList.remove("locked");
-    rewardCard.classList.add("unlocked");
-    rewardCard.classList.add("newly-unlocked");
-
-    localStorage.setItem(
-        getRewardKey(year, month, week),
-        "unlocked"
-    );
-
-    const rewardMessage = rewardCard.querySelector(".reward-message");
-
-    if (rewardMessage) {
-        rewardMessage.textContent = "Nagrada otključana!";
-    }
+    /*
+       Nakon svakog renderiranja vraćamo
+       stanje ranije otključanih nagrada.
+    */
 
     setTimeout(() => {
-        rewardCard.classList.remove("newly-unlocked");
-    }, 1200);
-}
-
-function checkQuizReward(weekBlock) {
-    if (!weekBlock) {
-        return;
-    }
-
-    const quizCards = weekBlock.querySelectorAll(".quiz-card");
-    const rewardCard = weekBlock.querySelector(".quiz-reward-card");
-
-    if (!quizCards.length || !rewardCard) {
-        return;
-    }
-
-    if (rewardCard.classList.contains("unlocked")) {
-        return;
-    }
-
-    if (isPlaceholderRewardCard(rewardCard)) {
-        lockRewardCard(rewardCard);
-        return;
-    }
-
-    const allAnswered = [...quizCards].every(card => {
-        return card.querySelector(".quiz-answer-btn:disabled");
-    });
-
-    const allCorrect = [...quizCards].every(card => {
-        return !card.querySelector(".quiz-answer-btn.answer-wrong");
-    });
-
-    if (allAnswered && allCorrect) {
-        unlockQuizReward(rewardCard);
-    }
-}
-
-function restoreQuizRewards() {
-    const rewardCards = document.querySelectorAll(".quiz-reward-card");
-
-    rewardCards.forEach(card => {
-        if (isPlaceholderRewardCard(card)) {
-            lockRewardCard(card);
-            return;
+        if (
+            typeof restoreQuizRewards ===
+            "function"
+        ) {
+            restoreQuizRewards();
         }
-
-        const year = card.dataset.rewardYear;
-        const month = card.dataset.rewardMonth;
-        const week = card.dataset.rewardWeek;
-
-        const isUnlocked =
-            localStorage.getItem(getRewardKey(year, month, week)) === "unlocked";
-
-        if (isUnlocked) {
-            card.classList.remove("locked");
-            card.classList.add("unlocked");
-        }
-    });
+    }, 50);
 }
+
+
+
 
 /* =========================================
 ANSWER CLICK
 ========================================= */
 
-document.addEventListener("click", function (e) {
-    if (
-        !e.target.classList.contains(
-            "quiz-answer-btn"
-        )
-    ) {
-        return;
-    }
+document.addEventListener(
+    "click",
+    function (event) {
+        const clickedButton =
+            event.target.closest(
+                ".quiz-answer-btn"
+            );
 
-    const isCorrect =
-        e.target.dataset.correct === "true";
+        if (!clickedButton) {
+            return;
+        }
 
-    if (isCorrect) {
-        e.target.classList.add("answer-correct");
-        e.target.textContent =
-            "✅ " + e.target.textContent;
-    } else {
-        e.target.classList.add("answer-wrong");
-        e.target.textContent =
-            "❌ " + e.target.textContent;
-    }
+        if (clickedButton.disabled) {
+            return;
+        }
 
-    const answerBox =
-        e.target.closest(".quiz-answers");
+        const isCorrect =
+            clickedButton.dataset.correct ===
+            "true";
 
-    const buttons =
-        answerBox.querySelectorAll(
-            ".quiz-answer-btn"
-        );
-
-    buttons.forEach(button => {
-        button.disabled = true;
-
-        if (
-            button.dataset.correct === "true"
-        ) {
-            button.classList.add(
+        if (isCorrect) {
+            clickedButton.classList.add(
                 "answer-correct"
             );
-        }
-    });
 
-    const weekBlock = e.target.closest(".week-block");
-    checkQuizReward(weekBlock);
-});
+            clickedButton.textContent =
+                "✅ " +
+                clickedButton.textContent;
+        } else {
+            clickedButton.classList.add(
+                "answer-wrong"
+            );
+
+            clickedButton.textContent =
+                "❌ " +
+                clickedButton.textContent;
+        }
+
+        const answerBox =
+            clickedButton.closest(
+                ".quiz-answers"
+            );
+
+        if (!answerBox) {
+            return;
+        }
+
+        const buttons =
+            answerBox.querySelectorAll(
+                ".quiz-answer-btn"
+            );
+
+        buttons.forEach(button => {
+            button.disabled = true;
+
+            if (
+                button.dataset.correct ===
+                "true"
+            ) {
+                button.classList.add(
+                    "answer-correct"
+                );
+            }
+        });
+
+        const weekBlock =
+            clickedButton.closest(
+                ".week-block"
+            );
+
+        if (
+            typeof checkQuizReward ===
+            "function"
+        ) {
+            checkQuizReward(
+                weekBlock
+            );
+        }
+    }
+);
+
 
 /* =========================================
 INPUT SAVE
@@ -997,39 +1064,53 @@ function createTestRewardButton() {
 INIT
 ========================================= */
 
-window.addEventListener("load", () => {
-    const yearSelect =
-        document.getElementById("yearSelect");
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        const yearSelect =
+            document.getElementById(
+                "yearSelect"
+            );
 
-    if (yearSelect) {
-        yearSelect.value =
+        const selectedYear =
             localStorage.getItem(
                 "selected-year"
             ) || "1";
 
-        yearSelect.addEventListener(
-            "change",
-            (e) => {
-                localStorage.setItem(
-                    "selected-year",
-                    e.target.value
-                );
+        if (yearSelect) {
+            yearSelect.value =
+                selectedYear;
 
-                renderApp();
+            yearSelect.addEventListener(
+                "change",
+                event => {
+                    localStorage.setItem(
+                        "selected-year",
+                        event.target.value
+                    );
 
-                setTimeout(() => {
-                    restoreQuizRewards();
-                }, 100);
-            }
-        );
+                    renderApp();
+                }
+            );
+        }
+
+        renderApp();
+        initImageZoom();
+
+        if (
+            typeof restoreQuizRewards ===
+            "function"
+        ) {
+            setTimeout(() => {
+                restoreQuizRewards();
+            }, 100);
+        }
+
+        if (
+            typeof createTestRewardButton ===
+            "function"
+        ) {
+            createTestRewardButton();
+        }
     }
-
-    renderApp();
-    initImageZoom();
-
-    setTimeout(() => {
-        restoreQuizRewards();
-    }, 100);
-
-    createTestRewardButton();
-});
+);

@@ -922,11 +922,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Koji planet biva uništen u 'StarWars ep.4'?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=*= Alderan",
+                "=== Tattoine",
+                "=== Hoth"
             ]
         },
         {
@@ -947,11 +947,11 @@ const questions = {
         },
         {
             group: "dystopia",
-            question: "***",
+            question: "Oznake na vozilima MFP u 'Mad Max' znače:",
             answers: [
-                "=*= točan odgovor",
+                "=*= Main Force Patrol",
                 "=== krivi odgovor",
-                "=== krivi odgovor"
+                "=== Motorized Federal Police"
             ]
         },
         {
@@ -1115,11 +1115,11 @@ const questions = {
             ]
         },{
             group: "machines",
-            question: "***",
+            question: "Što je u 'Tronu', MCP?",
             answers: [
-                "=*= točan odgovor",
-                "=== krivi odgovor",
-                "=== krivi odgovor"]
+                "=*= Master Control Program",
+                "=== Military Cybernetic Protocol",
+                "=== Mainframe Core Processor"]
         },
         {
             group: "dystopia",
