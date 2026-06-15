@@ -3,6 +3,8 @@
 ========================================= */
 
 .quiz-reward-card {
+    position: relative;
+
     width: 220px;
     height: 300px;
     margin: 2rem auto;
@@ -19,6 +21,7 @@
 
     transform-style: preserve-3d;
     transition: transform 0.8s ease;
+    will-change: transform;
 }
 
 .quiz-reward-card.unlocked .reward-inner {
@@ -34,10 +37,15 @@
 
     overflow: hidden;
 
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
+
+    background: #07111d;
 
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+
+    transform-style: preserve-3d;
 
     box-shadow:
         0 0 25px rgba(0, 0, 0, 0.45);
@@ -50,6 +58,9 @@
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
+
+    border-radius: inherit;
 }
 
 .reward-back {
@@ -60,15 +71,44 @@
     transform: rotateY(180deg);
 }
 
+/* =========================================
+   REWARD STATES
+========================================= */
+
 .quiz-reward-card.locked {
     opacity: 0.85;
     filter: grayscale(0.4);
+}
+
+.quiz-reward-card.unlocked {
+    opacity: 1;
+    filter: none;
 }
 
 .quiz-reward-card.placeholder-reward {
     opacity: 0.6;
     filter: grayscale(1);
 }
+
+.quiz-reward-card.unlocked:not(
+    .placeholder-reward
+):hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   REWARD IMAGE ZOOM
+========================================= */
+
+.reward-front .reward-zoom-image {
+    cursor: zoom-in;
+}
+
+
+/* =========================================
+   NEWLY UNLOCKED ANIMATION
+========================================= */
 
 .quiz-reward-card.newly-unlocked {
     animation:
@@ -90,6 +130,42 @@
 }
 
 /* =========================================
+   LEVEL REWARD GLOW
+========================================= */
+
+body.year-1
+.quiz-reward-card.unlocked
+.reward-face {
+    box-shadow:
+        0 0 25px rgba(56, 189, 248, 0.35),
+        0 0 55px rgba(56, 189, 248, 0.14);
+}
+
+body.year-2
+.quiz-reward-card.unlocked
+.reward-face {
+    box-shadow:
+        0 0 25px rgba(34, 197, 94, 0.35),
+        0 0 55px rgba(34, 197, 94, 0.14);
+}
+
+body.year-3
+.quiz-reward-card.unlocked
+.reward-face {
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, 0.4),
+        0 0 55px rgba(168, 85, 247, 0.16);
+}
+
+body.year-4
+.quiz-reward-card.unlocked
+.reward-face {
+    box-shadow:
+        0 0 25px rgba(239, 68, 68, 0.4),
+        0 0 55px rgba(239, 68, 68, 0.16);
+}
+
+/* =========================================
    TEST REWARD BUTTON
 ========================================= */
 
@@ -107,7 +183,9 @@
     background: #facc15;
     color: #111827;
 
+    font-family: inherit;
     font-weight: bold;
+
     cursor: pointer;
 
     box-shadow:
@@ -142,3 +220,5 @@
         font-size: 12px;
     }
 }
+
+

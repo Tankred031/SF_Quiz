@@ -1,375 +1,216 @@
 /* =========================================
-ROLE UI
+   SF QUIZ — ADMIN SYSTEM
+
+   Admin može:
+   - vidjeti admin kontrole
+   - otključati Secret Level
+   - zaključati Secret Level
+
+   Stari month/week admin sustav je uklonjen.
 ========================================= */
-
-function applyRoleUI() {
-    const adminEls =
-        document.querySelectorAll(".admin-only");
-
-    adminEls.forEach(el => {
-        el.style.display = isTrainer()
-            ? "block"
-            : "none";
-    });
-
-    const adminBadge =
-        document.getElementById("adminBadge");
-
-    if (adminBadge) {
-        adminBadge.style.display = isTrainer()
-            ? "inline-block"
-            : "none";
-    }
-}
 
 /* =========================================
-STORAGE KEYS
+   SECRET LEVEL STORAGE
 ========================================= */
 
-function getMonthUnlockKey(year, month) {
-    return `month-unlock-${year}-${month}`;
-}
-
-function getWeekStatusKey(year, month, week) {
-    return `week-status-${year}-${month}-${week}`;
-}
+const SECRET_LEVEL_UNLOCK_KEY =
+    "sfq-secret-level-unlocked";
 
 /* =========================================
-MONTH ACCESS
+   SECRET LEVEL STATUS
 ========================================= */
 
-function toggleMonthAccess(year, month) {
-    if (!isTrainer()) {
-        return;
-    }
-
-    const key =
-        getMonthUnlockKey(year, month);
-
-    const current =
-        localStorage.getItem(key) === "true";
-
-    localStorage.setItem(
-        key,
-        (!current).toString()
+function isSecretLevelUnlocked() {
+    return (
+        localStorage.getItem(
+            SECRET_LEVEL_UNLOCK_KEY
+        ) === "true"
     );
+}
 
-    /*
-       Kada se mjesec ručno otključa,
-       njegov prvi tjedan postaje aktivan
-       ako još nema spremljen status.
-    */
+/*
+   Administrator uvijek može otvoriti
+   Secret Level, čak i kada je zaključan
+   za običnog korisnika.
+*/
 
-    if (!current) {
-        const firstWeekKey =
-            getWeekStatusKey(
-                year,
-                month,
-                1
-            );
-
-        if (!localStorage.getItem(firstWeekKey)) {
-            localStorage.setItem(
-                firstWeekKey,
-                "active"
-            );
-        }
-    }
-
-    renderApp();
+function canOpenSecretLevel() {
+    return (
+        isSecretLevelUnlocked() ||
+        (
+            typeof isTrainer === "function" &&
+            isTrainer()
+        )
+    );
 }
 
 /* =========================================
-WEEK STATUS
+   SECRET LEVEL ACCESS
 ========================================= */
 
-function setWeekStatus(
-    year,
-    month,
-    week,
-    status
-) {
-    if (!isTrainer()) {
+function setSecretLevelAccess(unlocked) {
+    if (
+        typeof isTrainer !== "function" ||
+        !isTrainer()
+    ) {
         return;
     }
 
     localStorage.setItem(
-        getWeekStatusKey(
-            year,
-            month,
-            week
-        ),
-        status
+        SECRET_LEVEL_UNLOCK_KEY,
+        unlocked.toString()
     );
 
-    renderApp();
-}
-
-/* =========================================
-AUTOMATIC PROGRESSION
-========================================= */
-
-function completeQuizProgress(
-    year,
-    month,
-    week
-) {
-    const numericYear =
-        Number(year);
-
-    const numericMonth =
-        Number(month);
-
-    const numericWeek =
-        Number(week);
-
     /*
-       Trenutačni kviz je završen.
+       Ako administrator zaključa Secret
+       dok se upravo nalazi na Levelu 4,
+       vraćamo prikaz na Level 1.
     */
 
-    localStorage.setItem(
-        getWeekStatusKey(
-            numericYear,
-            numericMonth,
-            numericWeek
-        ),
-        "completed"
-    );
-
-    const currentMonth =
-        months.find(item =>
-            Number(item.year) === numericYear &&
-            Number(item.month) === numericMonth
-        );
-
-    if (!currentMonth) {
-        return;
-    }
-
-    const totalWeeks =
-        currentMonth.weeks?.length || 0;
-
-    /*
-       Ako postoji sljedeći tjedan
-       unutar istog mjeseca, aktiviraj njega.
-
-       Ovo se koristi uglavnom u Levelu 4:
-       multiple choice -> da/ne.
-    */
-
-    if (numericWeek < totalWeeks) {
-        const nextWeek =
-            numericWeek + 1;
+    if (
+        !unlocked &&
+        typeof activeLevel !== "undefined" &&
+        activeLevel === 4
+    ) {
+        activeLevel = 1;
 
         localStorage.setItem(
-            getWeekStatusKey(
-                numericYear,
-                numericMonth,
-                nextWeek
-            ),
-            "active"
+            "sfq-active-level",
+            "1"
         );
-
-        return;
     }
 
-    /*
-       Ako nema sljedećeg tjedna,
-       otključaj sljedeći mjesec.
-    */
-
-    const currentMonthIndex =
-        months.findIndex(item =>
-            Number(item.year) === numericYear &&
-            Number(item.month) === numericMonth
-        );
-
-    const nextMonth =
-        months[currentMonthIndex + 1];
-
-    if (!nextMonth) {
-        return;
+    if (
+        typeof renderApp === "function"
+    ) {
+        renderApp();
     }
+}
 
-    localStorage.setItem(
-        getMonthUnlockKey(
-            nextMonth.year,
-            nextMonth.month
-        ),
-        "true"
-    );
-
-    localStorage.setItem(
-        getWeekStatusKey(
-            nextMonth.year,
-            nextMonth.month,
-            1
-        ),
-        "active"
+function toggleSecretLevelAccess() {
+    setSecretLevelAccess(
+        !isSecretLevelUnlocked()
     );
 }
 
 /* =========================================
-INITIAL PROGRESSION STATE
+   ADMIN CONTROL RENDER
 ========================================= */
 
-function ensureInitialProgressState() {
-    const selectedYear =
-        Number(
-            localStorage.getItem(
-                "selected-year"
-            ) || 1
-        );
-
-    const selectedMonths =
-        months.filter(month =>
-            Number(month.year) === selectedYear
-        );
-
-    const firstMonth =
-        selectedMonths[0];
-
-    if (!firstMonth) {
-        return;
-    }
-
-    const monthKey =
-        getMonthUnlockKey(
-            firstMonth.year,
-            firstMonth.month
-        );
-
-    if (!localStorage.getItem(monthKey)) {
-        localStorage.setItem(
-            monthKey,
-            "true"
-        );
-    }
-
-    const firstWeekKey =
-        getWeekStatusKey(
-            firstMonth.year,
-            firstMonth.month,
-            1
-        );
-
-    if (!localStorage.getItem(firstWeekKey)) {
-        localStorage.setItem(
-            firstWeekKey,
-            "active"
-        );
-    }
-}
-
-/* =========================================
-ADMIN CONTROLS
-========================================= */
-
-function renderAdminControls(monthData) {
-    if (!isTrainer()) {
+function renderSecretAdminControl() {
+    if (
+        typeof isTrainer !== "function" ||
+        !isTrainer()
+    ) {
         return "";
     }
 
-    const year =
-        Number(monthData.year);
-
-    const month =
-        Number(monthData.month);
-
-    const weeks =
-        monthData.weeks || [];
-
-    const monthUnlocked =
-        localStorage.getItem(
-            getMonthUnlockKey(
-                year,
-                month
-            )
-        ) === "true";
+    const secretUnlocked =
+        isSecretLevelUnlocked();
 
     return `
-        <div class="admin-panel">
+        <div class="secret-admin-control">
 
-            <label class="admin-control">
+            <div class="secret-admin-info">
 
-                <input
-                    type="checkbox"
-                    onchange="toggleMonthAccess(${year}, ${month})"
-                    ${monthUnlocked ? "checked" : ""}
+                <span class="secret-admin-label">
+                    Secret Level
+                </span>
+
+                <span
+                    class="
+                        secret-admin-status
+                        ${
+                            secretUnlocked
+                                ? "secret-status-unlocked"
+                                : "secret-status-locked"
+                        }
+                    "
                 >
-
-                Otključaj dio ${month}
-
-            </label>
-
-            <div class="week-admin-list">
-
-                ${weeks.map((weekData, index) => {
-                    const week =
-                        weekData.week || index + 1;
-
-                    const status =
-                        localStorage.getItem(
-                            getWeekStatusKey(
-                                year,
-                                month,
-                                week
-                            )
-                        ) || "locked";
-
-                    return `
-                        <div class="week-status-admin">
-
-                            <div class="week-admin-title">
-                                ${weekData.title || `Razina ${week}`}
-                            </div>
-
-                            <select
-                                onchange="
-                                    setWeekStatus(
-                                        ${year},
-                                        ${month},
-                                        ${week},
-                                        this.value
-                                    )
-                                "
-                            >
-
-                                <option
-                                    value="locked"
-                                    ${status === "locked"
-                                        ? "selected"
-                                        : ""}
-                                >
-                                    🔴 Locked
-                                </option>
-
-                                <option
-                                    value="active"
-                                    ${status === "active"
-                                        ? "selected"
-                                        : ""}
-                                >
-                                    🟡 Active
-                                </option>
-
-                                <option
-                                    value="completed"
-                                    ${status === "completed"
-                                        ? "selected"
-                                        : ""}
-                                >
-                                    🟢 Completed
-                                </option>
-
-                            </select>
-
-                        </div>
-                    `;
-                }).join("")}
+                    ${
+                        secretUnlocked
+                            ? "🟢 Otključan za korisnika"
+                            : "🔴 Zaključan za korisnika"
+                    }
+                </span>
 
             </div>
+
+            <button
+                type="button"
+                id="toggleSecretLevelButton"
+
+                class="
+                    secret-admin-button
+                    ${
+                        secretUnlocked
+                            ? "secret-lock-button"
+                            : "secret-unlock-button"
+                    }
+                "
+            >
+                ${
+                    secretUnlocked
+                        ? "Zaključaj Secret"
+                        : "Otključaj Secret"
+                }
+            </button>
 
         </div>
     `;
 }
+
+/* =========================================
+   ROLE UI
+========================================= */
+
+function applyRoleUI() {
+    const trainer =
+        typeof isTrainer === "function" &&
+        isTrainer();
+
+    const adminElements =
+        document.querySelectorAll(
+            ".admin-only"
+        );
+
+    adminElements.forEach(element => {
+        element.style.display =
+            trainer
+                ? ""
+                : "none";
+    });
+
+    const adminBadge =
+        document.getElementById(
+            "adminBadge"
+        );
+
+    if (adminBadge) {
+        adminBadge.style.display =
+            trainer
+                ? "inline-flex"
+                : "none";
+    }
+}
+
+/* =========================================
+   ADMIN CLICK EVENT
+========================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+        const toggleButton =
+            event.target.closest(
+                "#toggleSecretLevelButton"
+            );
+
+        if (!toggleButton) {
+            return;
+        }
+
+        toggleSecretLevelAccess();
+    }
+);
+

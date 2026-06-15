@@ -1,83 +1,91 @@
-
 /* =========================================
-MONTH / WEEK ACCESS
+   SF QUIZ — USER ACCESS SYSTEM
+
+   Novi sustav:
+   - Level 1 dostupan
+   - Level 2 dostupan
+   - Level 3 dostupan
+   - Secret Level ovisi o admin kontroli
+
+   Stari month/week access sustav je uklonjen.
 ========================================= */
 
-function canUserSeeMonth(year, month) {
-    if (isTrainer()) {
+/* =========================================
+   LEVEL ACCESS
+========================================= */
+
+function canUserOpenLevel(level) {
+    const numericLevel =
+        Number(level);
+
+    /*
+       Leveli 1–3 uvijek su dostupni.
+    */
+
+    if (
+        numericLevel >= 1 &&
+        numericLevel <= 3
+    ) {
         return true;
     }
 
-    return localStorage.getItem(
-        getMonthUnlockKey(
-            year,
-            month
-        )
-    ) === "true";
-}
+    /*
+       Secret Level:
+       - administrator ga uvijek može otvoriti
+       - korisnik samo kada ga admin otključa
+    */
 
-function getWeekStatus(
-    year,
-    month,
-    week
-) {
-    return localStorage.getItem(
-        getWeekStatusKey(
-            year,
-            month,
-            week
-        )
-    ) || "locked";
-}
+    if (numericLevel === 4) {
+        if (
+            typeof canOpenSecretLevel ===
+                "function"
+        ) {
+            return canOpenSecretLevel();
+        }
 
-function shouldHideWeek(
-    year,
-    month,
-    week
-) {
-    if (isTrainer()) {
         return false;
     }
 
-    const monthUnlocked =
-        canUserSeeMonth(
-            year,
-            month
-        );
-
-    if (!monthUnlocked) {
-        return true;
-    }
-
-    const status =
-        getWeekStatus(
-            year,
-            month,
-            week
-        );
-
-    return status === "locked";
+    return false;
 }
 
-function canUserEditWeek(
-    year,
-    month,
-    week
-) {
-    if (isTrainer()) {
-        return true;
+/* =========================================
+   SECRET LEVEL USER STATUS
+========================================= */
+
+function getSecretLevelUserStatus() {
+    const trainer =
+        typeof isTrainer === "function" &&
+        isTrainer();
+
+    const unlocked =
+        typeof isSecretLevelUnlocked ===
+            "function" &&
+        isSecretLevelUnlocked();
+
+    if (trainer) {
+        return {
+            visible: true,
+            disabled: false,
+            labelSuffix:
+                unlocked
+                    ? " — otključan"
+                    : " — admin pristup"
+        };
     }
 
-    const status =
-        getWeekStatus(
-            year,
-            month,
-            week
-        );
+    if (unlocked) {
+        return {
+            visible: true,
+            disabled: false,
+            labelSuffix: ""
+        };
+    }
 
-    return (
-        status === "active" ||
-        status === "completed"
-    );
+    return {
+        visible: true,
+        disabled: true,
+        labelSuffix: " 🔒"
+    };
 }
 

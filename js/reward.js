@@ -18,6 +18,7 @@ function getRewardImage(year, month, week) {
    REWARD RENDER
 ========================================= */
 
+
 function renderQuizReward(year, month, week) {
     const frontImage = getRewardImage(
         year,
@@ -55,6 +56,7 @@ function renderQuizReward(year, month, week) {
                     <img
                         src="${frontImage}"
                         alt="Otključana nagrada"
+                        class="zoomable-image reward-zoom-image"
 
                         onerror="
                             this.onerror = null;
@@ -100,6 +102,8 @@ function renderQuizReward(year, month, week) {
         </div>
     `;
 }
+
+
 
 /* =========================================
    PLACEHOLDER CHECK

@@ -1,402 +1,687 @@
 /* =========================================
    LEVEL 2 — SLABO POZNATI FILMOVI
+   78 pitanja: Easy 24, Medium 30, Hard 24
 ========================================= */
 
-/* =========================================
-   QUESTIONS 2
-
-   Cilj:
-   - 12 machines
-   - 12 dystopia
-   - 12 aliens
-
-   Correct: =*=
-   Wrong:   ===
-========================================= */
+const q2 = (
+    id,
+    film,
+    question,
+    correct,
+    wrong1,
+    wrong2
+) => ({
+    id,
+    film,
+    question,
+    answers: [
+        `=*= ${correct}`,
+        `=== ${wrong1}`,
+        `=== ${wrong2}`
+    ]
+});
 
 const questions2 = {
-    machines: [
-        {
-            id: "q2-machines-westworld-01",
-            film: "Westworld",
-            question: "Koja tri tematska svijeta gosti mogu odabrati u filmu Westworld?",
-            answers: [
-                "=*= Roman World, Medieval World i Westworld",
-                "=== Roman World, Medieval World i Spa World",
-                "=== Roman World, Westworld i Futureworld"
-            ]
-        },
-        {
-            id: "q2-machines-terminator-01",
-            film: "Terminator",
-            question: "Koju oznaku nosi Terminator u prvom dijelu?",
-            answers: [
-                "=*= Model 101",
-                "=== Model 110",
-                "=== Model 301"
-            ]
-        },
-        {
-            id: "q2-machines-robocop-01",
-            film: "Robocop",
-            question: "Što znači OCP u filmu 'RoboCop'?",
-            answers: [
-                "=*= Omni Consumer Products",
-                "=== Officer Cyber Program",
-                "=== Orion Corporate Partnership"
-            ]
-        },
-        {
-            id: "q2-machines-robocop-02",
-            film: "Robocop",
-            question: "Koji još stroj se pojavljuje u filmu 'RoboCop'?",
-            answers: [
-                "=*= ED-209",
-                "=== T-800",
-                "=== T-1000"
-            ]
-        },
-        {
-            id: "q2-machines-robocop-03",
-            film: "TerRobocopminator",
-            question: "RoboCop je?",
-            answers: [
-                "=*= Kiborg",
-                "=== Mecha",
-                "=== Android"
-            ]
-        }
+    light: {
+
+        machines: [
+            q2(
+                "q2-light-machines-westworld-01",
+                "Westworld",
+                "Koja tri tematska svijeta gosti mogu odabrati u filmu Westworld?",
+                "Roman World, Medieval World i Westworld",
+                "Roman World, Medieval World i Spa World",
+                "Roman World, Westworld i Futureworld"
+            ),
+            q2(
+                "q2-light-machines-westworld-02",
+                "Westworld",
+                "Tko glumi neumoljivog revolveraša androida u filmu Westworld?",
+                "Yul Brynner",
+                "Charles Bronson",
+                "Lee Van Cleef"
+            ),
+            q2(
+                "q2-light-machines-demon-seed-01",
+                "Demon Seed",
+                "Kako se zove umjetna inteligencija u filmu Demon Seed?",
+                "Proteus IV",
+                "HAL 9000",
+                "Joshua"
+            ),
+            q2(
+                "q2-light-machines-stepford-wives-01",
+                "The Stepford Wives",
+                "Što se događa ženama u gradiću Stepford?",
+                "Zamjenjuju ih robotske kopije",
+                "Šalju ih u svemirsku koloniju",
+                "Pretvaraju ih u kiborge"
+            ),
+            q2(
+                "q2-light-machines-terminator-01",
+                "The Terminator",
+                "Koju oznaku nosi Terminator u prvom filmu?",
+                "Model 101",
+                "Model 110",
+                "Model 301"
+            ),
+            q2(
+                "q2-light-machines-robocop-01",
+                "RoboCop",
+                "Što znači kratica OCP u filmu RoboCop?",
+                "Omni Consumer Products",
+                "Officer Cyber Program",
+                "Orion Corporate Partnership"
+            ),
+            q2(
+                "q2-light-machines-robocop-02",
+                "RoboCop",
+                "Koji se veliki policijski stroj pojavljuje uz RoboCopa?",
+                "ED-209",
+                "T-800",
+                "MCP"
+            ),
+            q2(
+                "q2-light-machines-robocop-03",
+                "RoboCop",
+                "Što je RoboCop?",
+                "Kiborg",
+                "Android",
+                "Mecha"
+            )
+        ],
 
 
 
+        dystopia: [
+            q2(
+                "q2-easy-dystopia-escape-from-new-york-01",
+                "Escape from New York",
+                "U kojem se filmu pojavljuje Snake Plissken?",
+                "Escape from New York",
+                "Universal Soldier",
+                "The Running Man"
+            ),
+            q2(
+                "q2-easy-dystopia-logans-run-01",
+                "Logan's Run",
+                "U kojem filmu stanovnici futurističkog grada moraju umrijeti kada navrše 30 godina?",
+                "Logan's Run",
+                "Soylent Green",
+                "Futureworld"
+            ),
+            q2(
+                "q2-easy-dystopia-outland-01",
+                "Outland",
+                "Na kojem se Jupiterovu mjesecu odvija radnja filma Outland?",
+                "Io",
+                "Kalista",
+                "Europa"
+            ),
+            q2(
+                "q2-easy-dystopia-masters-of-the-universe-01",
+                "Masters of the Universe",
+                "Tko glumi He-Mana u filmu Masters of the Universe?",
+                "Dolph Lundgren",
+                "Arnold Schwarzenegger",
+                "Lou Ferrigno"
+            ),
+            q2(
+                "q2-easy-dystopia-soylent-green-01",
+                "Soylent Green",
+                "Koji glumac tumači detektiva Roberta Thorna u filmu Soylent Green?",
+                "Charlton Heston",
+                "Roddy McDowall",
+                "Michael York"
+            ),
+            q2(
+                "q2-easy-dystopia-the-running-man-01",
+                "The Running Man",
+                "Tko glumi Bena Richardsa u filmu The Running Man?",
+                "Arnold Schwarzenegger",
+                "Sylvester Stallone",
+                "Dolph Lundgren"
+            ),
+            q2(
+                "q2-easy-dystopia-death-race-2000-01",
+                "Death Race 2000",
+                "Kako se zove glavni vozač kojeg glumi David Carradine u filmu Death Race 2000?",
+                "Frankenstein",
+                "Machine Gun Joe",
+                "Calamity Jane"
+            ),
+            q2(
+                "q2-easy-dystopia-the-omega-man-01",
+                "The Omega Man",
+                "Koji glumac tumači posljednjeg znanstvenika Roberta Nevillea u filmu The Omega Man?",
+                "Charlton Heston",
+                "Vincent Price",
+                "Richard Burton"
+            )
+        ],
 
-        /* Prazno mjesto 7 */
-        /* Prazno mjesto 8 */
-        /* Prazno mjesto 9 */
-        /* Prazno mjesto 10 */
-        /* Prazno mjesto 11 */
-        /* Prazno mjesto 12 */
-    ],
-
-    dystopia: [
-        {
-            id: "q2-dystopia-escape-ny-01",
-            film: "Escape from New York",
-            question: "U kojem se filmu pojavljuje Snake Plissken?",
-            answers: [
-                "=*= Escape from New York",
-                "=== Universal Soldier",
-                "=== The Running Man"
-            ]
-        },
-        {
-            id: "q2-dystopia-escape-ny-02",
-            film: "Escape from New York",
-            question: "Što je Snake dobio kako bi ga prisilili da izvrši misiju?",
-            answers: [
-                "=== Mikrofilm",
-                "=*= Otrovnu injekciju",
-                "=== Eksploziv"
-            ]
-        },
-        {
-            id: "q2-dystopia-escape-ny-03",
-            film: "Escape from New York",
-            question: "Kako Snake dolazi na Manhattan?",
-            answers: [
-                "=== Helikopterom",
-                "=== Padobranom",
-                "=*= Jedrilicom"
-            ]
-        },
-        {
-            id: "q2-dystopia-escape-ny-04",
-            film: "Escape from New York",
-            question: "Tko uspije pobjeći iz New Yorka?",
-            answers: [
-                "=*= Snake i predsjednik",
-                "=== Snake, Maggie, predsjednik i Brain",
-                "=== Snake, predsjednik i Cabbie"
-            ]
-        },
-        {
-            id: "q2-dystopia-logans-run-01",
-            film: "Logan's Run",
-            question: "U kojem filmu stanovnici futurističkog grada moraju umrijeti kada navrše 30 godina?",
-            answers: [
-                "=*= Logan's Run",
-                "=== Soylent Green",
-                "=== Futureworld"
-            ]
-        },
-        {
-            id: "q2-dystopia-outland-01",
-            film: "Outland",
-            question: "Na kojem se Jupiterovu mjesecu odvija radnja filma Outland?",
-            answers: [
-                "=== Kalista",
-                "=*= Io",
-                "=== Europa"
-            ]
-        },
-        {
-            id: "q2-dystopia-outland-02",
-            film: "Outland",
-            question: "Tko pomaže O'Nielu u filmu Outland?",
-            answers: [
-                "=*= Dr. Lazarus",
-                "=== Narednik Montone",
-                "=== Narednik Ballard"
-            ]
-        },
-        {
-            id: "q2-dystopia-beneath-apes-01",
-            film: "Beneath the Planet of the Apes",
-            question: "Tko dolazi u potragu za Taylorom u filmu Beneath the Planet of the Apes?",
-            answers: [
-                "=*= John Brent",
-                "=== John Landon",
-                "=== John Dodge"
-            ]
-        },
-        {
-            id: "q1-dystopia-mad-max-02",
-            film: "Mad Max",
-            question: "Što znači kratica MFP na vozilima u filmu Mad Max?***",
-            answers: [
-                "=*= Main Force Patrol",
-                "=== Metropolitan Free Police",
-                "=== Motorized Federal Police"
-            ]
-        },
-        {
-
-            id: "q1-dystopia-bttf-03",
-            film: "Back to the Future",
-            question: "Koji je najvažniji dan u filmu 'Back to the Future'?",
-            answers: [
-                "=== 5. Studenog 1985",
-                "=*= 5. Studenog 1955",
-                "=== 12. Studenog 1955"
-            ]
-        },
-        {
-
-            id: "q1-dystopia-bttf-03",
-            film: "Back to the Future",
-            question: "Koji je najvažniji dan u filmu 'Back to the Future'?",
-            answers: [
-                "=== 5. Studenog 1985",
-                "=*= 5. Studenog 1955",
-                "=== 12. Studenog 1955"
-            ]
-        }
-
-
-
-
-        /* Prazno mjesto 12 */
-    ],
-
-    aliens: [
-        {
-            id: "q2-aliens-abyss-01",
-            film: "The Abyss",
-            question: "Koji je od ovih filmova režirao James Cameron?",
-            answers: [
-                "=== RoboCop",
-                "=== Alien",
-                "=*= The Abyss"
-            ]
-        },
-        {
-            id: "q2-aliens-abyss-02",
-            film: "The Abyss",
-            question: "Kako se zove vojni zapovjednik kojeg Michael Biehn glumi u filmu The Abyss?",
-            answers: [
-                "=== Virgil Brigman",
-                "=== Dwayne Hicks",
-                "=*= Hiram Coffey"
-            ]
-        },
-        {
-            id: "q2-aliens-abyss-03",
-            film: "The Abyss",
-            question: "Kako se zove potonula podmornica u filmu The Abyss?",
-            answers: [
-                "=== USS Memphis",
-                "=*= USS Montana",
-                "=== USS Arizona"
-            ]
-        },
-        {
-            id: "q2-aliens-forbidden-planet-01",
-            film: "Forbidden Planet",
-            question: "Kako se zove kći doktora Edwarda Morbiusa?",
-            answers: [
-                "=== Eve",
-                "=== Annabelle",
-                "=*= Altaira"
-            ]
-        },
-        {
-            id: "q2-aliens-forbidden-planet-02",
-            film: "Forbidden Planet",
-            question: "Što kuhar traži od Robbyja u filmu Forbidden Planet?",
-            answers: [
-                "=== Zabranjeno voće",
-                "=== Posebne začine",
-                "=*= Pravu stvar"
-            ]
-        },
-        {
-            id: "q2-aliens-forbidden-planet-03",
-            film: "Forbidden Planet",
-            question: "Što je uništilo Krellove?",
-            answers: [
-                "=*= Njihove emocije",
-                "=== Meteor iz svemira",
-                "=== Virus iz laboratorija"
-            ]
-        },
-        {
-            id: "q2-aliens-last-starfighter-01",
-            film: "The Last Starfighter",
-            question: "Tko glumi Alexa Rogana u filmu The Last Starfighter?",
-            answers: [
-                "=*= Lance Guest",
-                "=== Liam Neeson",
-                "=== Nigel Terry"
-            ]
-        },
-        {
-            id: "q2-aliens-masters-universe-01",
-            film: "Masters of the Universe",
-            question: "Tko glumi He-Mana u filmu Masters of the Universe?",
-            answers: [
-                "=*= Dolph Lundgren",
-                "=== Arnold Schwarzenegger",
-                "=== Lou Ferrigno"
-            ]
-        },
-        {
-            id: "q2-aliens-masters-universe-02",
-            film: "Masters of the Universe",
-            question: "Tko glumi Evil-Lyn u filmu Masters of the Universe?",
-            answers: [
-                "=== Bridget Fonda",
-                "=== Courteney Cox",
-                "=*= Meg Foster"
-            ]
-        },
-        {
-            id: "q2-aliens-aliens-01",
-            film: "Aliens",
-            question: "Koji se član posade prvi ustaje iz hibernacije u filmu Aliens?",
-            answers: [
-                "=== William Gorman",
-                "=== Mark Drake",
-                "=*= Al Apone"
-            ]
-        },
-        {
-            id: "q2-aliens-aliens-02",
-            film: "Aliens",
-            question: "Tko kaže poznati citat 'Game over man, game over!' u 'Aliens'?",
-            answers: [
-                "=== Bishop",
-                "=*= William Hudson",
-                "=== Dick Jones"
-            ]
-        }
-
-        /* Prazno mjesto 12 */
-    ]
-};
-
-/* =========================================
-   YEAR TWO CONFIGURATION
-========================================= */
-
-const yearTwo = [
-    {
-        year: 2,
-        month: 1,
-        title: "Dio 1 — Cult Machines",
-        mode: "quiz",
-
-        focus: {
-            user: [
-                "kultni roboti",
-                "digitalni svjetovi",
-                "androidi",
-                "eksperimentalna tehnologija",
-                "slabije poznati tehnološki SF"
-            ]
-        },
-
-        weeks: [
-            {
-                week: 1,
-                title: "Machines — slabo poznati filmovi",
-                quizGroup: "machines",
-                questionType: "multipleChoice",
-                questionCount: 12
-            }
+        aliens: [
+            q2(
+                "q2-easy-aliens-forbidden-planet-01",
+                "Forbidden Planet",
+                "Kako se zove kći doktora Edwarda Morbiusa?",
+                "Altaira",
+                "Eve",
+                "Annabelle"
+            ),
+            q2(
+                "q2-easy-aliens-the-last-starfighter-01",
+                "The Last Starfighter",
+                "Tko glumi Alexa Rogana u filmu The Last Starfighter?",
+                "Lance Guest",
+                "Liam Neeson",
+                "Nigel Terry"
+            ),
+            q2(
+                "q2-easy-aliens-the-abyss-01",
+                "The Abyss",
+                "Koji je od ovih filmova režirao James Cameron?",
+                "The Abyss",
+                "RoboCop",
+                "Alien"
+            ),
+            q2(
+                "q2-easy-aliens-the-thing-01",
+                "The Thing",
+                "Tko glumi R. J. MacReadyja u filmu The Thing iz 1982. godine?",
+                "Kurt Russell",
+                "Jeff Bridges",
+                "Nick Nolte"
+            ),
+            q2(
+                "q2-easy-aliens-invasion-of-the-body-snatchers-01",
+                "Invasion of the Body Snatchers",
+                "Kako izvanzemaljci zamjenjuju ljude u filmu Invasion of the Body Snatchers?",
+                "Stvaraju njihove kopije u velikim mahunama",
+                "Pretvaraju ih ugrizom",
+                "Ugrađuju im metalne čipove"
+            ),
+            q2(
+                "q2-easy-aliens-the-fly-01",
+                "The Fly",
+                "Tko glumi znanstvenika Setha Brundlea u filmu The Fly iz 1986.?",
+                "Jeff Goldblum",
+                "Christopher Walken",
+                "William Hurt"
+            ),
+            q2(
+                "q2-easy-aliens-starman-01",
+                "Starman",
+                "Tko glumi izvanzemaljca koji poprima ljudski oblik u filmu Starman?",
+                "Jeff Bridges",
+                "Kurt Russell",
+                "Richard Dreyfuss"
+            ),
+            q2(
+                "q2-easy-aliens-lifeforce-01",
+                "Lifeforce",
+                "Kakva bića stižu na Zemlju u filmu Lifeforce?",
+                "Svemirski vampiri",
+                "Robotski osvajači",
+                "Mutirani kukci"
+            )
         ]
     },
 
-    {
-        year: 2,
-        month: 2,
-        title: "Dio 2 — Cult Dystopia",
-        mode: "quiz",
+    medium: {
 
-        focus: {
-            user: [
-                "kultne distopije",
-                "društvena kritika",
-                "kontrola percepcije",
-                "gradovi budućnosti",
-                "zatvoreni društveni sustavi"
-            ]
-        },
+        machines: [
+            q2(
+                "q2-medium-machines-westworld-01",
+                "Westworld",
+                "Kako se zove korporacija koja upravlja zabavnim parkom?",
+                "Delos",
+                "Tyrell",
+                "OCP"
+            ),
+            q2(
+                "q2-medium-machines-westworld-02",
+                "Westworld",
+                "Koji problem počinje zahvaćati androide u parku?",
+                "Počinju napadati goste i ignorirati sigurnosna pravila",
+                "Gube sposobnost govora",
+                "Počinju izgledati starije"
+            ),
+            q2(
+                "q2-medium-machines-westworld-03",
+                "Westworld",
+                "U kojem se tematskom svijetu nalazi revolveraš kojeg glumi Yul Brynner?",
+                "Westworldu",
+                "Roman Worldu",
+                "Medieval Worldu"
+            ),
+            q2(
+                "q2-medium-machines-demon-seed-01",
+                "Demon Seed",
+                "Kako se zove žena koju Proteus IV zarobi u kući?",
+                "Susan Harris",
+                "Joanna Eberhart",
+                "Sarah Connor"
+            ),
+            q2(
+                "q2-medium-machines-demon-seed-02",
+                "Demon Seed",
+                "Što Proteus IV želi stvoriti sa Susan Harris?",
+                "Dijete koje spaja ljudske i računalne osobine",
+                "Vojsku androida",
+                "Novi svemirski brod"
+            ),
+            q2(
+                "q2-medium-machines-stepford-wives-01",
+                "The Stepford Wives",
+                "Kako se zove glavna junakinja filma The Stepford Wives?",
+                "Joanna Eberhart",
+                "Susan Harris",
+                "Rachael Tyrell"
+            ),
+            q2(
+                "q2-medium-machines-terminator-01",
+                "The Terminator",
+                "Koji je zadatak Terminatora poslanog u 1984. godinu?",
+                "Ubiti Sarah Connor",
+                "Zaštititi Johna Connora",
+                "Uništiti Cyberdyne"
+            ),
+            q2(
+                "q2-medium-machines-terminator-02",
+                "The Terminator",
+                "Kako se zove obrambena računalna mreža koja pokreće nuklearni rat?",
+                "Skynet",
+                "WOPR",
+                "MCP"
+            ),
+            q2(
+                "q2-medium-machines-robocop-01",
+                "RoboCop",
+                "Kako se zvao policajac prije nego što je postao RoboCop?",
+                "Alex Murphy",
+                "Richard Jones",
+                "Clarence Boddicker"
+            ),
+            q2(
+                "q2-medium-machines-robocop-02",
+                "RoboCop",
+                "Koja kompanija upravlja projektom RoboCop?",
+                "OCP",
+                "Cyberdyne Systems",
+                "Tyrell Corporation"
+            )
 
-        weeks: [
-            {
-                week: 1,
-                title: "Dystopia — slabo poznati filmovi",
-                quizGroup: "dystopia",
-                questionType: "multipleChoice",
-                questionCount: 12
-            }
+
+        ],
+
+        dystopia: [
+            q2(
+                "q2-medium-dystopia-escape-from-new-york-01",
+                "Escape from New York",
+                "Što je Snake dobio kako bi ga prisilili da izvrši misiju?",
+                "Otrovnu injekciju",
+                "Mikrofilm",
+                "Eksploziv"
+            ),
+            q2(
+                "q2-medium-dystopia-escape-from-new-york-02",
+                "Escape from New York",
+                "Kako Snake dolazi na Manhattan?",
+                "Jedrilicom",
+                "Helikopterom",
+                "Padobranom"
+            ),
+            q2(
+                "q2-medium-dystopia-escape-from-new-york-03",
+                "Escape from New York",
+                "Tko uspije pobjeći iz New Yorka?",
+                "Snake i predsjednik",
+                "Snake, Maggie, predsjednik i Brain",
+                "Snake, predsjednik i Cabbie"
+            ),
+            q2(
+                "q2-medium-dystopia-beneath-the-planet-of-the-apes-01",
+                "Beneath the Planet of the Apes",
+                "Tko dolazi u potragu za Taylorom u filmu Beneath the Planet of the Apes?",
+                "John Brent",
+                "John Landon",
+                "John Dodge"
+            ),
+            q2(
+                "q2-medium-dystopia-outland-01",
+                "Outland",
+                "Tko pomaže O'Nielu u filmu Outland?",
+                "Dr. Lazarus",
+                "Narednik Montone",
+                "Narednik Ballard"
+            ),
+            q2(
+                "q2-medium-dystopia-masters-of-the-universe-01",
+                "Masters of the Universe",
+                "Tko glumi Evil-Lyn u filmu Masters of the Universe?",
+                "Meg Foster",
+                "Bridget Fonda",
+                "Courteney Cox"
+            ),
+            q2(
+                "q2-medium-dystopia-logans-run-01",
+                "Logan's Run",
+                "Kako se zove ceremonija u kojoj stanovnici pokušavaju biti obnovljeni?",
+                "Carousel",
+                "Sanctuary",
+                "Renewal Day"
+            ),
+            q2(
+                "q2-medium-dystopia-soylent-green-01",
+                "Soylent Green",
+                "Koje se godine odvija radnja filma Soylent Green?",
+                "2022.",
+                "1999.",
+                "2049."
+            ),
+            q2(
+                "q2-medium-dystopia-the-running-man-01",
+                "The Running Man",
+                "Kako se zove voditelj televizijskog natjecanja The Running Man?",
+                "Damon Killian",
+                "Richard Dawson",
+                "Fireball"
+            ),
+            q2(
+                "q2-medium-dystopia-the-omega-man-01",
+                "The Omega Man",
+                "Kako se zove skupina zaraženih mutanata u filmu The Omega Man?",
+                "The Family",
+                "The Others",
+                "The Night People"
+            )
+        ],
+
+        aliens: [
+            q2(
+                "q2-medium-aliens-the-abyss-01",
+                "The Abyss",
+                "Kako se zove vojni zapovjednik kojeg Michael Biehn glumi u filmu The Abyss?",
+                "Hiram Coffey",
+                "Virgil Brigman",
+                "Dwayne Hicks"
+            ),
+            q2(
+                "q2-medium-aliens-the-abyss-02",
+                "The Abyss",
+                "Kako se zove potonula podmornica u filmu The Abyss?",
+                "USS Montana",
+                "USS Memphis",
+                "USS Arizona"
+            ),
+            q2(
+                "q2-medium-aliens-forbidden-planet-01",
+                "Forbidden Planet",
+                "Što kuhar traži od Robbyja u filmu Forbidden Planet?",
+                "Pravu stvar",
+                "Zabranjeno voće",
+                "Posebne začine"
+            ),
+            q2(
+                "q2-medium-aliens-forbidden-planet-02",
+                "Forbidden Planet",
+                "Što je uništilo Krellove?",
+                "Njihove emocije",
+                "Meteor iz svemira",
+                "Virus iz laboratorija"
+            ),
+            q2(
+                "q2-medium-aliens-the-thing-01",
+                "The Thing",
+                "Kako se zove baza na Antarktici u kojoj se odvija radnja filma The Thing?",
+                "Outpost 31",
+                "Station 12",
+                "Base Alpha"
+            ),
+            q2(
+                "q2-medium-aliens-invasion-of-the-body-snatchers-01",
+                "Invasion of the Body Snatchers",
+                "Tko glumi Matthewa Bennella u verziji filma iz 1978. godine?",
+                "Donald Sutherland",
+                "Leonard Nimoy",
+                "Jeff Goldblum"
+            ),
+            q2(
+                "q2-medium-aliens-the-fly-01",
+                "The Fly",
+                "Kako se zove novinarka koju glumi Geena Davis?",
+                "Veronica Quaife",
+                "Tawny Kitaen",
+                "Sarah Bowman"
+            ),
+            q2(
+                "q2-medium-aliens-starman-01",
+                "Starman",
+                "Čiji ljudski oblik izvanzemaljac poprima u filmu Starman?",
+                "Pokojnog supruga Jenny Hayden",
+                "Nestalog astronauta",
+                "Vladina agenta"
+            ),
+            q2(
+                "q2-medium-aliens-lifeforce-01",
+                "Lifeforce",
+                "S kojeg objekta posada broda Churchill pronalazi izvanzemaljsku letjelicu?",
+                "Halleyeva kometa",
+                "Mjesec",
+                "Saturnov prsten"
+            ),
+            q2(
+                "q2-medium-aliens-the-last-starfighter-01",
+                "The Last Starfighter",
+                "Kako se zove izvanzemaljac koji regrutira Alexa Rogana?",
+                "Centauri",
+                "Grig",
+                "Xur"
+            )
         ]
     },
 
-    {
-        year: 2,
-        month: 3,
-        title: "Dio 3 — Cult Alien Encounters",
-        mode: "quiz",
+    hard: {
+        machines: [
+            q2(
+                "q2-hard-machines-westworld-01",
+                "Westworld",
+                "Kako androidski revolveraš razlikuje ljude od drugih androida?",
+                "Ljude vidi kao toplinske oblike",
+                "Prepoznaje njihove otiske prstiju",
+                "Skenira njihove glasove"
+            ),
+            q2(
+                "q2-hard-machines-westworld-02",
+                "Westworld",
+                "Tko je napisao i režirao film Westworld?",
+                "Michael Crichton",
+                "Philip Kaufman",
+                "Richard Fleischer"
+            ),
+            q2(
+                "q2-hard-machines-demon-seed-01",
+                "Demon Seed",
+                "Kako se zove znanstvenik koji je stvorio Proteusa IV?",
+                "Alex Harris",
+                "Charles Forbin",
+                "Miles Dyson"
+            ),
+            q2(
+                "q2-hard-machines-demon-seed-02",
+                "Demon Seed",
+                "Preko čega Proteus IV preuzima nadzor nad Susaninom kućom?",
+                "Preko automatiziranog kućnog sustava",
+                "Preko vojnog satelita",
+                "Preko policijskih robota"
+            ),
+            q2(
+                "q2-hard-machines-stepford-wives-01",
+                "The Stepford Wives",
+                "Kako se zove predsjednik Stepford Men's Associationa?",
+                "Dale Coba",
+                "Walter Eberhart",
+                "Bobbie Markowe"
+            ),
+            q2(
+                "q2-hard-machines-terminator-01",
+                "The Terminator",
+                "Koji broj modela nosi vanjski izgled Terminatora kojeg glumi Arnold Schwarzenegger?",
+                "Model 101",
+                "Model 102",
+                "Model 800"
+            ),
+            q2(
+                "q2-hard-machines-robocop-01",
+                "RoboCop",
+                "Koja direktiva sprečava RoboCopa da djeluje protiv viših članova OCP-a?",
+                "Direktiva 4",
+                "Direktiva 2",
+                "Direktiva 7"
+            ),
+            q2(
+                "q2-hard-machines-robocop-02",
+                "RoboCop",
+                "Tko je odgovoran za ubojstvo Alexa Murphyja?",
+                "Clarence Boddicker i njegova banda",
+                "Dick Jones osobno",
+                "ED-209"
+            )
+        ],
+        dystopia: [
+            q2(
+                "q2-hard-dystopia-escape-from-new-york-01",
+                "Escape from New York",
+                "Kako se zove predsjednikov sigurnosni uređaj koji Snake mora pronaći?",
+                "Mikrokaseta s govorom",
+                "Nuklearni kod",
+                "Predsjednički pečat"
+            ),
+            q2(
+                "q2-hard-dystopia-logans-run-01",
+                "Logan's Run",
+                "Kako se zove računalo koje upravlja gradom i ispituje Logana?",
+                "The Thinker",
+                "Central Computer",
+                "Sanctuary Control"
+            ),
+            q2(
+                "q2-hard-dystopia-outland-01",
+                "Outland",
+                "Kako se zove korporacija koja upravlja rudarskom kolonijom na Iou?",
+                "Con-Amalgamate",
+                "Weyland-Yutani",
+                "Omni Consumer Products"
+            ),
+            q2(
+                "q2-hard-dystopia-soylent-green-01",
+                "Soylent Green",
+                "Kako se zove stariji prijatelj i pomoćnik detektiva Thorna?",
+                "Sol Roth",
+                "Tab Fielding",
+                "William Simonson"
+            ),
+            q2(
+                "q2-hard-dystopia-the-running-man-01",
+                "The Running Man",
+                "Koji stalker koristi bacač plamena u emisiji The Running Man?",
+                "Fireball",
+                "Subzero",
+                "Buzzsaw"
+            ),
+            q2(
+                "q2-hard-dystopia-death-race-2000-01",
+                "Death Race 2000",
+                "Koji glumac tumači Machine Gun Joea Viterba?",
+                "Sylvester Stallone",
+                "Martin Kove",
+                "David Carradine"
+            ),
+            q2(
+                "q2-hard-dystopia-the-omega-man-01",
+                "The Omega Man",
+                "Kako se zove vođa skupine The Family?",
+                "Matthias",
+                "Zachary",
+                "Dutch"
+            ),
+            q2(
+                "q2-hard-dystopia-beneath-the-planet-of-the-apes-01",
+                "Beneath the Planet of the Apes",
+                "Što mutirani ljudi štuju ispod ruševina New Yorka?",
+                "Nuklearnu bombu",
+                "Kip slobode",
+                "Svemirski brod"
+            )
+        ],
 
-        focus: {
-            user: [
-                "kultni susreti",
-                "paranoja",
-                "imitacija ljudi",
-                "svemirski horor",
-                "nepoznati oblici života"
-            ]
-        },
-
-        weeks: [
-            {
-                week: 1,
-                title: "Aliens — slabo poznati filmovi",
-                quizGroup: "aliens",
-                questionType: "multipleChoice",
-                questionCount: 12
-            }
+        aliens: [
+            q2(
+                "q2-hard-aliens-heavy-metal-01",
+                "Heavy Metal",
+                "Kako se zove zlokobna zelena kugla koja povezuje priče filma Heavy Metal?",
+                "Loc-Nar",
+                "Taarna",
+                "Nell"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-02",
+                "Heavy Metal — Harry Canyon",
+                "Čime se Harry Canyon bavi u futurističkom New Yorku?",
+                "Vozi taksi",
+                "Radi kao policijski detektiv",
+                "Prodaje svemirske brodove"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-03",
+                "Heavy Metal — Den",
+                "Kako se zove mladić koji se nakon prijenosa u drugi svijet pretvara u snažnog junaka Dena?",
+                "David Ellis Norman",
+                "Harry Canyon",
+                "Hanover Fiste"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-04",
+                "Heavy Metal — Captain Sternn",
+                "Kako se zove svjedok kojeg Captain Sternn pokušava podmititi?",
+                "Hanover Fiste",
+                "Grimaldi",
+                "Edsel"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-05",
+                "Heavy Metal — B-17",
+                "Kako se zove bombarder iz segmenta B-17?",
+                "Pacific Pearl",
+                "Memphis Belle",
+                "Flying Fortress"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-06",
+                "Heavy Metal — B-17",
+                "Što Loc-Nar učini poginulim članovima posade bombardera?",
+                "Pretvori ih u zombije",
+                "Pretvori ih u androide",
+                "Vrati ih u prošlost"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-07",
+                "Heavy Metal — So Beautiful & So Dangerous",
+                "Kako se zovu dvojica izvanzemaljskih pilota koji konzumiraju Plutonian Nyborg?",
+                "Edsel i Zeke",
+                "Den i Harry",
+                "Sternn i Fiste"
+            ),
+            q2(
+                "q2-hard-aliens-heavy-metal-08",
+                "Heavy Metal — Taarna",
+                "Tko je Taarna?",
+                "Posljednja ratnica naroda Taarakian",
+                "Kraljica svemirskih vampira",
+                "Androidska čuvarica Loc-Nara"
+            )
         ]
     }
-];
+};
+

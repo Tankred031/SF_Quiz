@@ -960,84 +960,352 @@ body.logged-out #logoutBtn {
         );
 }
 
+
 /* =========================================
    IMAGE ZOOM / LIGHTBOX
 ========================================= */
 
+body.image-zoom-open {
+    overflow: hidden;
+}
+
 #imageOverlay {
     position: fixed;
     inset: 0;
-    z-index: 9998;
+    z-index: 20000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
 
     opacity: 0;
-
-    background:
-        rgba(0, 10, 25, 0.85);
-
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-
+    visibility: hidden;
     pointer-events: none;
 
+    background:
+        rgba(0, 10, 25, 0.94);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
     transition:
-        opacity 0.3s ease;
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
 
 #imageOverlay.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
-.zoomable-image {
-    cursor: pointer;
-
-    transition:
-        box-shadow 0.35s ease;
-}
-
-.zoomable-image.zoomed {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 9999;
+#overlayImage {
+    display: block;
 
     width: auto;
     height: auto;
 
-    max-width: 85vw;
-    max-height: 85vh;
+    max-width: min(90vw, 1100px);
+    max-height: 90vh;
 
-    transform:
-        translate(-50%, -50%);
+    object-fit: contain;
+    object-position: center;
 
     border-radius: 18px;
 
-    object-fit: contain;
+    cursor: zoom-out;
+
+    transform: scale(0.96);
+
+    transition:
+        transform 0.25s ease;
+
+    box-shadow:
+        0 0 55px rgba(56, 189, 248, 0.35),
+        0 0 120px rgba(0, 0, 0, 0.8);
 }
 
-body.year-1 .zoomable-image.zoomed {
+#imageOverlay.active #overlayImage {
+    transform: scale(1);
+}
+
+.zoomable-image {
+    cursor: zoom-in;
+}
+
+/* Level 1 */
+
+body.year-1 #overlayImage {
     box-shadow:
         0 0 45px rgba(80, 180, 255, 0.9),
-        0 0 90px rgba(56, 189, 248, 0.45);
+        0 0 100px rgba(56, 189, 248, 0.35);
 }
 
-body.year-2 .zoomable-image.zoomed {
+/* Level 2 */
+
+body.year-2 #overlayImage {
     box-shadow:
         0 0 45px rgba(80, 255, 150, 0.9),
-        0 0 90px rgba(34, 197, 94, 0.45);
+        0 0 100px rgba(34, 197, 94, 0.35);
 }
 
-body.year-3 .zoomable-image.zoomed {
+/* Level 3 */
+
+body.year-3 #overlayImage {
     box-shadow:
         0 0 45px rgba(200, 100, 255, 0.9),
-        0 0 90px rgba(168, 85, 247, 0.45);
+        0 0 100px rgba(168, 85, 247, 0.38);
 }
 
-body.year-4 .zoomable-image.zoomed {
+/* Level 4 */
+
+body.year-4 #overlayImage {
     box-shadow:
         0 0 45px rgba(255, 80, 80, 0.9),
-        0 0 90px rgba(220, 38, 38, 0.45);
+        0 0 100px rgba(220, 38, 38, 0.38);
 }
+
+@media (max-width: 600px) {
+    #imageOverlay {
+        padding: 14px;
+    }
+
+    #overlayImage {
+        max-width: 94vw;
+        max-height: 88vh;
+
+        border-radius: 12px;
+    }
+}
+
+
+
+
+/* =========================================
+   HERO LEVEL SELECTOR
+========================================= */
+
+.hero-level-selector {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: min(100%, 420px);
+    margin-top: 4px;
+}
+
+.hero-level-selector label {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+#levelSelect {
+    width: 100%;
+    padding: 13px 42px 13px 15px;
+
+    border: 1px solid rgba(103, 232, 249, 0.3);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6, 24, 38, 0.96),
+            rgba(13, 53, 87, 0.96)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+    outline: none;
+
+    box-shadow:
+        inset 0 0 16px rgba(56, 189, 248, 0.06),
+        0 0 18px rgba(56, 189, 248, 0.08);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+#levelSelect:hover {
+    border-color: rgba(103, 232, 249, 0.55);
+}
+
+#levelSelect:focus {
+    border-color: rgba(250, 204, 21, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(250, 204, 21, 0.1),
+        0 0 22px rgba(250, 204, 21, 0.12);
+}
+
+#levelSelect option {
+    background: #071521;
+    color: #ffffff;
+}
+
+/* Boja selekta prema aktivnom levelu */
+
+body.year-1 #levelSelect {
+    border-color: rgba(56, 189, 248, 0.42);
+}
+
+body.year-2 #levelSelect {
+    border-color: rgba(34, 197, 94, 0.42);
+}
+
+body.year-3 #levelSelect {
+    border-color: rgba(168, 85, 247, 0.48);
+}
+
+body.year-4 #levelSelect {
+    border-color: rgba(239, 68, 68, 0.48);
+}
+
+/* =========================================
+   FILM LABEL
+========================================= */
+
+.quiz-film {
+    display: inline-block;
+
+    margin-bottom: 10px;
+    padding: 5px 9px;
+
+    border: 1px solid rgba(103, 232, 249, 0.18);
+    border-radius: 8px;
+
+    background: rgba(3, 15, 25, 0.42);
+
+    color: rgba(165, 243, 252, 0.9);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   SECRET LEVEL
+========================================= */
+
+.secret-level-block .levels-grid {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+}
+
+.secret-level-block .week-block {
+    min-width: 0;
+}
+
+.secret-level-block .quiz-card {
+    border-color: rgba(239, 68, 68, 0.16);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80, 12, 12, 0.26),
+            rgba(25, 5, 8, 0.38)
+        );
+}
+
+.secret-level-block .section-title {
+    color: #fca5a5;
+}
+
+.secret-level-block .quiz-film {
+    border-color: rgba(248, 113, 113, 0.25);
+
+    background: rgba(80, 12, 12, 0.25);
+
+    color: #fecaca;
+}
+
+/* =========================================
+   RESET SECRET BUTTON
+========================================= */
+
+.reset-secret-btn {
+    display: block;
+
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 16px;
+
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(220, 38, 38, 0.92),
+            rgba(127, 29, 29, 0.95)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.reset-secret-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 0 20px rgba(239, 68, 68, 0.24);
+}
+
+/* =========================================
+   RESPONSIVE DODATAK
+========================================= */
+
+@media (max-width: 900px) {
+    .secret-level-block .levels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-level-selector {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    #levelSelect {
+        padding: 12px 38px 12px 13px;
+        font-size: 13px;
+    }
+
+    .hero-level-selector label {
+        font-size: 11px;
+    }
+}
+
 
 /* =========================================
    RESPONSIVE — TABLET
