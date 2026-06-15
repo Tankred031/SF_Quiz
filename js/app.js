@@ -167,9 +167,6 @@ function getWeekStatusIcon(status) {
     return "🔴";
 }
 
-/* =========================================
-QUIZ HELPERS
-========================================= */
 
 /* =========================================
 QUIZ HELPERS
@@ -211,7 +208,7 @@ function prepareQuestion(question, group) {
     return {
         id: question.id || "",
         film: question.film || "",
-        group: group || question.group || "",
+        group: group,
         question: question.question,
 
         answers: shuffleArray(
@@ -227,124 +224,23 @@ QUESTION DATABASE
 function getQuestionDatabase(year) {
     const numericYear = Number(year);
 
-    if (
-        numericYear === 1 &&
-        typeof questions1 !== "undefined"
-    ) {
+    if (numericYear === 1) {
         return questions1;
     }
 
-    if (
-        numericYear === 2 &&
-        typeof questions2 !== "undefined"
-    ) {
+    if (numericYear === 2) {
         return questions2;
     }
 
-    if (
-        numericYear === 3 &&
-        typeof questions3 !== "undefined"
-    ) {
+    if (numericYear === 3) {
         return questions3;
     }
 
-    if (
-        numericYear === 4 &&
-        typeof questions4 !== "undefined"
-    ) {
+    if (numericYear === 4) {
         return questions4;
     }
 
-    console.error(
-        `[SF Quiz] Baza pitanja za Level ${year} nije pronađena.`
-    );
-
     return null;
-}
-
-function getDefaultQuestionCount(year) {
-    const counts = {
-        1: 8,
-        2: 12,
-        3: 10,
-        4: 5
-    };
-
-    return counts[Number(year)] || 8;
-}
-
-function getQuestionPool(
-    year,
-    group,
-    questionType = "multipleChoice"
-) {
-    const database =
-        getQuestionDatabase(year);
-
-    if (!database) {
-        return [];
-    }
-
-    /*
-       LEVEL 4:
-
-       questions4 = {
-           multipleChoice: {
-               machines: [],
-               dystopia: [],
-               aliens: []
-           },
-
-           yesNo: {
-               machines: [],
-               dystopia: [],
-               aliens: []
-           }
-       };
-    */
-
-    if (Number(year) === 4) {
-        const typeDatabase =
-            database[questionType];
-
-        if (!typeDatabase) {
-            console.warn(
-                `[SF Quiz] Tip pitanja "${questionType}" ne postoji u questions4.`
-            );
-
-            return [];
-        }
-
-        if (!Array.isArray(typeDatabase[group])) {
-            console.warn(
-                `[SF Quiz] Grupa "${group}" ne postoji u questions4.${questionType}.`
-            );
-
-            return [];
-        }
-
-        return typeDatabase[group];
-    }
-
-    /*
-       LEVEL 1–3:
-
-       questions1 = {
-           machines: [],
-           dystopia: [],
-           aliens: []
-       };
-    */
-
-    if (!Array.isArray(database[group])) {
-        console.warn(
-            `[SF Quiz] Grupa "${group}" ne postoji u questions${year}.`
-        );
-
-        return [];
-    }
-
-    return database[group];
 }
 
 function getRandomQuestions(
@@ -353,37 +249,33 @@ function getRandomQuestions(
     group,
     questionType = "multipleChoice"
 ) {
-    const questionPool =
-        getQuestionPool(
-            year,
-            group,
-            questionType
-        );
+    const database = getQuestionDatabase(year);
+
+    if (!database) {
+        console.error(`Baza pitanja za Level ${year} nije pronađena.`);
+        return [];
+    }
+
+    let questionPool = [];
+
+    if (Number(year) === 4) {
+        questionPool =
+            database[questionType]?.[group] || [];
+    } else {
+        questionPool =
+            database[group] || [];
+    }
 
     if (questionPool.length < count) {
         console.warn(
-            `[SF Quiz] Level ${year}, grupa "${group}", ` +
-            `tip "${questionType}": traženo ${count}, ` +
-            `dostupno ${questionPool.length}.`
+            `Level ${year}, grupa ${group}: ` +
+            `traženo ${count}, dostupno ${questionPool.length}.`
         );
     }
 
     return shuffleArray(questionPool)
         .slice(0, count)
-        .map(question =>
-            prepareQuestion(
-                question,
-                group
-            )
-        );
-}
-
-function getQuestionTypeLabel(questionType) {
-    if (questionType === "yesNo") {
-        return "Da / ne";
-    }
-
-    return "Multiple choice";
+        .map(question => prepareQuestion(question, group));
 }
 
 /* =========================================
@@ -579,15 +471,15 @@ function renderQuizWeek(month, monthIndex, week) {
         return "";
     }
 
-    const difficulty =
-        weekData.quizDifficulty || "light";
+const group =
+    weekData.quizGroup || "machines";
 
-    const group =
-        weekData.quizGroup || "all";
+const questionType =
+    weekData.questionType || "multipleChoice";
 
-    const questionCount =
-        weekData.questionCount
-        || getQuizQuestionCount(difficulty);
+const questionCount =
+    weekData.questionCount || 8;
+
 
     if (status === "locked") {
         return `
@@ -618,16 +510,13 @@ function renderQuizWeek(month, monthIndex, week) {
     `;
     }
 
-    const includeYesNoQuestions =
-        month.year === 4 || weekData.includeYesNoQuestions === true;
-
     const quizQuestions =
-        getRandomQuestions(
-            difficulty,
-            questionCount,
-            group,
-            includeYesNoQuestions
-        );
+    getRandomQuestions(
+        month.year,
+        questionCount,
+        group,
+        questionType
+    );
 
     return `
         <div class="
@@ -641,9 +530,11 @@ function renderQuizWeek(month, monthIndex, week) {
             </div>
 
             <div class="quiz-meta">
-                Težina: ${difficulty}
+                Level: ${month.year}
                 |
                 Tema: ${group}
+                |
+                Tip: ${questionType === "yesNo" ? "Da / ne" : "Multiple choice"}
                 |
                 Pitanja: ${quizQuestions.length}
             </div>
