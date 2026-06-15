@@ -1,5 +1,5 @@
 /* =========================================
-RESET
+   RESET
 ========================================= */
 
 * {
@@ -8,28 +8,39 @@ RESET
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
     padding: 30px;
 
     background:
-        radial-gradient(circle at top,
+        radial-gradient(
+            circle at top,
             #16324f 0%,
             #0b1726 42%,
-            #05070d 100%);
+            #05070d 100%
+        );
 
     color: #f3f7ff;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     line-height: 1.5;
 }
 
 /* =========================================
-LOGIN MODE
+   LOGIN MODE
 ========================================= */
 
 body.logged-out {
-    overflow: hidden;
     padding: 0;
+    overflow: hidden;
 }
 
 body.logged-out .hero,
@@ -39,11 +50,12 @@ body.logged-out #logoutBtn {
 }
 
 /* =========================================
-HERO
+   HERO
 ========================================= */
 
 .hero {
     margin-bottom: 40px;
+
     border-radius: 24px;
     overflow: hidden;
 }
@@ -52,18 +64,20 @@ HERO
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
 
+    gap: 40px;
     padding: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
 
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             #081826,
             #0f3557,
-            #06101b);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
+            #06101b
+        );
 
     box-shadow:
         0 0 35px rgba(56, 189, 248, 0.14);
@@ -71,14 +85,16 @@ HERO
 
 .hero-left {
     flex: 1;
+    min-width: 0;
 }
 
 .hero-label {
     margin-bottom: 16px;
 
     color: #67e8f9;
+
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
@@ -86,9 +102,10 @@ HERO
 .hero-main-text {
     margin-bottom: 20px;
 
-    font-size: 62px;
+    font-size: clamp(42px, 6vw, 62px);
     line-height: 1.02;
     font-weight: 900;
+
     text-transform: uppercase;
 }
 
@@ -97,14 +114,23 @@ HERO
     margin-bottom: 22px;
 
     color: rgba(255, 255, 255, 0.75);
+
     font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex-shrink: 0;
 }
 
 .hero-image img {
+    display: block;
+
     width: 280px;
     height: 560px;
 
     object-fit: cover;
+
     border-radius: 20px;
 
     box-shadow:
@@ -112,7 +138,7 @@ HERO
 }
 
 /* =========================================
-YEAR TITLE
+   LEVEL TITLE
 ========================================= */
 
 .user-year-display {
@@ -123,17 +149,26 @@ YEAR TITLE
     display: inline-block;
 
     padding: 10px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
 
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
 /* =========================================
-MONTH
+   APP
+========================================= */
+
+#app {
+    width: 100%;
+}
+
+/* =========================================
+   THEME / GROUP BLOCK
 ========================================= */
 
 .month-block {
@@ -141,302 +176,159 @@ MONTH
     padding: 28px;
 
     border-radius: 20px;
+
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .month-title {
     margin-bottom: 14px;
 
     font-size: 30px;
-    font-weight: bold;
+    line-height: 1.2;
+    font-weight: 800;
 }
 
 .month-focus {
     margin-bottom: 30px;
+
     color: #dce7f7;
+}
+
+.month-focus strong {
+    color: #f3f7ff;
 }
 
 .month-focus ul {
     margin-top: 10px;
-    padding-left: 18px;
+    padding-left: 20px;
+}
+
+.month-focus li {
+    margin-bottom: 5px;
 }
 
 /* =========================================
-WEEK
-========================================= */
-
-.week-block {
-    margin-top: 30px;
-    padding: 22px;
-
-    border-radius: 18px;
-
-    transition: 0.25s ease;
-}
-
-.week-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 20px;
-}
-
-.week-title {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-/* =========================================
-WEEK STATES
-========================================= */
-
-.week-locked {
-    opacity: 0.45;
-    filter: grayscale(1);
-
-    background: rgba(60, 60, 60, 0.18);
-    border: 1px solid rgba(255, 0, 0, 0.16);
-}
-
-.week-active {
-    background:
-        linear-gradient(145deg,
-            rgba(255, 190, 0, 0.06),
-            rgba(255, 160, 0, 0.03));
-
-    border: 1px solid rgba(255, 190, 0, 0.22);
-}
-
-.week-completed {
-    background:
-        linear-gradient(145deg,
-            rgba(0, 255, 120, 0.05),
-            rgba(0, 180, 100, 0.03));
-
-    border: 1px solid rgba(0, 255, 120, 0.16);
-}
-
-/* =========================================
-LEVELS GRID
+   LEVELS GRID
 ========================================= */
 
 .levels-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(320px, 1fr)
+        );
+
     gap: 22px;
     align-items: start;
 }
 
+/* =========================================
+   QUIZ BLOCK
+========================================= */
+
+.week-block {
+    padding: 22px;
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
 .levels-grid .week-block {
-    margin-top: 0;
     height: fit-content;
 }
 
-.levels-grid .quiz-card {
-    margin: 14px 0;
-}
-
-.levels-grid textarea {
-    min-height: 110px;
+.week-title {
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 800;
 }
 
 /* =========================================
-LAYOUT GRID
+   QUIZ STATES
 ========================================= */
 
-.exercise-grid,
-.quiz-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+.week-locked {
+    opacity: 0.55;
+    filter: grayscale(0.85);
 
-    margin-bottom: 20px;
+    background:
+        rgba(60, 60, 60, 0.18);
+
+    border:
+        1px solid rgba(255, 70, 70, 0.18);
+}
+
+.week-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 190, 0, 0.07),
+            rgba(255, 160, 0, 0.025)
+        );
+
+    border:
+        1px solid rgba(255, 190, 0, 0.25);
+}
+
+.week-completed {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 255, 120, 0.07),
+            rgba(0, 180, 100, 0.025)
+        );
+
+    border:
+        1px solid rgba(0, 255, 120, 0.2);
 }
 
 /* =========================================
-CARDS
-========================================= */
-
-.exercise-card,
-.info-card {
-    padding: 20px;
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.section-title {
-    margin-bottom: 14px;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.exercise-list {
-    padding-left: 18px;
-    margin-bottom: 18px;
-}
-
-.exercise-list li {
-    margin-bottom: 8px;
-}
-
-/* =========================================
-INPUTS
-========================================= */
-
-label {
-    display: block;
-
-    margin-bottom: 10px;
-
-    color: #67e8f9;
-}
-
-textarea,
-input,
-select {
-    width: 100%;
-
-    padding: 12px;
-    margin-bottom: 14px;
-
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-
-    outline: none;
-}
-
-textarea {
-    min-height: 140px;
-    resize: vertical;
-    line-height: 1.6;
-}
-
-textarea[readonly] {
-    opacity: 0.65;
-}
-
-/* =========================================
-ADMIN
-========================================= */
-
-.admin-badge {
-    display: none;
-    width: fit-content;
-
-    margin-bottom: 16px;
-    padding: 8px 12px;
-
-    border-radius: 999px;
-
-    background: rgba(255, 190, 0, 0.14);
-    border: 1px solid rgba(255, 190, 0, 0.26);
-
-    color: #fde68a;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.admin-panel {
-    margin-bottom: 24px;
-    padding: 18px;
-
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.admin-control {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-
-    margin-bottom: 20px;
-}
-
-.admin-control input {
-    width: 18px;
-    height: 18px;
-
-    accent-color: #67e8f9;
-}
-
-.week-admin-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-}
-
-.week-status-admin {
-    padding: 14px;
-
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.week-admin-title {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.admin-review {
-    margin-top: 20px;
-}
-
-/* =========================================
-FEEDBACK
-========================================= */
-
-.trainer-feedback {
-    margin-top: 18px;
-    padding: 18px;
-
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.04);
-    border-left: 4px solid #22c55e;
-}
-
-.feedback-line {
-    margin-bottom: 14px;
-}
-
-.feedback-grade {
-    margin-top: 10px;
-
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* =========================================
-QUIZ
+   QUIZ META
 ========================================= */
 
 .quiz-meta {
     margin: 14px 0 20px;
 
     color: rgba(255, 255, 255, 0.7);
+
     font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   QUIZ QUESTIONS
+========================================= */
+
+.quiz-list {
+    display: grid;
+    gap: 16px;
 }
 
 .quiz-card {
     padding: 20px;
-    margin: 20px 0;
 
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
 
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+    margin-bottom: 14px;
+
+    color: #67e8f9;
+
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
 }
 
 .quiz-question {
@@ -446,95 +338,275 @@ QUIZ
     line-height: 1.5;
 }
 
+/* =========================================
+   ANSWERS
+========================================= */
+
 .quiz-answers {
     display: grid;
     gap: 10px;
 }
 
 .quiz-answer-btn {
-    padding: 12px;
+    width: 100%;
+    padding: 12px 14px;
 
-    border: none;
+    border: 1px solid transparent;
     border-radius: 10px;
 
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+    background:
+        rgba(255, 255, 255, 0.12);
 
-    cursor: pointer;
+    color: #ffffff;
+
+    font: inherit;
     text-align: left;
 
-    transition: 0.2s ease;
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
 }
 
-.quiz-answer-btn:hover {
-    background: rgba(103, 232, 249, 0.18);
+.quiz-answer-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    background:
+        rgba(103, 232, 249, 0.18);
+
+    border-color:
+        rgba(103, 232, 249, 0.22);
 }
 
 .quiz-answer-btn:disabled {
     cursor: default;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
-.answer-correct {
+.quiz-answer-btn.answer-correct {
     background: #15803d;
-    color: white;
+    border-color: rgba(134, 239, 172, 0.55);
+
+    color: #ffffff;
 }
 
-.answer-wrong {
+.quiz-answer-btn.answer-wrong {
     background: #991b1b;
-    color: white;
+    border-color: rgba(254, 202, 202, 0.5);
+
+    color: #ffffff;
 }
 
 /* =========================================
-CRT LOGIN / LAST STARFIGHTER SCREEN
+   LOCKED QUIZ
+========================================= */
+
+.locked-quiz-message {
+    margin-top: 18px;
+    padding: 22px;
+
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 0, 0, 0.45),
+            rgba(20, 20, 30, 0.35)
+        );
+
+    color: rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   EMPTY QUIZ
+========================================= */
+
+.empty-quiz-message {
+    padding: 22px;
+
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+}
+
+/* =========================================
+   QUIZ RESULTS
+========================================= */
+
+.quiz-live-result {
+    margin-top: 20px;
+}
+
+.quiz-result {
+    margin: 20px 0;
+    padding: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 700;
+}
+
+.quiz-result.success {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 197, 94, 0.14),
+            rgba(21, 128, 61, 0.08)
+        );
+
+    border-color:
+        rgba(34, 197, 94, 0.35);
+
+    color: #bbf7d0;
+}
+
+.quiz-result.medium-unlocked {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(250, 204, 21, 0.12),
+            rgba(234, 179, 8, 0.06)
+        );
+
+    border-color:
+        rgba(250, 204, 21, 0.32);
+
+    color: #fef08a;
+}
+
+.quiz-result.failed {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(239, 68, 68, 0.12),
+            rgba(153, 27, 27, 0.06)
+        );
+
+    border-color:
+        rgba(239, 68, 68, 0.3);
+
+    color: #fecaca;
+}
+
+/* =========================================
+   RESET QUIZ BUTTON
+========================================= */
+
+.reset-quiz-btn {
+    display: block;
+
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 16px;
+
+    border: 1px solid rgba(103, 232, 249, 0.25);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 165, 233, 0.9),
+            rgba(37, 99, 235, 0.9)
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.reset-quiz-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 0 18px rgba(56, 189, 248, 0.18);
+}
+
+/* =========================================
+   CRT LOGIN SCREEN
 ========================================= */
 
 #loginView {
     position: fixed;
     inset: 0;
+    z-index: 10000;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    overflow: hidden;
+    padding: 20px;
+    overflow: auto;
 
     background:
-        radial-gradient(circle at center,
+        radial-gradient(
+            circle at center,
             rgba(25, 70, 110, 0.22) 0%,
             rgba(5, 10, 20, 0.88) 45%,
-            #010204 100%);
+            #010204 100%
+        );
 }
 
-/* pozadinski glow */
 #loginView::before {
     content: "";
+
     position: absolute;
     inset: 0;
 
     background:
-        radial-gradient(circle,
-            rgba(70, 170, 255, 0.10) 0%,
+        radial-gradient(
+            circle,
+            rgba(70, 170, 255, 0.1) 0%,
             rgba(30, 120, 220, 0.06) 25%,
-            transparent 60%);
+            transparent 60%
+        );
 
     filter: blur(10px);
+
     pointer-events: none;
 }
 
-/* vanjsko kućište */
 .login-box {
     position: relative;
-    width: 460px;
+
+    width: min(460px, 100%);
     padding: 26px;
+
+    border: 2px solid rgba(120, 140, 170, 0.25);
     border-radius: 26px;
 
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             #0a0f18 0%,
-            #05080f 100%);
-
-    border: 2px solid rgba(120, 140, 170, 0.25);
+            #05080f 100%
+        );
 
     box-shadow:
         0 0 30px rgba(0, 0, 0, 0.55),
@@ -542,20 +614,23 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
         inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-/* CRT ekran */
 .login-screen {
     position: relative;
-    overflow: hidden;
-    border-radius: 18px;
+
     padding: 26px 24px 24px;
 
+    border: 1px solid rgba(103, 232, 249, 0.18);
+    border-radius: 18px;
+
+    overflow: hidden;
+
     background:
-        radial-gradient(circle at center,
+        radial-gradient(
+            circle at center,
             rgba(20, 80, 110, 0.45) 0%,
             rgba(10, 35, 55, 0.88) 40%,
-            rgba(5, 12, 20, 0.96) 100%);
-
-    border: 1px solid rgba(103, 232, 249, 0.18);
+            rgba(5, 12, 20, 0.96) 100%
+        );
 
     box-shadow:
         inset 0 0 35px rgba(80, 180, 255, 0.16),
@@ -563,44 +638,47 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
         0 0 20px rgba(56, 189, 248, 0.12);
 }
 
-/* scanlines */
 .login-screen::before {
     content: "";
+
     position: absolute;
     inset: 0;
-    pointer-events: none;
 
     background:
         repeating-linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.045) 0px,
+            rgba(255, 255, 255, 0.045) 0,
             rgba(255, 255, 255, 0.045) 1px,
-            rgba(0, 0, 0, 0.0) 1px,
-            rgba(0, 0, 0, 0.0) 4px
+            transparent 1px,
+            transparent 4px
         );
 
     opacity: 0.28;
+
+    pointer-events: none;
 }
 
-/* CRT blur / vignette / staklo */
 .login-screen::after {
     content: "";
+
     position: absolute;
     inset: 0;
-    pointer-events: none;
 
     background:
-        radial-gradient(circle at center,
+        radial-gradient(
+            circle at center,
             transparent 40%,
-            rgba(0, 0, 0, 0.20) 82%,
-            rgba(0, 0, 0, 0.40) 100%);
+            rgba(0, 0, 0, 0.2) 82%,
+            rgba(0, 0, 0, 0.4) 100%
+        );
 
     box-shadow:
         inset 0 0 25px rgba(0, 0, 0, 0.35),
         inset 0 0 80px rgba(0, 0, 0, 0.25);
+
+    pointer-events: none;
 }
 
-/* sadržaj ide iznad overlay slojeva */
 .login-screen-inner {
     position: relative;
     z-index: 2;
@@ -612,77 +690,77 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
     text-align: center;
 }
 
-/* mali gornji red */
 .login-kicker {
     color: rgba(140, 230, 255, 0.75);
+
+    font-family: "Courier New", monospace;
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    font-family: "Courier New", monospace;
 
     text-shadow:
         0 0 6px rgba(103, 232, 249, 0.55);
-
-    filter: blur(0.25px);
 }
 
-/* glavni naslov - CRT mutni sjaj */
 .login-title {
     margin: 4px 0 6px;
 
     color: #9eeeff;
+
+    font-family: "Courier New", monospace;
     font-size: 28px;
     line-height: 1.05;
     font-weight: 900;
     letter-spacing: 3px;
     text-transform: uppercase;
-    font-family: "Courier New", monospace;
 
     text-shadow:
         0 0 3px rgba(180, 240, 255, 0.85),
         0 0 10px rgba(103, 232, 249, 0.65),
         0 0 22px rgba(56, 189, 248, 0.35);
-
-    filter: blur(0.35px);
 }
 
-/* podnaslov - malo slabiji i mutniji */
 .login-subtitle {
     color: rgba(185, 235, 255, 0.72);
+
+    font-family: "Courier New", monospace;
     font-size: 13px;
     line-height: 1.5;
-    font-family: "Courier New", monospace;
 
     text-shadow:
         0 0 5px rgba(103, 232, 249, 0.35);
-
-    filter: blur(0.2px);
 }
 
-/* input na CRT ekranu */
+.login-subtitle p {
+    margin: 0;
+}
+
 .login-box input {
     width: 100%;
-    padding: 14px 16px;
     margin-top: 6px;
+    padding: 14px 16px;
 
-    border-radius: 10px;
     border: 1px solid rgba(120, 230, 255, 0.28);
+    border-radius: 10px;
 
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             rgba(5, 15, 24, 0.95),
-            rgba(3, 8, 16, 0.98));
+            rgba(3, 8, 16, 0.98)
+        );
 
     color: #d7f8ff;
-    font-size: 17px;
-    text-align: center;
-    letter-spacing: 2px;
+
     font-family: "Courier New", monospace;
+    font-size: 17px;
+    letter-spacing: 2px;
+    text-align: center;
 
     outline: none;
 
     box-shadow:
-        inset 0 0 18px rgba(103, 232, 249, 0.10),
+        inset 0 0 18px rgba(103, 232, 249, 0.1),
         0 0 8px rgba(56, 189, 248, 0.08);
 }
 
@@ -698,7 +776,6 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
         0 0 16px rgba(250, 204, 21, 0.18);
 }
 
-/* gumb */
 .login-box button {
     width: 100%;
     padding: 13px;
@@ -707,21 +784,24 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
     border-radius: 10px;
 
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             rgba(250, 170, 40, 0.92),
-            rgba(220, 110, 25, 0.92));
+            rgba(220, 110, 25, 0.92)
+        );
 
     color: #081018;
+
+    font-family: "Courier New", monospace;
     font-size: 14px;
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-family: "Courier New", monospace;
 
     cursor: pointer;
 
     box-shadow:
-        0 0 12px rgba(250, 180, 40, 0.20),
+        0 0 12px rgba(250, 180, 40, 0.2),
         inset 0 -2px 0 rgba(0, 0, 0, 0.18);
 
     transition:
@@ -736,7 +816,7 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
 
     box-shadow:
         0 0 18px rgba(250, 180, 40, 0.28),
-        0 0 35px rgba(255, 120, 40, 0.10);
+        0 0 35px rgba(255, 120, 40, 0.1);
 }
 
 .login-box button:active {
@@ -744,7 +824,7 @@ CRT LOGIN / LAST STARFIGHTER SCREEN
 }
 
 /* =========================================
-LOGOUT
+   LOGOUT
 ========================================= */
 
 #logoutBtn {
@@ -759,89 +839,148 @@ LOGOUT
     border-radius: 12px;
 
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             #0ea5e9,
-            #2563eb);
+            #2563eb
+        );
 
-    color: white;
+    color: #ffffff;
 
-    font-weight: bold;
+    font-weight: 800;
+
     cursor: pointer;
+
+    box-shadow:
+        0 0 18px rgba(37, 99, 235, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+#logoutBtn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
 }
 
 /* =========================================
-YEAR THEMES
+   LEVEL THEMES
 ========================================= */
 
 .month-block.year-1 {
     background:
-        linear-gradient(180deg,
-            rgba(10, 40, 80, 0.30),
-            rgba(5, 20, 40, 0.20));
+        linear-gradient(
+            180deg,
+            rgba(10, 40, 80, 0.3),
+            rgba(5, 20, 40, 0.2)
+        );
 
-    border: 1px solid rgba(56, 189, 248, 0.18);
+    border:
+        1px solid rgba(56, 189, 248, 0.18);
 }
 
 .month-block.year-2 {
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             rgba(10, 80, 55, 0.28),
-            rgba(5, 35, 25, 0.20));
+            rgba(5, 35, 25, 0.2)
+        );
 
-    border: 1px solid rgba(34, 197, 94, 0.20);
+    border:
+        1px solid rgba(34, 197, 94, 0.2);
 }
 
 .month-block.year-3 {
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             rgba(70, 20, 120, 0.24),
-            rgba(25, 10, 60, 0.18));
+            rgba(25, 10, 60, 0.18)
+        );
 
-    border: 1px solid rgba(168, 85, 247, 0.22);
+    border:
+        1px solid rgba(168, 85, 247, 0.22);
+}
+
+.month-block.year-4 {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110, 20, 20, 0.28),
+            rgba(45, 5, 5, 0.2)
+        );
+
+    border:
+        1px solid rgba(239, 68, 68, 0.22);
 }
 
 /* =========================================
-HERO THEMES
+   HERO THEMES
 ========================================= */
 
 .hero-year-1 .hero-content {
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             #082032,
             #0f3460,
-            #051923);
+            #051923
+        );
 }
 
 .hero-year-2 .hero-content {
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             #042f2e,
             #065f46,
-            #021c18);
+            #021c18
+        );
 }
 
 .hero-year-3 .hero-content {
     background:
-        linear-gradient(135deg,
+        linear-gradient(
+            135deg,
             #240046,
             #3c096c,
-            #10002b);
+            #10002b
+        );
 }
 
+.hero-year-4 .hero-content {
+    background:
+        linear-gradient(
+            135deg,
+            #260606,
+            #5b1010,
+            #160202
+        );
+}
 
 /* =========================================
-   IMAGE ZOOM / LIGHTBOX SYSTEM
+   IMAGE ZOOM / LIGHTBOX
 ========================================= */
 
 #imageOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 10, 25, 0.85);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
     z-index: 9998;
+
+    opacity: 0;
+
+    background:
+        rgba(0, 10, 25, 0.85);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease;
 }
 
 #imageOverlay.active {
@@ -851,167 +990,57 @@ HERO THEMES
 
 .zoomable-image {
     cursor: pointer;
-    transition: box-shadow 0.35s ease;
+
+    transition:
+        box-shadow 0.35s ease;
 }
 
 .zoomable-image.zoomed {
     position: fixed;
     top: 50%;
     left: 50%;
-    max-width: 85vw;
-    max-height: 85vh;
+    z-index: 9999;
+
     width: auto;
     height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
+
+    max-width: 85vw;
+    max-height: 85vh;
+
+    transform:
+        translate(-50%, -50%);
+
     border-radius: 18px;
+
+    object-fit: contain;
 }
 
-/* LEVEL 1 / LIGHT — blue glow */
 body.year-1 .zoomable-image.zoomed {
     box-shadow:
         0 0 45px rgba(80, 180, 255, 0.9),
         0 0 90px rgba(56, 189, 248, 0.45);
 }
 
-/* LEVEL 3 / MEDIUM — reddish glow */
-body.year-3 .zoomable-image.zoomed {
-    box-shadow:
-        0 0 45px rgba(255, 80, 80, 0.9),
-        0 0 90px rgba(220, 38, 38, 0.45);
-}
-
-/* LEVEL 2 / HARD — greenish glow */
 body.year-2 .zoomable-image.zoomed {
     box-shadow:
         0 0 45px rgba(80, 255, 150, 0.9),
         0 0 90px rgba(34, 197, 94, 0.45);
 }
 
-/* =========================================
-LOCKED QUIZ MESSAGE
-========================================= */
+body.year-3 .zoomable-image.zoomed {
+    box-shadow:
+        0 0 45px rgba(200, 100, 255, 0.9),
+        0 0 90px rgba(168, 85, 247, 0.45);
+}
 
-.locked-quiz-message {
-    margin-top: 18px;
-    padding: 22px;
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(145deg,
-            rgba(0, 0, 0, 0.45),
-            rgba(20, 20, 30, 0.35));
-
-    border: 1px dashed rgba(255, 255, 255, 0.18);
-
-    color: rgba(255, 255, 255, 0.65);
-
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 1px;
+body.year-4 .zoomable-image.zoomed {
+    box-shadow:
+        0 0 45px rgba(255, 80, 80, 0.9),
+        0 0 90px rgba(220, 38, 38, 0.45);
 }
 
 /* =========================================
-RANDOM LOGIN PORUKA
-========================================= */
-
-.login-subtitle p {
-    margin: 0;
-}
-
-
-/* =========================================
-   QUIZ REWARD FLIP CARD
-========================================= */
-
-.quiz-reward-card {
-    width: 220px;
-    height: 300px;
-    margin: 2rem auto;
-    perspective: 1000px;
-}
-
-.reward-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-    transition: transform 0.8s ease;
-    transform-style: preserve-3d;
-}
-
-.quiz-reward-card.unlocked .reward-inner {
-    transform: rotateY(180deg);
-}
-
-.reward-face {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    border-radius: 16px;
-    overflow: hidden;
-
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
-}
-
-.reward-face img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-
-    display: block;
-    object-fit: cover;
-}
-
-.reward-back {
-    transform: rotateY(0deg);
-}
-
-.reward-front {
-    transform: rotateY(180deg);
-}
-
-.quiz-reward-card.locked {
-    filter: grayscale(0.4);
-    opacity: 0.85;
-}
-
-.reward-message {
-    margin-top: 0.75rem;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.85;
-}
-
-.quiz-reward-card.newly-unlocked {
-    animation: rewardPulse 1.2s ease;
-}
-
-@keyframes rewardPulse {
-    0% {
-        transform: scale(1);
-    }
-
-    40% {
-        transform: scale(1.06);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-
-/* =========================================
-RESPONSIVE
+   RESPONSIVE — TABLET
 ========================================= */
 
 @media (max-width: 900px) {
@@ -1021,30 +1050,111 @@ RESPONSIVE
 
     .hero-content {
         flex-direction: column;
+
+        padding: 30px;
+
         text-align: center;
     }
 
-    .hero-main-text {
-        font-size: 42px;
+    .hero-left {
+        width: 100%;
+    }
+
+    .hero-subtext {
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .hero-image img {
         width: 220px;
         height: 420px;
     }
+
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
 @media (max-width: 600px) {
-    .exercise-grid,
-    .quiz-grid {
-        grid-template-columns: 1fr;
+    body {
+        padding: 10px;
+    }
+
+    .hero {
+        margin-bottom: 24px;
+    }
+
+    .hero-content {
+        gap: 24px;
+        padding: 24px 18px;
+    }
+
+    .hero-main-text {
+        font-size: 36px;
+    }
+
+    .hero-subtext {
+        font-size: 16px;
+    }
+
+    .hero-image img {
+        width: 190px;
+        height: 360px;
+    }
+
+    .month-block {
+        margin-bottom: 24px;
+        padding: 18px;
     }
 
     .month-title {
         font-size: 24px;
     }
 
+    .week-block {
+        padding: 16px;
+    }
+
     .week-title {
         font-size: 18px;
     }
+
+    .quiz-card {
+        padding: 16px;
+    }
+
+    .quiz-question {
+        font-size: 16px;
+    }
+
+    .levels-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .login-box {
+        padding: 14px;
+    }
+
+    .login-screen {
+        padding: 22px 16px;
+    }
+
+    .login-title {
+        font-size: 22px;
+    }
+
+    #logoutBtn {
+        top: 10px;
+        right: 10px;
+
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
 }
+

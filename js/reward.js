@@ -11,7 +11,7 @@ function getRewardKey(year, month, week) {
 }
 
 function getRewardImage(year, month, week) {
-    return `assets/images/copyright-risk/Osobe/reward-${year}-${month}-${week}.png`;
+    return `assets/images/copyright-risk/reward-${year}-${month}-${week}.png`;
 }
 
 /* =========================================

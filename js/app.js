@@ -13,6 +13,13 @@
 
 const ACTIVE_LEVEL = 1;
 
+const LEVEL_HERO_IMAGES = {
+    1: "assets/images/year1.png",
+    2: "assets/images/year2.png",
+    3: "assets/images/year3b.png",
+    4: "assets/images/year4.png"
+};
+
 const QUIZ_GROUPS = [
     {
         id: "machines",
@@ -131,28 +138,49 @@ function renderHeroText() {
     const userYearDisplay =
         document.getElementById("userYearDisplay");
 
+    const heroTitles = {
+        1: "Dani prošle budućnosti",
+        2: "Neobjašnjivi signali iz dubine žanra",
+        3: "Arhiva zabranjenih svjetova",
+        4: "Tajna arhiva nemogućih svjetova"
+    };
+
+    const heroSubtexts = {
+        1: "Light kvizovi su odmah dostupni. Ako iz neke teme riješiš barem 6 od 8 pitanja, otključava se Medium te teme. Ako riješiš barem 7 od 8, osvajaš nagradnu sliku.",
+        2: "Cult razina donosi slabije poznate filmove i zahtjevnija pitanja iz strojeva, distopija i izvanzemaljaca.",
+        3: "Advanced razina vodi te kroz opskurnije i teže SF naslove koje pamte samo pravi žanrovski arheolozi.",
+        4: "Secret level okuplja hardcore pitanja, detalje, zamke i da/ne izazove za arhivske ratnike SF-a."
+    };
+
+    const levelLabels = {
+        1: "LEVEL 1 — Light Protocol",
+        2: "LEVEL 2 — Cult Following",
+        3: "LEVEL 3 — Advanced SF",
+        4: "SECRET LEVEL — Hardcore Protocol"
+    };
+
     if (title) {
         title.textContent =
-            "Dani prošle budućnosti";
+            heroTitles[ACTIVE_LEVEL] || "SF Quiz Progression";
     }
 
     if (subtext) {
         subtext.textContent =
-            "Light kvizovi su odmah dostupni. Ako iz neke teme riješiš barem 6 od 8 pitanja, otključava se Medium te teme. Ako riješiš barem 7 od 8, osvajaš nagradnu sliku.";
+            heroSubtexts[ACTIVE_LEVEL] || "";
     }
 
     if (image) {
         image.src =
-            "images/year1.png";
+            LEVEL_HERO_IMAGES[ACTIVE_LEVEL] || "assets/images/year1.png";
 
         image.alt =
-            "SF quiz";
+            `Level ${ACTIVE_LEVEL} hero image`;
     }
 
     if (userYearDisplay) {
         userYearDisplay.innerHTML = `
             <div class="active-year-label">
-                LEVEL 1 — Light Protocol
+                ${levelLabels[ACTIVE_LEVEL] || "LEVEL 1"}
             </div>
         `;
     }
@@ -474,33 +502,34 @@ function getQuizQuestions(
    REWARD MAPPING
 ========================================= */
 
-function getRewardData(
-    difficulty,
-    group
-) {
-    if (difficulty !== "light") {
+function getRewardData(difficulty, group) {
+    const difficultyNumber = {
+        light: 1,
+        medium: 2,
+        hard: 3
+    };
+
+    const groupNumber = {
+        machines: 1,
+        dystopia: 2,
+        aliens: 3
+    };
+
+    const year =
+        difficultyNumber[difficulty];
+
+    const month =
+        groupNumber[group];
+
+    if (!year || !month) {
         return null;
     }
 
-    const rewardMap = {
-        machines: {
-            year: 1,
-            month: 1,
-            week: 1
-        },
-        dystopia: {
-            year: 1,
-            month: 2,
-            week: 1
-        },
-        aliens: {
-            year: 1,
-            month: 3,
-            week: 1
-        }
+    return {
+        year,
+        month,
+        week: 1
     };
-
-    return rewardMap[group] || null;
 }
 
 function getRewardElementSelector(

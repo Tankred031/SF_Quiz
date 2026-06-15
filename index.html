@@ -11,8 +11,6 @@
 
     <title>SF Quiz Progression</title>
 
-    <!-- CSS -->
-
     <link
         rel="stylesheet"
         href="css/quiz.css"
@@ -23,69 +21,29 @@
         href="css/reward.css"
     >
 
-    <!-- FAVICON -->
-
     <link
         rel="shortcut icon"
-        href="images/extraterrestrial.png"
+        href="assets/images/extraterrestrial.png"
         type="image/png"
     >
 
-    <!-- LOGIN -->
+    <script src="js/login.js" defer></script>
 
-    <script
-        src="js/login.js"
-        defer
-    ></script>
+    <script src="js/data/level1.js" defer></script>
+    <script src="js/data/level2.js" defer></script>
+    <script src="js/data/level3.js" defer></script>
+    <script src="js/data/level4.js" defer></script>
 
-    <!-- LEVEL DATA -->
-
-    <script
-        src="js/data/level1.js"
-        defer
-    ></script>
-
-    <script
-        src="js/data/level2.js"
-        defer
-    ></script>
-
-    <script
-        src="js/data/level3.js"
-        defer
-    ></script>
-
-    <script
-        src="js/data/level4.js"
-        defer
-    ></script>
-
-    <!-- REWARD SYSTEM -->
-
-    <script
-        src="js/reward.js"
-        defer
-    ></script>
-
-    <!-- MAIN APP - UVIJEK ZADNJI -->
-
-    <script
-        src="js/app.js"
-        defer
-    ></script>
+    <script src="js/reward.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 
 <body class="logged-out">
-
-    <!-- =====================================
-         HERO
-    ====================================== -->
 
     <section
         class="hero"
         id="hero"
     >
-
         <div class="hero-content">
 
             <div class="hero-left">
@@ -110,11 +68,6 @@
                     i izvanzemaljcima.
                 </div>
 
-                <!--
-                    Ovdje app.js prikazuje:
-                    LIGHT / MEDIUM / HARD / SECRET
-                -->
-
                 <div
                     id="userYearDisplay"
                     class="user-year-display"
@@ -127,19 +80,14 @@
                 <img
                     id="heroImage"
                     class="zoomable-image"
-                    src="images/Ripley2.png"
-                    alt="SF quiz"
+                    src="assets/images/year1.png"
+                    alt="SF Quiz Progression"
                 >
 
             </div>
 
         </div>
-
     </section>
-
-    <!-- =====================================
-         MAIN APP
-    ====================================== -->
 
     <main
         id="appView"
@@ -148,10 +96,6 @@
         <div id="app"></div>
     </main>
 
-    <!-- =====================================
-         LOGOUT
-    ====================================== -->
-
     <button
         id="logoutBtn"
         type="button"
@@ -159,10 +103,6 @@
     >
         LOGOUT
     </button>
-
-    <!-- =====================================
-         LOGIN
-    ====================================== -->
 
     <div id="loginView">
 
@@ -184,7 +124,6 @@
                         class="login-subtitle"
                         id="loginSubtitle"
                     >
-
                         <p>
                             Bojiš se da će nas vlastiti izumi prerasti? —
                             Želiš da stvorimo savršenu inteligenciju,
@@ -202,7 +141,6 @@
                             Nepoznato je nekad čudovište, nekad spasitelj,
                             a nekad ogledalo nas samih.
                         </p>
-
                     </div>
 
                     <input
@@ -227,13 +165,8 @@
 
     </div>
 
-    <!-- =====================================
-         IMAGE OVERLAY
-    ====================================== -->
-
     <div id="imageOverlay"></div>
 
 </body>
 
 </html>
-
