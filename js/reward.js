@@ -160,15 +160,8 @@ function unlockQuizReward(rewardCard) {
         return;
     }
 
-    if (
-        isPlaceholderRewardCard(
-            rewardCard
-        )
-    ) {
-        lockRewardCard(
-            rewardCard
-        );
-
+    if (isPlaceholderRewardCard(rewardCard)) {
+        lockRewardCard(rewardCard);
         return;
     }
 
@@ -181,17 +174,9 @@ function unlockQuizReward(rewardCard) {
     const week =
         rewardCard.dataset.rewardWeek;
 
-    rewardCard.classList.remove(
-        "locked"
-    );
-
-    rewardCard.classList.add(
-        "unlocked"
-    );
-
-    rewardCard.classList.add(
-        "newly-unlocked"
-    );
+    rewardCard.classList.remove("locked");
+    rewardCard.classList.add("unlocked");
+    rewardCard.classList.add("newly-unlocked");
 
     localStorage.setItem(
         getRewardKey(
@@ -202,10 +187,39 @@ function unlockQuizReward(rewardCard) {
         "unlocked"
     );
 
+    /*
+       Označava trenutni kviz završenim
+       i aktivira sljedeći tjedan ili mjesec.
+    */
+
+    if (
+        typeof completeQuizProgress ===
+        "function"
+    ) {
+        completeQuizProgress(
+            year,
+            month,
+            week
+        );
+    }
+
+    /*
+       Najprije ostavimo animaciju nagrade,
+       a zatim ponovno prikažemo aplikaciju
+       kako bi se vidio sljedeći otključani dio.
+    */
+
     setTimeout(() => {
         rewardCard.classList.remove(
             "newly-unlocked"
         );
+
+        if (
+            typeof renderApp ===
+            "function"
+        ) {
+            renderApp();
+        }
     }, 1200);
 }
 

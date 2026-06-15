@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -10,39 +11,80 @@
 
     <title>SF Quiz Progression</title>
 
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/reward.css">
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/quiz.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/reward.css"
+    >
+
+    <!-- FAVICON -->
 
     <link
         rel="shortcut icon"
-        href="assets/images/extraterrestrial.png"
+        href="images/extraterrestrial.png"
         type="image/png"
     >
 
-    <!-- LOGIN / ADMIN / USER -->
+    <!-- LOGIN -->
 
-    <script src="js/login.js" defer></script>
-    <script src="js/admin.js" defer></script>
-    <script src="js/user.js" defer></script>
+    <script
+        src="js/login.js"
+        defer
+    ></script>
 
     <!-- LEVEL DATA -->
 
-    <script src="js/data/level1.js" defer></script>
-    <script src="js/data/level2.js" defer></script>
-    <script src="js/data/level3.js" defer></script>
-    <script src="js/data/level4.js" defer></script>
+    <script
+        src="js/data/level1.js"
+        defer
+    ></script>
 
-    <!-- REWARD AND MAIN APP -->
+    <script
+        src="js/data/level2.js"
+        defer
+    ></script>
 
-    <script src="js/reward.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script
+        src="js/data/level3.js"
+        defer
+    ></script>
+
+    <script
+        src="js/data/level4.js"
+        defer
+    ></script>
+
+    <!-- REWARD SYSTEM -->
+
+    <script
+        src="js/reward.js"
+        defer
+    ></script>
+
+    <!-- MAIN APP - UVIJEK ZADNJI -->
+
+    <script
+        src="js/app.js"
+        defer
+    ></script>
 </head>
 
 <body class="logged-out">
 
-    <!-- HERO -->
+    <!-- =====================================
+         HERO
+    ====================================== -->
 
-    <section class="hero" id="hero">
+    <section
+        class="hero"
+        id="hero"
+    >
 
         <div class="hero-content">
 
@@ -52,51 +94,26 @@
                     SF QUIZ PROGRESSION
                 </div>
 
-                <div id="adminBadge" class="admin-badge">
-                    ADMIN MODE
-                </div>
-
-                <h1 id="heroTitle" class="hero-main-text">
+                <h1
+                    id="heroTitle"
+                    class="hero-main-text"
+                >
                     Dani prošle budućnosti
                 </h1>
 
-                <div id="heroSubtext" class="hero-subtext">
-                    Prođi kroz kultne SF filmove, otključavaj sve teže kvizove
-                    i testiraj znanje o distopijama, strojevima i
-                    izvanzemaljcima.
+                <div
+                    id="heroSubtext"
+                    class="hero-subtext"
+                >
+                    Prođi kroz kultne SF filmove, otključavaj sve teže
+                    kvizove i testiraj znanje o distopijama, strojevima
+                    i izvanzemaljcima.
                 </div>
 
-                <!-- ADMIN YEAR SELECT -->
-
-                <div class="year-selector admin-only">
-
-                    <label for="yearSelect">
-                        Program
-                    </label>
-
-                    <select id="yearSelect">
-
-                        <option value="1">
-                            Level 1 — Mainstream SF
-                        </option>
-
-                        <option value="2">
-                            Level 2 — Cult Following
-                        </option>
-
-                        <option value="3">
-                            Level 3 — Advanced SF
-                        </option>
-
-                        <option value="4">
-                            Secret Level
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <!-- USER YEAR TITLE -->
+                <!--
+                    Ovdje app.js prikazuje:
+                    LIGHT / MEDIUM / HARD / SECRET
+                -->
 
                 <div
                     id="userYearDisplay"
@@ -110,7 +127,7 @@
                 <img
                     id="heroImage"
                     class="zoomable-image"
-                    src="assets/images/Ripley2.png"
+                    src="images/Ripley2.png"
                     alt="SF quiz"
                 >
 
@@ -120,19 +137,32 @@
 
     </section>
 
-    <!-- APP -->
+    <!-- =====================================
+         MAIN APP
+    ====================================== -->
 
-    <div id="appView" style="display: none;">
+    <main
+        id="appView"
+        style="display: none;"
+    >
         <div id="app"></div>
-    </div>
+    </main>
 
-    <!-- LOGOUT -->
+    <!-- =====================================
+         LOGOUT
+    ====================================== -->
 
-    <button id="logoutBtn" onclick="logout()">
+    <button
+        id="logoutBtn"
+        type="button"
+        onclick="logout()"
+    >
         LOGOUT
     </button>
 
-    <!-- LOGIN -->
+    <!-- =====================================
+         LOGIN
+    ====================================== -->
 
     <div id="loginView">
 
@@ -179,9 +209,13 @@
                         id="password"
                         type="password"
                         placeholder="ACCESS CODE"
+                        autocomplete="current-password"
                     >
 
-                    <button onclick="login()">
+                    <button
+                        type="button"
+                        onclick="login()"
+                    >
                         START MISSION
                     </button>
 
@@ -193,10 +227,13 @@
 
     </div>
 
-    <!-- IMAGE OVERLAY -->
+    <!-- =====================================
+         IMAGE OVERLAY
+    ====================================== -->
 
     <div id="imageOverlay"></div>
 
 </body>
 
 </html>
+

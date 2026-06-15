@@ -1,82 +1,83 @@
+
 /* =========================================
-USER HELPERS
+MONTH / WEEK ACCESS
 ========================================= */
 
-function canUserSeeMonth(monthIndex) {
+function canUserSeeMonth(year, month) {
     if (isTrainer()) {
         return true;
     }
 
-    return localStorage.getItem(`month-unlock-${monthIndex}`) === "true";
+    return localStorage.getItem(
+        getMonthUnlockKey(
+            year,
+            month
+        )
+    ) === "true";
 }
 
-/* =========================================
-WEEK STATUS
-========================================= */
+function getWeekStatus(
+    year,
+    month,
+    week
+) {
+    return localStorage.getItem(
+        getWeekStatusKey(
+            year,
+            month,
+            week
+        )
+    ) || "locked";
+}
 
-function getWeekStatus(monthIndex, week) {
+function shouldHideWeek(
+    year,
+    month,
+    week
+) {
+    if (isTrainer()) {
+        return false;
+    }
+
+    const monthUnlocked =
+        canUserSeeMonth(
+            year,
+            month
+        );
+
+    if (!monthUnlocked) {
+        return true;
+    }
+
+    const status =
+        getWeekStatus(
+            year,
+            month,
+            week
+        );
+
+    return status === "locked";
+}
+
+function canUserEditWeek(
+    year,
+    month,
+    week
+) {
+    if (isTrainer()) {
+        return true;
+    }
+
+    const status =
+        getWeekStatus(
+            year,
+            month,
+            week
+        );
+
     return (
-        localStorage.getItem(`week-status-${monthIndex}-${week}`)
-        || "locked"
+        status === "active" ||
+        status === "completed"
     );
 }
 
-/* =========================================
-USER ACCESS
-========================================= */
-
-function canUserEditWeek(monthIndex, week) {
-    if (isTrainer()) {
-        return true;
-    }
-
-    return getWeekStatus(monthIndex, week) === "active";
-}
-
-/* =========================================
-HIDE COMPLETED
-========================================= */
-
-function shouldHideWeek(monthIndex, week) {
-    if (isTrainer()) {
-        return false;
-    }
-
-    return getWeekStatus(monthIndex, week) === "completed";
-}
-
-/* =========================================
-USER ACCESS HELPERS
-========================================= */
-
-function canUserSeeMonth(month) {
-    if (isTrainer()) {
-        return true;
-    }
-
-    return localStorage.getItem(`month-unlocked-${month}`) === "true";
-}
-
-function getWeekStatus(month, week) {
-    return localStorage.getItem(`week-status-${month}-${week}`) || "locked";
-}
-
-function canUserEditWeek(month, week) {
-    if (isTrainer()) {
-        return true;
-    }
-
-    const status = getWeekStatus(month, week);
-
-    return status === "active";
-}
-
-function shouldHideWeek(month, week) {
-    if (isTrainer()) {
-        return false;
-    }
-
-    const status = getWeekStatus(month, week);
-
-    return false;
-}
