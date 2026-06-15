@@ -110,13 +110,12 @@ const questions1 = {
             ]
         },
         {
-            id: "q1-dystopia-mad-max-02",
-            film: "Mad Max",
-            question: "Što znači kratica MFP na vozilima u filmu Mad Max?",
+            group: "dystopia",
+            question: "He-mana u filmu 'Masters of the Universe' glumi:",
             answers: [
-                "=*= Main Force Patrol",
-                "=== Metropolitan Free Police",
-                "=== Motorized Federal Police"
+                "=*= Dolph Lundgren",
+                "=== Arnold Schwarzenegger",
+                "=== Lou Ferrigno"
             ]
         },
         {

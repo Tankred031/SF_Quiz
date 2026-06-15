@@ -74,7 +74,12 @@ const QUIZ_DIFFICULTIES = [
 ];
 
 const MEDIUM_UNLOCK_SCORE = 6;
-const REWARD_UNLOCK_SCORE = 7;
+
+const REWARD_THRESHOLDS = {
+    light: 7,
+    medium: 10,
+    hard: 8
+};
 
 /* =========================================
    HERO
@@ -337,6 +342,11 @@ function resetQuiz(
         )
     );
 
+    /*
+       Ako se ponavlja Light,
+       ponovno zaključaj Medium.
+    */
+
     if (difficulty === "light") {
         localStorage.removeItem(
             getQuizUnlockedKey(
@@ -344,26 +354,35 @@ function resetQuiz(
                 group
             )
         );
+    }
 
-        const rewardData =
-            getRewardData(
-                difficulty,
-                group
-            );
+    /*
+       Briše nagradu za težinu
+       koja se upravo ponavlja.
+    */
 
-        if (rewardData) {
-            localStorage.removeItem(
-                getRewardKey(
-                    rewardData.year,
-                    rewardData.month,
-                    rewardData.week
-                )
-            );
-        }
+    const rewardData =
+        getRewardData(
+            difficulty,
+            group
+        );
+
+    if (
+        rewardData &&
+        typeof getRewardKey === "function"
+    ) {
+        localStorage.removeItem(
+            getRewardKey(
+                rewardData.year,
+                rewardData.month,
+                rewardData.week
+            )
+        );
     }
 
     renderApp();
 }
+
 
 /* =========================================
    QUIZ HELPERS
@@ -561,8 +580,20 @@ function getResultMessage(
     score,
     total
 ) {
+    const rewardThreshold =
+        REWARD_THRESHOLDS[difficulty];
+
     if (difficulty === "light") {
-        if (score >= REWARD_UNLOCK_SCORE) {
+        const mediumUnlocked =
+            score >= MEDIUM_UNLOCK_SCORE;
+
+        const rewardUnlocked =
+            score >= rewardThreshold;
+
+        if (
+            mediumUnlocked &&
+            rewardUnlocked
+        ) {
             return `
                 <div class="quiz-result success">
                     🏆 Rezultat: ${score} / ${total}<br>
@@ -571,11 +602,13 @@ function getResultMessage(
             `;
         }
 
-        if (score >= MEDIUM_UNLOCK_SCORE) {
+        if (mediumUnlocked) {
             return `
                 <div class="quiz-result medium-unlocked">
                     🔓 Rezultat: ${score} / ${total}<br>
-                    Medium ove teme je otključan. Za nagradnu sliku potrebno je najmanje ${REWARD_UNLOCK_SCORE} točnih odgovora.
+                    Medium ove teme je otključan.
+                    Za nagradnu sliku potrebno je najmanje
+                    ${rewardThreshold} točnih odgovora.
                 </div>
             `;
         }
@@ -583,14 +616,30 @@ function getResultMessage(
         return `
             <div class="quiz-result failed">
                 Rezultat: ${score} / ${total}<br>
-                Medium ostaje zaključan. Za otključavanje treba najmanje ${MEDIUM_UNLOCK_SCORE} točnih odgovora.
+                Medium ostaje zaključan.
+                Za otključavanje treba najmanje
+                ${MEDIUM_UNLOCK_SCORE} točnih odgovora.
+            </div>
+        `;
+    }
+
+    if (
+        rewardThreshold &&
+        score >= rewardThreshold
+    ) {
+        return `
+            <div class="quiz-result success">
+                🏆 Rezultat: ${score} / ${total}<br>
+                Nagradna slika je osvojena!
             </div>
         `;
     }
 
     return `
-        <div class="quiz-result">
-            Rezultat: ${score} / ${total}
+        <div class="quiz-result failed">
+            Rezultat: ${score} / ${total}<br>
+            Za nagradnu sliku potrebno je najmanje
+            ${rewardThreshold} točnih odgovora.
         </div>
     `;
 }
@@ -664,13 +713,29 @@ function renderCompletedQuiz(
                 🟢 ${difficultyConfig.title} — ${groupData.title}
             </div>
 
-            <div class="quiz-meta">
-                Tema: ${groupData.id}
+           <div class="quiz-meta">
+    Tema: ${groupData.id}
+    |
+    Pitanja: ${questions.length}
+
+    ${
+        difficultyConfig.id === "light"
+            ? `
                 |
-                Pitanja: ${total}
-                |
-                Status: završeno
-            </div>
+                Za Medium:
+                ${MEDIUM_UNLOCK_SCORE}/${questions.length}
+            `
+            : ""
+    }
+
+    |
+    Za nagradu:
+    ${
+        REWARD_THRESHOLDS[
+            difficultyConfig.id
+        ]
+    }/${questions.length}
+</div>
 
             ${getResultMessage(
                 difficultyConfig.id,
@@ -990,9 +1055,20 @@ function finishQuizSection(quizSection) {
             );
     }
 
+    /*
+       Svaka težina ima svoj prag
+       za nagradnu sliku.
+    */
+
+    const rewardRequiredScore =
+        REWARD_THRESHOLDS[
+            difficulty
+        ];
+
     if (
-        difficulty === "light" &&
-        result.correct >= REWARD_UNLOCK_SCORE
+        rewardRequiredScore &&
+        result.correct >=
+            rewardRequiredScore
     ) {
         const rewardCard =
             quizSection.querySelector(
@@ -1000,7 +1076,9 @@ function finishQuizSection(quizSection) {
             );
 
         if (
-            typeof unlockQuizReward === "function"
+            rewardCard &&
+            typeof unlockQuizReward ===
+                "function"
         ) {
             unlockQuizReward(
                 rewardCard

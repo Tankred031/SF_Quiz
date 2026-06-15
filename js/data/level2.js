@@ -25,13 +25,51 @@ const questions2 = {
                 "=== Roman World, Medieval World i Spa World",
                 "=== Roman World, Westworld i Futureworld"
             ]
+        },
+        {
+            id: "q2-machines-terminator-01",
+            film: "Terminator",
+            question: "Koju oznaku nosi Terminator u prvom dijelu?",
+            answers: [
+                "=*= Model 101",
+                "=== Model 110",
+                "=== Model 301"
+            ]
+        },
+        {
+            id: "q2-machines-robocop-01",
+            film: "Robocop",
+            question: "Što znači OCP u filmu 'RoboCop'?",
+            answers: [
+                "=*= Omni Consumer Products",
+                "=== Officer Cyber Program",
+                "=== Orion Corporate Partnership"
+            ]
+        },
+        {
+            id: "q2-machines-robocop-02",
+            film: "Robocop",
+            question: "Koji još stroj se pojavljuje u filmu 'RoboCop'?",
+            answers: [
+                "=*= ED-209",
+                "=== T-800",
+                "=== T-1000"
+            ]
+        },
+        {
+            id: "q2-machines-robocop-03",
+            film: "TerRobocopminator",
+            question: "RoboCop je?",
+            answers: [
+                "=*= Kiborg",
+                "=== Mecha",
+                "=== Android"
+            ]
         }
 
-        /* Prazno mjesto 2 */
-        /* Prazno mjesto 3 */
-        /* Prazno mjesto 4 */
-        /* Prazno mjesto 5 */
-        /* Prazno mjesto 6 */
+
+
+
         /* Prazno mjesto 7 */
         /* Prazno mjesto 8 */
         /* Prazno mjesto 9 */
@@ -96,9 +134,9 @@ const questions2 = {
             film: "Outland",
             question: "Na kojem se Jupiterovu mjesecu odvija radnja filma Outland?",
             answers: [
-                "=== Kalistu",
-                "=*= Iji",
-                "=== Europi"
+                "=== Kalista",
+                "=*= Io",
+                "=== Europa"
             ]
         },
         {
@@ -120,11 +158,43 @@ const questions2 = {
                 "=== John Landon",
                 "=== John Dodge"
             ]
+        },
+        {
+            id: "q1-dystopia-mad-max-02",
+            film: "Mad Max",
+            question: "Što znači kratica MFP na vozilima u filmu Mad Max?***",
+            answers: [
+                "=*= Main Force Patrol",
+                "=== Metropolitan Free Police",
+                "=== Motorized Federal Police"
+            ]
+        },
+        {
+
+            id: "q1-dystopia-bttf-03",
+            film: "Back to the Future",
+            question: "Koji je najvažniji dan u filmu 'Back to the Future'?",
+            answers: [
+                "=== 5. Studenog 1985",
+                "=*= 5. Studenog 1955",
+                "=== 12. Studenog 1955"
+            ]
+        },
+        {
+
+            id: "q1-dystopia-bttf-03",
+            film: "Back to the Future",
+            question: "Koji je najvažniji dan u filmu 'Back to the Future'?",
+            answers: [
+                "=== 5. Studenog 1985",
+                "=*= 5. Studenog 1955",
+                "=== 12. Studenog 1955"
+            ]
         }
 
-        /* Prazno mjesto 9 */
-        /* Prazno mjesto 10 */
-        /* Prazno mjesto 11 */
+
+
+
         /* Prazno mjesto 12 */
     ],
 
@@ -218,10 +288,28 @@ const questions2 = {
                 "=== Courteney Cox",
                 "=*= Meg Foster"
             ]
+        },
+        {
+            id: "q2-aliens-aliens-01",
+            film: "Aliens",
+            question: "Koji se član posade prvi ustaje iz hibernacije u filmu Aliens?",
+            answers: [
+                "=== William Gorman",
+                "=== Mark Drake",
+                "=*= Al Apone"
+            ]
+        },
+        {
+            id: "q2-aliens-aliens-02",
+            film: "Aliens",
+            question: "Tko kaže poznati citat 'Game over man, game over!' u 'Aliens'?",
+            answers: [
+                "=== Bishop",
+                "=*= William Hudson",
+                "=== Dick Jones"
+            ]
         }
 
-        /* Prazno mjesto 10 */
-        /* Prazno mjesto 11 */
         /* Prazno mjesto 12 */
     ]
 };
