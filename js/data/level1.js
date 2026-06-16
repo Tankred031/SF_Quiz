@@ -25,12 +25,12 @@ const questions1 = {
     light: {
         machines: [
             q1(
-                "q1-light-machines-2001-a-space-odyssey-01",
-                "2001: A Space Odyssey",
-                "Koga HAL sabotira?",
-                "Franka i Davea",
-                "Cindy i Georgea",
-                "Boba i Julesa"
+                "q1-light-machines-blade-runner-01",
+                "Blade Runner",
+                "Koje godine se odvija radnja filma Blade Runner?",
+                "2019",
+                "2029",
+                "2049"
             ),
             q1(
                 "q1-light-machines-back-to-the-future-01",
@@ -57,7 +57,7 @@ const questions1 = {
                 "Michael Paré"
             ),
             q1(
-                "q1-light-machines-blade-runner-01",
+                "q1-light-machines-blade-runner-02",
                 "Blade Runner",
                 "Čime se Rick Deckard bavi u filmu Blade Runner?",
                 "Lovi odbjegle replikante",
@@ -70,7 +70,7 @@ const questions1 = {
                 "Koji model Terminatora štiti Johna Connora u filmu Terminator 2: Judgment Day?",
                 "T-800",
                 "T-1000",
-                "T-X"
+                "ED-209"
             ),
             q1(
                 "q1-light-machines-wargames-01",
@@ -108,12 +108,12 @@ const questions1 = {
                 "Marlon Brando"
             ),
             q1(
-                "q1-light-dystopia-a-clockwork-orange-01",
-                "A Clockwork Orange",
-                "Kako se zove glavni lik filma A Clockwork Orange?",
-                "Alex DeLarge",
-                "Guy Montag",
-                "Logan 5"
+                "q1-light-dystopia-star-wars-01",
+                "Star Wars",
+                "Kako se zove svemirska postaja sposobna uništiti cijeli planet?",
+                "Zvijezda smrti",
+                "Millennium Falcon",
+                "Baza Echo"
             ),
             q1(
                 "q1-light-dystopia-fahrenheit-451-01",
@@ -132,12 +132,12 @@ const questions1 = {
                 "Wez"
             ),
             q1(
-                "q1-light-dystopia-planet-of-the-apes-02",
-                "Planet of the Apes",
-                "Koja vrsta vlada planetom u filmu Planet of the Apes?",
-                "Majmuni",
-                "Replikanti",
-                "Mutirani psi"
+                "q1-light-dystopia-highlander-01",
+                "Highlander",
+                "Na što je Connor MacLeod imun nakon što postane besmrtan?",
+                "Na starenje i bolesti",
+                "Na bol i ozljede",
+                "Na vatru i hladnoću"
             ),
             q1(
                 "q1-light-dystopia-they-live-01",
@@ -148,12 +148,12 @@ const questions1 = {
                 "Radioaktivne tragove"
             ),
             q1(
-                "q1-light-dystopia-total-recall-01",
-                "Total Recall",
-                "Kako se zove glavni lik kojeg Arnold Schwarzenegger glumi u filmu Total Recall?",
-                "Douglas Quaid",
-                "John Matrix",
-                "Ben Richards"
+                "q1-light-dystopia-star-wars-02",
+                "Star Wars",
+                "Kako se zove krijumčar koji upravlja Millennium Falconom?",
+                "Han Solo",
+                "Luke Skywalker",
+                "Lando Calrissian"
             )
         ],
 
@@ -165,6 +165,14 @@ const questions1 = {
                 "Mogwai",
                 "Ewok",
                 "Morlock"
+            ),
+            q1(
+                "q1-light-aliens-dune-01",
+                "Dune",
+                "Na pranetu Arrakis, iz filma Dune, nedostaje čega?",
+                "Vode",
+                "Ljudi",
+                "Svjetlosti"
             ),
             q1(
                 "q1-light-aliens-superman-01",
@@ -182,30 +190,16 @@ const questions1 = {
                 "Sulaco",
                 "Prometheus"
             ),
+
             q1(
-                "q1-light-aliens-aliens-01",
-                "Aliens",
-                "Kako se zove djevojčica koju Ripley pronalazi na koloniji?",
-                "Newt",
-                "Rebecca",
-                "Carrie"
-            ),
-            q1(
-                "q1-light-aliens-predator-01",
+                "q1-light-aliens-predator-02",
                 "Predator",
                 "Kako se zove vođa elitnog tima u filmu Predator?",
                 "Dutch",
                 "Dillon",
                 "Mac"
             ),
-            q1(
-                "q1-light-aliens-star-wars-01",
-                "Star Wars",
-                "Koji je protokolarni droid najčešće uz R2-D2?",
-                "C-3PO",
-                "IG-88",
-                "K-2SO"
-            ),
+
             q1(
                 "q1-light-aliens-superman-02",
                 "Superman",
@@ -213,6 +207,14 @@ const questions1 = {
                 "Krypton",
                 "Vulcan",
                 "Gallifrey"
+            ),
+            q1(
+                "q1-light-aliens-aliens-01",
+                "Aliens",
+                "Kako se zove djevojčica koju Ripley pronalazi na koloniji?",
+                "Newt",
+                "Rebecca",
+                "Carrie"
             ),
             q1(
                 "q1-light-aliens-close-encounters-of-the-third-kind-01",
@@ -236,20 +238,20 @@ const questions1 = {
                 "Pamela"
             ),
             q1(
-                "q1-medium-machines-back-to-the-future-02",
-                "Back to the Future",
-                "Od koga je Doc Brown nabavio plutonij?",
-                "Libijaca",
-                "Sirijaca",
-                "Iračana"
+                "q1-medium-machines-dune-01",
+                "Dune",
+                "Kako se zove letjelica s pokretnim krilima koja se koristi na Arrakisu?",
+                "Ornitopter",
+                "Disk",
+                "Cube"
             ),
             q1(
-                "q1-medium-machines-tron-01",
-                "Tron",
-                "Što u filmu Tron znači kratica MCP?",
-                "Master Control Program",
-                "Military Cybernetic Protocol",
-                "Mainframe Core Processor"
+                "q1-medium-machines-2001-a-space-odyssey-01",
+                "2001: A Space Odyssey",
+                "Koga HAL sabotira?",
+                "Franka i Davea",
+                "Cindy i Georgea",
+                "Boba i Julesa"
             ),
             q1(
                 "q1-medium-machines-2001-a-space-odyssey-01",
@@ -276,20 +278,20 @@ const questions1 = {
                 "Ford Mustang"
             ),
             q1(
-                "q1-medium-machines-back-to-the-future-part-ii-01",
-                "Back to the Future Part II",
-                "Na koji datum Marty i Doc stižu u budućnost u filmu Back to the Future Part II?",
-                "21. listopada 2015.",
-                "5. studenoga 2015.",
-                "12. svibnja 2029."
+                "q1-medium-machines-robocop2-01",
+                "Robocop 2",
+                "Kako se zove droga koja vlada ulicama Detroita u filmu RoboCop 2?",
+                "Nuke",
+                "Wipe",
+                "Heaven"
             ),
             q1(
-                "q1-medium-machines-terminator-2-judgment-day-01",
-                "Terminator 2: Judgment Day",
-                "Kako se zove sin Sarah Connor?",
-                "John Connor",
-                "Kyle Connor",
-                "Miles Connor"
+                "q1-medium-machines-blade-runner-02",
+                "Blade Runner",
+                "Koliko je odbjeglih reprikanata u filmu Blade Runner?",
+                "6",
+                "4",
+                "5"
             ),
             q1(
                 "q1-medium-machines-tron-02",
@@ -329,10 +331,10 @@ const questions1 = {
             q1(
                 "q1-medium-dystopia-a-clockwork-orange-01",
                 "A Clockwork Orange",
-                "Kako se zove terapija kojom vlast pokušava preodgojiti Alexa?",
-                "Ludovicova tehnika",
-                "Metoda Carousel",
-                "Program Recall"
+                "Kako se zove glavni lik filma A Clockwork Orange?",
+                "Alex DeLarge",
+                "Guy Montag",
+                "Logan 5"
             ),
             q1(
                 "q1-medium-dystopia-fahrenheit-451-02",
@@ -351,12 +353,12 @@ const questions1 = {
                 "Road Warrior"
             ),
             q1(
-                "q1-medium-dystopia-planet-of-the-apes-02",
-                "Planet of the Apes",
-                "Kojoj vrsti majmuna pripada znanstvenica Zira?",
-                "Čimpanzi",
-                "Orangutanu",
-                "Gorili"
+                "q1-medium-dystopia-judge-dredd-01",
+                "Judge Dredd",
+                "Kako se zove ratni robot kojeg Rico aktivira u filmu Judge Dredd?",
+                "ABC Warrior",
+                "ED-209",
+                "T-800"
             ),
             q1(
                 "q1-medium-dystopia-they-live-01",
@@ -367,12 +369,12 @@ const questions1 = {
                 "Hulk Hogan"
             ),
             q1(
-                "q1-medium-dystopia-total-recall-01",
-                "Total Recall",
-                "Na koji planet Douglas Quaid želi otputovati?",
-                "Mars",
-                "Veneru",
-                "Jupiter"
+                "reserve-q1-hard-dystopia-mad-max-02",
+                "Mad Max",
+                "Kako se zove Maxov prijatelj i kolega kojeg banda teško ozlijedi?",
+                "Jim Goose",
+                "Bubba Zanetti",
+                "Fifi Macaffee"
             ),
             q1(
                 "q1-medium-dystopia-mad-max-2-the-road-warrior-01",
@@ -402,28 +404,20 @@ const questions1 = {
                 "Dennis Parker"
             ),
             q1(
-                "q1-medium-aliens-aliens-01",
-                "Aliens",
-                "Koga Michael Biehn glumi u filmu Aliens?",
-                "Dwaynea Hicksa",
-                "Williama Gormana",
-                "Williama Hudsona"
-            ),
-            q1(
-                "q1-medium-aliens-aliens-02",
-                "Aliens",
-                "Na kojem se planetu ili mjesecu nalazi kolonija u filmu Aliens?",
-                "LV-426",
-                "Fiorina 161",
-                "Altair IV"
-            ),
-            q1(
                 "q1-medium-aliens-predator-01",
                 "Predator",
                 "Koliko članova ima Dutchov tim, ne računajući Dutcha, Annu i Dillona?",
                 "6",
                 "5",
                 "7"
+            ),
+            q1(
+                "q1-medium-aliens-aliens-01",
+                "Aliens",
+                "Koga Michael Biehn glumi u filmu Aliens?",
+                "Dwaynea Hicksa",
+                "Williama Gormana",
+                "Williama Hudsona"
             ),
             q1(
                 "q1-medium-aliens-star-wars-01",
@@ -434,28 +428,37 @@ const questions1 = {
                 "Pucali su istodobno"
             ),
             q1(
-                "q1-medium-aliens-alien-02",
-                "Alien",
-                "Tko glumi Ellen Ripley u filmu Alien?",
-                "Sigourney Weaver",
-                "Linda Hamilton",
-                "Jamie Lee Curtis"
-            ),
-            q1(
-                "q1-medium-aliens-aliens-03",
+                "q1-medium-aliens-aliens-02",
                 "Aliens",
-                "Koje stvorenje polaže jaja u gnijezdu kolonije?",
-                "Kraljica Xenomorpha",
-                "Predatorova kraljica",
-                "Matični Mogwai"
+                "Na kojem se planetu ili mjesecu nalazi kolonija u filmu Aliens?",
+                "LV-426",
+                "Fiorina 161",
+                "Altair IV"
             ),
             q1(
-                "q1-medium-aliens-predator-02",
-                "Predator",
-                "Koji dio elektromagnetskog spektra Predator pretežno koristi za gledanje?",
-                "Infracrveno zračenje",
-                "Ultraljubičasto zračenje",
-                "Rendgensko zračenje"
+                "q1-medium-aliens-gremlins-01",
+                "Gremlins",
+                "Tko glumi Billyja Peltzera u filmu Gremlins?",
+                "Zach Galligan",
+                "Corey Feldman",
+                "Judge Reinhold"
+            ),
+
+            q1(
+                "q1-medium-aliens-close-encounters-of-the-third-kind-01",
+                "Close Encounters of the Third Kind",
+                "Kako se zove lik kojeg Richard Dreyfuss glumi u filmu Close Encounters of the Third Kind?",
+                "Roy Neary",
+                "Elliott Taylor",
+                "David Bowman"
+            ),
+            q1(
+                "q1-medium-aliens-star-wars-02",
+                "Star Wars",
+                "Tko glumi ulogu Obi-Wan Kenobija u Star Wars?",
+                "Alec Guinness",
+                "Peter O'Toole",
+                "Richard Harris"
             ),
             q1(
                 "q1-medium-aliens-star-wars-02",
@@ -495,12 +498,12 @@ const questions1 = {
                 "Nexus-8"
             ),
             q1(
-                "q1-hard-machines-terminator-2-judgment-day-01",
-                "Terminator 2: Judgment Day",
-                "Koju oznaku nosi ubojica od tekućeg metala u filmu Terminator 2: Judgment Day?",
-                "T-1000",
-                "T-800",
-                "T-X"
+                "q1-medium-machines-tron-01",
+                "Tron",
+                "Što u filmu Tron znači kratica MCP?",
+                "Master Control Program",
+                "Military Cybernetic Protocol",
+                "Mainframe Core Processor"
             ),
             q1(
                 "q1-hard-machines-2001-a-space-odyssey-01",
@@ -562,14 +565,6 @@ const questions1 = {
                 "dr. Honorius"
             ),
             q1(
-                "q1-hard-dystopia-planet-of-the-apes-02",
-                "Planet of the Apes",
-                "Što kaže Taylor prvi put nakon što ga zarobe majmuni?",
-                "Makni svoje smrdljive šape s mene, ti prokleti prljavi majmune!",
-                "Makni svoje prljave šape s mene, ti prokleti prljavi majmune!",
-                "Makni svoje prljave šape s mene, ti prokleti smrdljivi majmune!"
-            ),
-            q1(
                 "q1-hard-dystopia-a-clockwork-orange-01",
                 "A Clockwork Orange",
                 "Kako se zove izmišljeni sleng kojim Alex i njegovi prijatelji govore?",
@@ -578,20 +573,28 @@ const questions1 = {
                 "Cityspeak"
             ),
             q1(
-                "q1-hard-dystopia-fahrenheit-451-01",
-                "Fahrenheit 451",
-                "Tko je režirao filmsku verziju Fahrenheit 451 iz 1966. godine?",
-                "François Truffaut",
-                "Stanley Kubrick",
-                "Richard Fleischer"
+                "q1-hard-dystopia-highlander-01",
+                "Highlander",
+                "Tko je iskovao katanu koju Ramírez ostavlja Connoru MacLeodu?",
+                "Masamune",
+                "Hattori Hanzō",
+                "Muramasa"
             ),
             q1(
-                "q1-hard-dystopia-mad-max-02",
-                "Mad Max",
-                "Kako se zove Maxov prijatelj i kolega kojeg banda teško ozlijedi?",
-                "Jim Goose",
-                "Bubba Zanetti",
-                "Fifi Macaffee"
+                "q1-medium-dystopia-a-clockwork-orange-01",
+                "A Clockwork Orange",
+                "Kako se zove terapija kojom vlast pokušava preodgojiti Alexa?",
+                "Ludovicova tehnika",
+                "Metoda Carousel",
+                "Program Recall"
+            ),
+            q1(
+                "q1-hard-dystopia-planet-of-the-apes-02",
+                "Planet of the Apes",
+                "Što kaže Taylor prvi put nakon što ga zarobe majmuni?",
+                "Makni svoje smrdljive šape s mene, ti prokleti prljavi majmune!",
+                "Makni svoje prljave šape s mene, ti prokleti prljavi majmune!",
+                "Makni svoje prljave šape s mene, ti prokleti smrdljivi majmune!"
             ),
             q1(
                 "q1-hard-dystopia-total-recall-01",
@@ -613,12 +616,12 @@ const questions1 = {
 
         aliens: [
             q1(
-                "q1-hard-aliens-dune-01",
-                "Dune",
-                "Koja tvar omogućuje Svemirskom cehu sigurno presavijanje prostora?",
-                "Začin melange",
-                "Voda života",
-                "Sapho sok"
+                "q1-medium-mythic-flash-gordon-01",
+                "Flash Gordon",
+                "Kako se zove kći Minga Nemilosrdnog u filmu Flash Gordon?",
+                "Princeza Aura",
+                "Dale Arden",
+                "Princeza Leia"
             ),
             q1(
                 "q1-hard-aliens-close-encounters-of-the-third-kind-01",
@@ -629,28 +632,30 @@ const questions1 = {
                 "Monument Valley"
             ),
             q1(
-                "q1-hard-aliens-alien-01",
-                "Alien",
-                "Kako se zove android na brodu Nostromo?",
-                "Ash",
-                "Bishop",
-                "David"
+                "q1-light-aliens-et-the-extra-terrestrial-01",
+                "E.T. the Extra-Terrestrial",
+                "Kako se zove dječak koji se sprijatelji s E.T.-jem?",
+                "Elliott",
+                "Michael",
+                "Billy"
             ),
+
             q1(
-                "q1-hard-aliens-aliens-01",
-                "Aliens",
-                "Kako se zove android koji prati kolonijalne marince?",
-                "Bishop",
-                "Ash",
-                "Call"
+                "q1-hard-aliens-startrek2-01",
+                "Star Trek II",
+                "Tko glumi Khana u filmu Star Trek II: The Wrath of Khan?",
+                "Ricardo Montalbán",
+                "Christopher Lloyd",
+                "Malcolm McDowell"
             ),
+
             q1(
-                "q1-hard-aliens-predator-01",
-                "Predator",
-                "Što Predator aktivira nakon poraza u završnici filma?",
-                "Samouništavajuću napravu",
-                "Signal za spašavanje",
-                "Krio-komoru"
+                "q1-hard-mythic-flash-gordon-01",
+                "Flash Gordon",
+                "Kako se zove šumsko kraljevstvo kojim vlada princ Barin?",
+                "Arboria",
+                "Mongo",
+                "Mingo City"
             ),
             q1(
                 "q1-hard-aliens-close-encounters-of-the-third-kind-02",
