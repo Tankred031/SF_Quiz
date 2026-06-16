@@ -33,12 +33,12 @@ const questions3 = {
                 "Povezivanje androida u kolektivnu svijest"
             ),
             q3(
-                "q3-light-machines-demon-seed-01",
-                "Demon Seed",
-                "Tko glumi Susan Harris u filmu Demon Seed?",
-                "Julie Christie",
-                "Blythe Danner",
-                "Barbara Carrera"
+                "q3-light-machines-batteries-not-included-01",
+                "*batteries not included",
+                "Kakva bića pomažu stanarima spasiti zgradu u filmu *batteries not included?",
+                "Mala izvanzemaljska mehanička bića",
+                "Roboti poslani iz budućnosti",
+                "Minijaturni ljudi iz laboratorija"
             ),
             q3(
                 "q3-light-machines-futureworld-02",
@@ -207,12 +207,12 @@ const questions3 = {
                 "Trident"
             ),
             q3(
-                "q3-light-aliens-battle-beyond-the-stars-03",
-                "Battle Beyond the Stars",
-                "Kako se zove mirni planet koji Sador namjerava pokoriti?",
-                "Akir",
-                "Arrakis",
-                "Altair IV"
+                "q3-light-aliens-the-war-of-the-worlds-01",
+                "The War of the Worlds",
+                "Što na kraju zaustavlja marsovske osvajače u filmu The War of the Worlds?",
+                "Zemaljske bakterije",
+                "Nuklearno oružje",
+                "Magnetska oluja"
             ),
             q3(
                 "q3-light-aliens-krull-02",
@@ -228,12 +228,12 @@ const questions3 = {
     medium: {
         machines: [
             q3(
-                "q3-medium-machines-demon-seed-01",
-                "Demon Seed",
-                "Kako se zove umjetna inteligencija koja zarobljava Susan Harris?",
-                "Proteus IV",
-                "Colossus",
-                "Guardian"
+                "q3-medium-machines-hardware-01",
+                "Hardware",
+                "Koji glumac tumači Mosesa 'Hard Mo' Baxtera u filmu Hardware?",
+                "Dylan McDermott",
+                "Liam Neeson",
+                "Mark Hamill"
             ),
             q3(
                 "q3-medium-machines-futureworld-01",
@@ -284,12 +284,12 @@ const questions3 = {
                 "Cooper"
             ),
             q3(
-                "q3-medium-machines-demon-seed-02",
-                "Demon Seed",
-                "Tko je stvorio Proteus IV?",
-                "Alex Harris",
-                "Charles Forbin",
-                "Miles Dyson"
+                "q3-medium-machines-blue-thunder-01",
+                "Blue Thunder",
+                "Koji glumac tumači pilota Franka Murphyja u filmu Blue Thunder?",
+                "Roy Scheider",
+                "Robert Forster",
+                "Michael Ironside"
             ),
             q3(
                 "q3-medium-machines-futureworld-02",
@@ -375,21 +375,21 @@ const questions3 = {
                 "New Eden"
             ),
             q3(
-                "q3-medium-dystopia-night-of-the-comet-02",
-                "Night of the Comet",
-                "Što komet učini većini ljudi koji su mu bili izloženi?",
-                "Pretvori ih u crvenu prašinu",
-                "Pretvori ih u mutante",
-                "Uspava ih na nekoliko godina"
+                "q3-medium-dystopia-dreamscape-01",
+                "Dreamscape",
+                "Kako Alex Gardner ulazi u snove drugih ljudi u filmu Dreamscape?",
+                "Pomoću psihičkog povezivanja",
+                "Pomoću računalnog implantata",
+                "Pomoću eksperimentalnog lijeka"
             ),
             q3(
-                "q3-medium-dystopia-split-second-02",
-                "Split Second",
-                "Koje godine se odvija radnja filma Split Second?",
-                "2008.",
-                "1997.",
-                "2029."
-            )
+                "q3-medium-dystopia-nineteen-eighty-four-01",
+                "Nineteen Eighty-Four",
+                "U kojem ministarstvu Winston Smith radi na prepravljanju povijesnih zapisa?",
+                "Ministarstvu istine",
+                "Ministarstvu ljubavi",
+                "Ministarstvu mira"
+            ),
         ],
 
         aliens: [
@@ -426,20 +426,20 @@ const questions3 = {
                 "Dark Tower"
             ),
             q3(
-                "q3-medium-aliens-battle-beyond-the-stars-02",
-                "Battle Beyond the Stars",
-                "Kako se zove Shadov svemirski brod?",
-                "Nell",
-                "Glaive",
-                "Akir"
+                "q3-medium-aliens-the-fifth-element-01",
+                "The Fifth Element",
+                "Kako se zove savršeno biće koje treba pomoći spasiti Zemlju?",
+                "Leeloo",
+                "Korben",
+                "Diva Plavalaguna"
             ),
             q3(
-                "q3-medium-aliens-the-andromeda-strain-02",
-                "The Andromeda Strain",
-                "Kako se zove grad u kojem su pronađeni gotovo svi stanovnici mrtvi?",
-                "Piedmont",
-                "Jericho",
-                "Rockwell"
+                "q3-medium-aliens-stargate-01",
+                "Stargate",
+                "Kako se zove egiptolog koji uspijeva protumačiti simbole na Zvjezdanim vratima?",
+                "Daniel Jackson",
+                "Jack O'Neil",
+                "Charles Kawalsky"
             ),
             q3(
                 "q3-medium-aliens-krull-02",
@@ -466,13 +466,13 @@ const questions3 = {
                 "Sam Neill"
             ),
             q3(
-                "q3-medium-aliens-battle-beyond-the-stars-03",
-                "Battle Beyond the Stars",
-                "Koji slavni vestern poslužio je kao osnovna inspiracija za film?",
-                "The Magnificent Seven",
-                "The Wild Bunch",
-                "High Noon"
-            )
+                "q3-medium-aliens-species-01",
+                "Species",
+                "Kako se zove hibrid čovjeka i izvanzemaljca kojeg znanstvenici pokušavaju pronaći?",
+                "Sil",
+                "Eve",
+                "Laura"
+            ),
         ]
     },
 
@@ -487,12 +487,12 @@ const questions3 = {
                 "Kloniranjem iz uzoraka krvi"
             ),
             q3(
-                "q3-hard-machines-demon-seed-01",
-                "Demon Seed",
-                "Kako Proteus fizički kontrolira kuću Susan Harris?",
-                "Preko potpuno automatiziranog kućnog sustava",
-                "Preko vojnih robota",
-                "Preko satelitske mreže"
+                "q3-hard-machines-cyclone-01",
+                "Cyclone",
+                "Koja glumica tumači Teri Marshall, čuvaricu eksperimentalnog motocikla Cyclone?",
+                "Heather Thomas",
+                "Linda Hamilton",
+                "Nancy Allen"
             ),
             q3(
                 "q3-hard-machines-moon-44-01",
@@ -527,12 +527,12 @@ const questions3 = {
                 "Dr. Edward Morbius"
             ),
             q3(
-                "q3-hard-machines-futureworld-02",
-                "Futureworld",
-                "Koji lik iz Westworlda pojavljuje se u snu u filmu Futureworld?",
-                "Revolveraš",
-                "Peter Martin",
-                "John Blane"
+                "q3-hard-machines-blue-thunder-01",
+                "Blue Thunder",
+                "Kako se zove pilot kojeg Roy Scheider glumi u filmu Blue Thunder?",
+                "Frank Murphy",
+                "Jack Ramsay",
+                "Felix Stone"
             ),
             q3(
                 "q3-hard-machines-videodrome-02",
@@ -551,12 +551,12 @@ const questions3 = {
                 "Za popravak androida"
             ),
             q3(
-                "q3-hard-machines-demon-seed-02",
-                "Demon Seed",
-                "Kako se zove dijete koje Proteus stvara?",
-                "Proteusovo dijete nema uobičajeno ljudsko ime",
-                "Joshua",
-                "Rachel"
+                "q3-hard-machines-the-wraith-01",
+                "The Wraith",
+                "Koji glumac tumači tajanstvenog Jakea Keseyja u filmu The Wraith?",
+                "Charlie Sheen",
+                "Michael Paré",
+                "C. Thomas Howell"
             ),
             q3(
                 "q3-hard-machines-event-horizon-02",
@@ -566,14 +566,14 @@ const questions3 = {
                 "Zaustaviti vrijeme",
                 "Teleportirati samo ljudsku posadu"
             ),
-            q3(
-                "q3-hard-machines-the-philadelphia-experiment-02",
-                "The Philadelphia Experiment",
-                "Koji je cilj eksperimenta na USS Eldridgeu?",
-                "Učiniti brod nevidljivim radaru",
-                "Omogućiti putovanje kroz svemir",
-                "Zaustaviti neprijateljske projektile"
-            )
+            qq3(
+                "q3-hard-machines-stargate-01",
+                "Stargate",
+                "Koji je sedmi simbol potreban za određivanje odredišta i aktiviranje Zvjezdanih vrata?",
+                "Točka podrijetla",
+                "Simbol ciljnog planeta",
+                "Oznaka galaksije"
+            ),
         ],
 
         dystopia: [
@@ -602,12 +602,12 @@ const questions3 = {
                 "Project Flashlight"
             ),
             q3(
-                "q3-hard-dystopia-the-quiet-earth-01",
-                "The Quiet Earth",
-                "Koji događaj Zac povezuje s nestankom ljudi?",
-                "Aktivaciju projekta Flashlight",
-                "Prolazak kometa",
-                "Nuklearni rat"
+                "q3-hard-dystopia-nineteen-eighty-four-02",
+                "Nineteen Eighty-Four",
+                "Kako se zove član Unutarnje partije koji ispituje i preodgaja Winstona?",
+                "O'Brien",
+                "Charrington",
+                "Syme"
             ),
             q3(
                 "q3-hard-dystopia-split-second-01",
@@ -634,12 +634,12 @@ const questions3 = {
                 "Bio je u kriogenoj komori"
             ),
             q3(
-                "q3-hard-dystopia-night-of-the-comet-02",
-                "Night of the Comet",
-                "Gdje Samantha provodi noć kada prolazi komet?",
-                "U metalnoj spremištu iza kina",
-                "U radijskoj postaji",
-                "U podzemnoj garaži"
+                "q3-hard-dystopia-total-recall-01",
+                "Total Recall",
+                "Kako se zove mutant koji predvodi pobunu na Marsu?",
+                "Kuato",
+                "Richter",
+                "Benny"
             ),
             q3(
                 "q3-hard-dystopia-escape-from-la-02",
@@ -701,12 +701,12 @@ const questions3 = {
                 "Kristal goriva"
             ),
             q3(
-                "q3-hard-aliens-krull-01",
-                "Krull",
-                "Tko glumi Ciklopa Rella?",
-                "Bernard Bresslaw",
-                "Liam Neeson",
-                "Freddie Jones"
+                "q3-hard-aliens-starship-troopers-02",
+                "Starship Troopers",
+                "Kako se zove planet na kojem ljudi doživljavaju katastrofalan prvi veliki poraz?",
+                "Klendathu",
+                "Tango Urilla",
+                "Planet P"
             ),
             q3(
                 "q3-hard-aliens-battle-beyond-the-stars-02",
@@ -733,12 +733,12 @@ const questions3 = {
                 "Uz pomoć svemirskog kompasa"
             ),
             q3(
-                "q3-hard-aliens-innerspace-02",
-                "Innerspace",
-                "U koji je dio Jackova tijela Tuck prvotno slučajno ubrizgan?",
-                "U stražnjicu",
-                "U ruku",
-                "U vrat"
+                "q3-hard-aliens-the-empire-strikes-back-01",
+                "The Empire Strikes Back",
+                "Na kojem planetu Luke Skywalker trenira s Yodom?",
+                "Dagobah",
+                "Hoth",
+                "Bespin"
             ),
             q3(
                 "q3-hard-aliens-battle-beyond-the-stars-03",
@@ -749,12 +749,12 @@ const questions3 = {
                 "John Barry"
             ),
             q3(
-                "q3-hard-aliens-the-andromeda-strain-03",
-                "The Andromeda Strain",
-                "Koji član znanstvenog tima pati od epilepsije?",
-                "Dr. Ruth Leavitt",
-                "Dr. Charles Dutton",
-                "Dr. Jeremy Stone"
+                "q3-hard-aliens-starship-troopers-01",
+                "Starship Troopers",
+                "Kako se naziva izvanzemaljska vrsta protiv koje se ljudi bore u filmu Starship Troopers?",
+                "Arachnids",
+                "Krell",
+                "Dracons"
             ),
             q3(
                 "q3-hard-aliens-krull-03",
@@ -775,4 +775,3 @@ const questions3 = {
         ]
     }
 };
-
