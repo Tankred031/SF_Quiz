@@ -33,14 +33,7 @@ const questions2 = {
                 "Roman World, Medieval World i Spa World",
                 "Roman World, Westworld i Futureworld"
             ),
-            q2(
-                "q2-light-machines-westworld-02",
-                "Westworld",
-                "Tko glumi neumoljivog revolveraša androida u filmu Westworld?",
-                "Yul Brynner",
-                "Charles Bronson",
-                "Lee Van Cleef"
-            ),
+
             q2(
                 "q2-light-machines-demon-seed-01",
                 "Demon Seed",
@@ -58,12 +51,12 @@ const questions2 = {
                 "Pretvaraju ih u kiborge"
             ),
             q2(
-                "q2-light-machines-terminator-01",
-                "The Terminator",
-                "Koju oznaku nosi Terminator u prvom filmu?",
-                "Model 101",
-                "Model 110",
-                "Model 301"
+                "q2-light-machines-the-fly-01",
+                "The Fly",
+                "Kako se zovu komore koje Seth Brundle koristi za teleportaciju u filmu The Fly?",
+                "Telepodovi",
+                "Krio-komore",
+                "Transmat kapsule"
             ),
             q2(
                 "q2-light-machines-robocop-01",
@@ -74,21 +67,30 @@ const questions2 = {
                 "Orion Corporate Partnership"
             ),
             q2(
-                "q2-light-machines-robocop-02",
-                "RoboCop",
-                "Koji se veliki policijski stroj pojavljuje uz RoboCopa?",
-                "ED-209",
-                "T-800",
-                "MCP"
+                "q2-light-machines-westworld-02",
+                "Westworld",
+                "Tko glumi neumoljivog revolveraša androida u filmu Westworld?",
+                "Yul Brynner",
+                "Charles Bronson",
+                "Lee Van Cleef"
             ),
             q2(
-                "q2-light-machines-robocop-03",
-                "RoboCop",
-                "Što je RoboCop?",
-                "Kiborg",
-                "Android",
-                "Mecha"
-            )
+                "q2-light-machines-outland-01",
+                "Outland",
+                "Gdje se nalazi rudarska kolonija u filmu Outland?",
+                "Na Jupiterovu mjesecu Iou",
+                "Na Marsu",
+                "Na Saturnovu mjesecu Titanu"
+            ),
+
+            q2(
+                "q2-light-machines-stepford-wives-02",
+                "The Stepford Wives",
+                "Kako se zove glavna junakinja filma The Stepford Wives?",
+                "Joanna Eberhart",
+                "Susan Harris",
+                "Bobbie Markowe"
+            ),
         ],
 
 
@@ -143,12 +145,12 @@ const questions2 = {
                 "Dolph Lundgren"
             ),
             q2(
-                "q2-easy-dystopia-death-race-2000-01",
-                "Death Race 2000",
-                "Kako se zove glavni vozač kojeg glumi David Carradine u filmu Death Race 2000?",
-                "Frankenstein",
-                "Machine Gun Joe",
-                "Calamity Jane"
+                "q2-easy-dystopia-escape-from-new-york-02",
+                "Escape from New York",
+                "Kako na Snake Plissken dolazi na Manhattan?",
+                "Jedrilicom",
+                "Padobranom",
+                "Helikopterom"
             ),
             q2(
                 "q2-easy-dystopia-the-omega-man-01",
@@ -210,21 +212,21 @@ const questions2 = {
                 "William Hurt"
             ),
             q2(
-                "q2-easy-aliens-starman-01",
-                "Starman",
-                "Tko glumi izvanzemaljca koji poprima ljudski oblik u filmu Starman?",
-                "Jeff Bridges",
-                "Kurt Russell",
-                "Richard Dreyfuss"
+                "q2-light-aliens-the-abyss-02",
+                "The Abyss",
+                "Gdje se najvećim dijelom odvija radnja filma The Abyss?",
+                "U podvodnoj istraživačkoj postaji",
+                "Na svemirskoj postaji",
+                "U podzemnom vojnom bunkeru"
             ),
             q2(
-                "q2-easy-aliens-lifeforce-01",
-                "Lifeforce",
-                "Kakva bića stižu na Zemlju u filmu Lifeforce?",
-                "Svemirski vampiri",
-                "Robotski osvajači",
-                "Mutirani kukci"
-            )
+                "q2-light-aliens-forbidden-planet-02",
+                "Forbidden Planet",
+                "Kako se zove planet na kojem se odvija radnja filma Forbidden Planet?",
+                "Altair IV",
+                "LV-426",
+                "Arrakis"
+            ),
         ]
     },
 
@@ -240,20 +242,20 @@ const questions2 = {
                 "OCP"
             ),
             q2(
-                "q2-medium-machines-westworld-02",
-                "Westworld",
-                "Koji problem počinje zahvaćati androide u parku?",
-                "Počinju napadati goste i ignorirati sigurnosna pravila",
-                "Gube sposobnost govora",
-                "Počinju izgledati starije"
+                "q2-medium-machines-innerspace-02",
+                "Innerspace",
+                "Koga je Tuck Pendleton prvotno trebao istraživati nakon minijaturizacije?",
+                "Laboratorijskog zeca",
+                "Čovjeka dobrovoljca",
+                "Dresiranog majmuna"
             ),
             q2(
-                "q2-medium-machines-westworld-03",
-                "Westworld",
-                "U kojem se tematskom svijetu nalazi revolveraš kojeg glumi Yul Brynner?",
-                "Westworldu",
-                "Roman Worldu",
-                "Medieval Worldu"
+                "q2-medium-machines-battle-beyond-the-stars-01",
+                "Battle Beyond the Stars",
+                "Kako se zove svemirski brod kojim Shad traži ratnike za obranu svog planeta?",
+                "Nell",
+                "Gunstar",
+                "Trimaxion"
             ),
             q2(
                 "q2-medium-machines-demon-seed-01",
@@ -264,14 +266,6 @@ const questions2 = {
                 "Sarah Connor"
             ),
             q2(
-                "q2-medium-machines-demon-seed-02",
-                "Demon Seed",
-                "Što Proteus IV želi stvoriti sa Susan Harris?",
-                "Dijete koje spaja ljudske i računalne osobine",
-                "Vojsku androida",
-                "Novi svemirski brod"
-            ),
-            q2(
                 "q2-medium-machines-stepford-wives-01",
                 "The Stepford Wives",
                 "Kako se zove glavna junakinja filma The Stepford Wives?",
@@ -280,12 +274,12 @@ const questions2 = {
                 "Rachael Tyrell"
             ),
             q2(
-                "q2-medium-machines-terminator-01",
-                "The Terminator",
-                "Koji je zadatak Terminatora poslanog u 1984. godinu?",
-                "Ubiti Sarah Connor",
-                "Zaštititi Johna Connora",
-                "Uništiti Cyberdyne"
+                "q2-medium-machines-innerspace-01",
+                "Innerspace",
+                "U čije tijelo slučajno završi minijaturizirani pilot Tuck Pendleton?",
+                "Jacka Puttera",
+                "Setha Brundlea",
+                "Alexa Murphyja"
             ),
             q2(
                 "q2-medium-machines-terminator-02",
@@ -296,12 +290,20 @@ const questions2 = {
                 "MCP"
             ),
             q2(
-                "q2-medium-machines-robocop-01",
-                "RoboCop",
-                "Kako se zvao policajac prije nego što je postao RoboCop?",
-                "Alex Murphy",
-                "Richard Jones",
-                "Clarence Boddicker"
+                "q2-medium-machines-star-trek-the-motion-picture-01",
+                "Star Trek: The Motion Picture",
+                "Kako se zove golemi strojni entitet koji se približava Zemlji?",
+                "V'Ger",
+                "Genesis",
+                "Nomad"
+            ),
+            q2(
+                "q2-medium-machines-short-circuit-01",
+                "Short Circuit",
+                "Kako se zove vojni robot koji nakon udara munje razvije svijest?",
+                "Number 5",
+                "ED-209",
+                "Proteus IV"
             ),
             q2(
                 "q2-medium-machines-robocop-02",
@@ -325,21 +327,22 @@ const questions2 = {
                 "Eksploziv"
             ),
             q2(
-                "q2-medium-dystopia-escape-from-new-york-02",
-                "Escape from New York",
-                "Kako Snake dolazi na Manhattan?",
-                "Jedrilicom",
-                "Helikopterom",
-                "Padobranom"
+                "q2-medium-dystopia-scanners-01",
+                "Scanners",
+                "Koju posebnu sposobnost imaju scanneri u filmu Scanners?",
+                "Telepatiju i telekinetičku kontrolu",
+                "Putovanje kroz vrijeme",
+                "Promjenu fizičkog oblika"
             ),
             q2(
-                "q2-medium-dystopia-escape-from-new-york-03",
-                "Escape from New York",
-                "Tko uspije pobjeći iz New Yorka?",
-                "Snake i predsjednik",
-                "Snake, Maggie, predsjednik i Brain",
-                "Snake, predsjednik i Cabbie"
+                "q2-medium-dystopia-rollerball-02",
+                "Rollerball",
+                "Za koji grad igra Jonathan E. u filmu Rollerball?",
+                "Houston",
+                "New York",
+                "Chicago"
             ),
+
             q2(
                 "q2-medium-dystopia-beneath-the-planet-of-the-apes-01",
                 "Beneath the Planet of the Apes",
@@ -400,20 +403,12 @@ const questions2 = {
 
         aliens: [
             q2(
-                "q2-medium-aliens-the-abyss-01",
-                "The Abyss",
-                "Kako se zove vojni zapovjednik kojeg Michael Biehn glumi u filmu The Abyss?",
-                "Hiram Coffey",
-                "Virgil Brigman",
-                "Dwayne Hicks"
-            ),
-            q2(
-                "q2-medium-aliens-the-abyss-02",
-                "The Abyss",
-                "Kako se zove potonula podmornica u filmu The Abyss?",
-                "USS Montana",
-                "USS Memphis",
-                "USS Arizona"
+                "q2-medium-aliens-flight-of-the-navigator-01",
+                "Flight of the Navigator",
+                "Kako se zove računalo koje upravlja svemirskim brodom u filmu Flight of the Navigator?",
+                "Max",
+                "Centauri",
+                "Joshua"
             ),
             q2(
                 "q2-medium-aliens-forbidden-planet-01",
@@ -423,6 +418,15 @@ const questions2 = {
                 "Zabranjeno voće",
                 "Posebne začine"
             ),
+            q2(
+                "q2-medium-aliens-the-abyss-01",
+                "The Abyss",
+                "Kako se zove potonula podmornica u filmu The Abyss?",
+                "USS Montana",
+                "USS Memphis",
+                "USS Arizona"
+            ),
+
             q2(
                 "q2-medium-aliens-forbidden-planet-02",
                 "Forbidden Planet",
@@ -456,21 +460,22 @@ const questions2 = {
                 "Sarah Bowman"
             ),
             q2(
-                "q2-medium-aliens-starman-01",
-                "Starman",
-                "Čiji ljudski oblik izvanzemaljac poprima u filmu Starman?",
-                "Pokojnog supruga Jenny Hayden",
-                "Nestalog astronauta",
-                "Vladina agenta"
+                "q2-medium-aliens-star-trek-ii-01",
+                "Star Trek II: The Wrath of Khan",
+                "Kako se zove projekt koji može preoblikovati beživotni planet?",
+                "Genesis",
+                "V'Ger",
+                "Prometheus"
             ),
             q2(
-                "q2-medium-aliens-lifeforce-01",
-                "Lifeforce",
-                "S kojeg objekta posada broda Churchill pronalazi izvanzemaljsku letjelicu?",
-                "Halleyeva kometa",
-                "Mjesec",
-                "Saturnov prsten"
+                "q2-medium-aliens-flight-of-the-navigator-02",
+                "Flight of the Navigator",
+                "Koliko godina u budućnosti David stigne nakon nestanka?",
+                "Osam godina",
+                "Pet godina",
+                "Dvanaest godina"
             ),
+
             q2(
                 "q2-medium-aliens-the-last-starfighter-01",
                 "The Last Starfighter",
@@ -481,24 +486,23 @@ const questions2 = {
             )
         ]
     },
-
     hard: {
         machines: [
             q2(
-                "q2-hard-machines-westworld-01",
-                "Westworld",
-                "Kako androidski revolveraš razlikuje ljude od drugih androida?",
-                "Ljude vidi kao toplinske oblike",
-                "Prepoznaje njihove otiske prstiju",
-                "Skenira njihove glasove"
+                "q2-hard-machines-hardware-01",
+                "Hardware",
+                "Kako se zove samopopravljajući vojni robot u filmu Hardware?",
+                "M.A.R.K. 13",
+                "ED-209",
+                "Number 5"
             ),
             q2(
-                "q2-hard-machines-westworld-02",
-                "Westworld",
-                "Tko je napisao i režirao film Westworld?",
-                "Michael Crichton",
-                "Philip Kaufman",
-                "Richard Fleischer"
+                "q2-hard-machines-runaway-01",
+                "Runaway",
+                "Kako se zove policajac specijaliziran za neispravne i opasne robote u filmu Runaway?",
+                "Jack Ramsay",
+                "Alex Murphy",
+                "Rick Deckard"
             ),
             q2(
                 "q2-hard-machines-demon-seed-01",
@@ -509,12 +513,12 @@ const questions2 = {
                 "Miles Dyson"
             ),
             q2(
-                "q2-hard-machines-demon-seed-02",
-                "Demon Seed",
-                "Preko čega Proteus IV preuzima nadzor nad Susaninom kućom?",
-                "Preko automatiziranog kućnog sustava",
-                "Preko vojnog satelita",
-                "Preko policijskih robota"
+                "q2-hard-machines-saturn-3-01",
+                "Saturn 3",
+                "Kako se zove robot kojeg Benson sastavlja na postaji Saturn 3?",
+                "Hector",
+                "Maximilian",
+                "Box"
             ),
             q2(
                 "q2-hard-machines-stepford-wives-01",
@@ -525,12 +529,12 @@ const questions2 = {
                 "Bobbie Markowe"
             ),
             q2(
-                "q2-hard-machines-terminator-01",
-                "The Terminator",
-                "Koji broj modela nosi vanjski izgled Terminatora kojeg glumi Arnold Schwarzenegger?",
-                "Model 101",
-                "Model 102",
-                "Model 800"
+                "q2-hard-machines-maximum-overdrive-02",
+                "Maximum Overdrive",
+                "Kako se zove kompanija čiji natpis nosi prikolica glavnog kamiona u filmu Maximum Overdrive?",
+                "Happy Toyz",
+                "Green Goblin Transport",
+                "Dixie Boy Freight"
             ),
             q2(
                 "q2-hard-machines-robocop-01",
@@ -541,23 +545,24 @@ const questions2 = {
                 "Direktiva 7"
             ),
             q2(
-                "q2-hard-machines-robocop-02",
-                "RoboCop",
-                "Tko je odgovoran za ubojstvo Alexa Murphyja?",
-                "Clarence Boddicker i njegova banda",
-                "Dick Jones osobno",
-                "ED-209"
-            )
+                "q2-hard-machines-colossus-the-forbin-project-01",
+                "Colossus: The Forbin Project",
+                "Kako se zove sovjetsko superračunalo s kojim Colossus uspostavlja vezu?",
+                "Guardian",
+                "Proteus IV",
+                "Joshua"
+            ),
         ],
         dystopia: [
             q2(
-                "q2-hard-dystopia-escape-from-new-york-01",
-                "Escape from New York",
-                "Kako se zove predsjednikov sigurnosni uređaj koji Snake mora pronaći?",
-                "Mikrokaseta s govorom",
-                "Nuklearni kod",
-                "Predsjednički pečat"
+                "q2-hard-dystopia-night-of-the-comet-01",
+                "Night of the Comet",
+                "Gdje Regina provede noć prolaska kometa i tako izbjegne njegov smrtonosni učinak?",
+                "U metalom obloženoj projekcijskoj kabini",
+                "U podzemnom skloništu",
+                "U vojnom laboratoriju"
             ),
+
             q2(
                 "q2-hard-dystopia-logans-run-01",
                 "Logan's Run",
@@ -591,12 +596,12 @@ const questions2 = {
                 "Buzzsaw"
             ),
             q2(
-                "q2-hard-dystopia-death-race-2000-01",
-                "Death Race 2000",
-                "Koji glumac tumači Machine Gun Joea Viterba?",
-                "Sylvester Stallone",
-                "Martin Kove",
-                "David Carradine"
+                "q2-hard-dystopia-thx-1138-01",
+                "THX 1138",
+                "Kako glasi oznaka žene koja prestane davati THX-u propisane lijekove?",
+                "LUH 3417",
+                "SEN 5241",
+                "SRT 5752"
             ),
             q2(
                 "q2-hard-dystopia-the-omega-man-01",
@@ -626,12 +631,12 @@ const questions2 = {
                 "Nell"
             ),
             q2(
-                "q2-hard-aliens-heavy-metal-02",
-                "Heavy Metal — Harry Canyon",
-                "Čime se Harry Canyon bavi u futurističkom New Yorku?",
-                "Vozi taksi",
-                "Radi kao policijski detektiv",
-                "Prodaje svemirske brodove"
+                "q2-hard-aliens-battle-beyond-the-stars-01",
+                "Battle Beyond the Stars",
+                "Kako se zove svemirski brod kojim Shad traži ratnike za obranu svog planeta?",
+                "Nell",
+                "Gunstar",
+                "Trimaxion"
             ),
             q2(
                 "q2-hard-aliens-heavy-metal-03",
@@ -641,29 +646,32 @@ const questions2 = {
                 "Harry Canyon",
                 "Hanover Fiste"
             ),
+
             q2(
-                "q2-hard-aliens-heavy-metal-04",
-                "Heavy Metal — Captain Sternn",
-                "Kako se zove svjedok kojeg Captain Sternn pokušava podmititi?",
-                "Hanover Fiste",
-                "Grimaldi",
-                "Edsel"
+                "q2-hard-aliens-dreamscape-01",
+                "Dreamscape",
+                "Kako se zove vidovnjak kojeg Dennis Quaid glumi u filmu Dreamscape?",
+                "Alex Gardner",
+                "Tommy Ray Glatman",
+                "Paul Novotny"
             ),
+
             q2(
-                "q2-hard-aliens-heavy-metal-05",
-                "Heavy Metal — B-17",
-                "Kako se zove bombarder iz segmenta B-17?",
-                "Pacific Pearl",
-                "Memphis Belle",
-                "Flying Fortress"
+                "q2-hard-aliens-the-dead-zone-01",
+                "The Dead Zone",
+                "Kako se zove političar čiju zastrašujuću budućnost Johnny Smith vidi dodirom?",
+                "Greg Stillson",
+                "Roger Stuart",
+                "Frank Dodd"
             ),
+
             q2(
-                "q2-hard-aliens-heavy-metal-06",
-                "Heavy Metal — B-17",
-                "Što Loc-Nar učini poginulim članovima posade bombardera?",
-                "Pretvori ih u zombije",
-                "Pretvori ih u androide",
-                "Vrati ih u prošlost"
+                "q2-hard-aliens-return-of-the-jedi-01",
+                "Return of the Jedi",
+                "Kako se zove stvorenje kojem Jabba namjerava baciti svoje zarobljenike?",
+                "Sarlacc",
+                "Rancor",
+                "Carkoon"
             ),
             q2(
                 "q2-hard-aliens-heavy-metal-07",
@@ -684,4 +692,6 @@ const questions2 = {
         ]
     }
 };
+
+
 
