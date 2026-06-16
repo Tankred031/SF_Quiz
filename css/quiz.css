@@ -1,5 +1,5 @@
 /* =========================================
-   RESET
+   01. RESET I OSNOVNI STILOVI
 ========================================= */
 
 * {
@@ -34,8 +34,9 @@ body {
     line-height: 1.5;
 }
 
+
 /* =========================================
-   LOGIN MODE
+   02. LOGIN / LOGOUT MODE
 ========================================= */
 
 body.logged-out {
@@ -49,8 +50,9 @@ body.logged-out #logoutBtn {
     display: none !important;
 }
 
+
 /* =========================================
-   HERO
+   03. HERO
 ========================================= */
 
 .hero {
@@ -105,7 +107,6 @@ body.logged-out #logoutBtn {
     font-size: clamp(42px, 6vw, 62px);
     line-height: 1.02;
     font-weight: 900;
-
     text-transform: uppercase;
 }
 
@@ -137,39 +138,91 @@ body.logged-out #logoutBtn {
         0 0 30px rgba(56, 189, 248, 0.22);
 }
 
+
 /* =========================================
-   LEVEL TITLE
+   04. HERO — LEVEL SELECTOR
 ========================================= */
 
 .user-year-display {
     margin-top: 18px;
 }
 
-.active-year-label {
-    display: inline-block;
+.hero-level-selector {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
 
-    padding: 10px 16px;
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-
-    background: rgba(255, 255, 255, 0.06);
-
-    font-weight: 700;
-    letter-spacing: 1px;
+    width: min(100%, 420px);
+    margin-top: 4px;
 }
 
+.hero-level-selector label {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+#levelSelect {
+    width: 100%;
+    padding: 13px 42px 13px 15px;
+
+    border: 1px solid rgba(103, 232, 249, 0.3);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6, 24, 38, 0.96),
+            rgba(13, 53, 87, 0.96)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+    outline: none;
+
+    box-shadow:
+        inset 0 0 16px rgba(56, 189, 248, 0.06),
+        0 0 18px rgba(56, 189, 248, 0.08);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+#levelSelect:hover {
+    border-color: rgba(103, 232, 249, 0.55);
+}
+
+#levelSelect:focus {
+    border-color: rgba(250, 204, 21, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(250, 204, 21, 0.1),
+        0 0 22px rgba(250, 204, 21, 0.12);
+}
+
+#levelSelect option {
+    background: #071521;
+    color: #ffffff;
+}
+
+
 /* =========================================
-   APP
+   05. APP I GLAVNI BLOKOVI
 ========================================= */
 
 #app {
     width: 100%;
 }
-
-/* =========================================
-   THEME / GROUP BLOCK
-========================================= */
 
 .month-block {
     margin-bottom: 40px;
@@ -208,8 +261,9 @@ body.logged-out #logoutBtn {
     margin-bottom: 5px;
 }
 
+
 /* =========================================
-   LEVELS GRID
+   06. LEVELS GRID
 ========================================= */
 
 .levels-grid {
@@ -225,8 +279,9 @@ body.logged-out #logoutBtn {
     align-items: start;
 }
 
+
 /* =========================================
-   QUIZ BLOCK
+   07. QUIZ BLOKOVI
 ========================================= */
 
 .week-block {
@@ -250,8 +305,9 @@ body.logged-out #logoutBtn {
     font-weight: 800;
 }
 
+
 /* =========================================
-   QUIZ STATES
+   08. QUIZ STANJA
 ========================================= */
 
 .week-locked {
@@ -289,8 +345,9 @@ body.logged-out #logoutBtn {
         1px solid rgba(0, 255, 120, 0.2);
 }
 
+
 /* =========================================
-   QUIZ META
+   09. QUIZ META I FILM LABEL
 ========================================= */
 
 .quiz-meta {
@@ -302,8 +359,29 @@ body.logged-out #logoutBtn {
     line-height: 1.6;
 }
 
+.quiz-film {
+    display: inline-block;
+
+    margin-bottom: 10px;
+    padding: 5px 9px;
+
+    border: 1px solid rgba(103, 232, 249, 0.18);
+    border-radius: 8px;
+
+    background:
+        rgba(3, 15, 25, 0.42);
+
+    color: rgba(165, 243, 252, 0.9);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+
 /* =========================================
-   QUIZ QUESTIONS
+   10. QUIZ PITANJA
 ========================================= */
 
 .quiz-list {
@@ -338,8 +416,9 @@ body.logged-out #logoutBtn {
     line-height: 1.5;
 }
 
+
 /* =========================================
-   ANSWERS
+   11. ODGOVORI
 ========================================= */
 
 .quiz-answers {
@@ -399,36 +478,12 @@ body.logged-out #logoutBtn {
     color: #ffffff;
 }
 
-/* =========================================
-   LOCKED QUIZ
-========================================= */
-
-.locked-quiz-message {
-    margin-top: 18px;
-    padding: 22px;
-
-    border: 1px dashed rgba(255, 255, 255, 0.18);
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0, 0, 0, 0.45),
-            rgba(20, 20, 30, 0.35)
-        );
-
-    color: rgba(255, 255, 255, 0.7);
-
-    text-align: center;
-    font-weight: 700;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-}
 
 /* =========================================
-   EMPTY QUIZ
+   12. ZAKLJUČANI I PRAZNI KVIZOVI
 ========================================= */
 
+.locked-quiz-message,
 .empty-quiz-message {
     padding: 22px;
 
@@ -440,8 +495,24 @@ body.logged-out #logoutBtn {
     text-align: center;
 }
 
+.locked-quiz-message {
+    margin-top: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 0, 0, 0.45),
+            rgba(20, 20, 30, 0.35)
+        );
+
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+
 /* =========================================
-   QUIZ RESULTS
+   13. REZULTATI
 ========================================= */
 
 .quiz-live-result {
@@ -505,8 +576,9 @@ body.logged-out #logoutBtn {
     color: #fecaca;
 }
 
+
 /* =========================================
-   RESET QUIZ BUTTON
+   14. RESET QUIZ BUTTON
 ========================================= */
 
 .reset-quiz-btn {
@@ -548,8 +620,9 @@ body.logged-out #logoutBtn {
         0 0 18px rgba(56, 189, 248, 0.18);
 }
 
+
 /* =========================================
-   CRT LOGIN SCREEN
+   15. CRT LOGIN SCREEN
 ========================================= */
 
 #loginView {
@@ -823,8 +896,9 @@ body.logged-out #logoutBtn {
     transform: translateY(1px);
 }
 
+
 /* =========================================
-   LOGOUT
+   16. LOGOUT BUTTON
 ========================================= */
 
 #logoutBtn {
@@ -865,7 +939,7 @@ body.logged-out #logoutBtn {
 }
 
 /* =========================================
-   LEVEL THEMES
+   17. LEVEL TEME — GROUP BLOKOVI
 ========================================= */
 
 .month-block.year-1 {
@@ -916,8 +990,9 @@ body.logged-out #logoutBtn {
         1px solid rgba(239, 68, 68, 0.22);
 }
 
+
 /* =========================================
-   HERO THEMES
+   18. LEVEL TEME — HERO
 ========================================= */
 
 .hero-year-1 .hero-content {
@@ -962,7 +1037,28 @@ body.logged-out #logoutBtn {
 
 
 /* =========================================
-   IMAGE ZOOM / LIGHTBOX
+   19. LEVEL TEME — SELECT
+========================================= */
+
+body.year-1 #levelSelect {
+    border-color: rgba(56, 189, 248, 0.42);
+}
+
+body.year-2 #levelSelect {
+    border-color: rgba(34, 197, 94, 0.42);
+}
+
+body.year-3 #levelSelect {
+    border-color: rgba(168, 85, 247, 0.48);
+}
+
+body.year-4 #levelSelect {
+    border-color: rgba(239, 68, 68, 0.48);
+}
+
+
+/* =========================================
+   20. IMAGE ZOOM / LIGHTBOX
 ========================================= */
 
 body.image-zoom-open {
@@ -1035,15 +1131,11 @@ body.image-zoom-open {
     cursor: zoom-in;
 }
 
-/* Level 1 */
-
 body.year-1 #overlayImage {
     box-shadow:
         0 0 45px rgba(80, 180, 255, 0.9),
         0 0 100px rgba(56, 189, 248, 0.35);
 }
-
-/* Level 2 */
 
 body.year-2 #overlayImage {
     box-shadow:
@@ -1051,15 +1143,11 @@ body.year-2 #overlayImage {
         0 0 100px rgba(34, 197, 94, 0.35);
 }
 
-/* Level 3 */
-
 body.year-3 #overlayImage {
     box-shadow:
         0 0 45px rgba(200, 100, 255, 0.9),
         0 0 100px rgba(168, 85, 247, 0.38);
 }
-
-/* Level 4 */
 
 body.year-4 #overlayImage {
     box-shadow:
@@ -1067,137 +1155,9 @@ body.year-4 #overlayImage {
         0 0 100px rgba(220, 38, 38, 0.38);
 }
 
-@media (max-width: 600px) {
-    #imageOverlay {
-        padding: 14px;
-    }
-
-    #overlayImage {
-        max-width: 94vw;
-        max-height: 88vh;
-
-        border-radius: 12px;
-    }
-}
-
-
-
 
 /* =========================================
-   HERO LEVEL SELECTOR
-========================================= */
-
-.hero-level-selector {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 8px;
-
-    width: min(100%, 420px);
-    margin-top: 4px;
-}
-
-.hero-level-selector label {
-    color: rgba(255, 255, 255, 0.72);
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-}
-
-#levelSelect {
-    width: 100%;
-    padding: 13px 42px 13px 15px;
-
-    border: 1px solid rgba(103, 232, 249, 0.3);
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(6, 24, 38, 0.96),
-            rgba(13, 53, 87, 0.96)
-        );
-
-    color: #ffffff;
-
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 800;
-
-    cursor: pointer;
-    outline: none;
-
-    box-shadow:
-        inset 0 0 16px rgba(56, 189, 248, 0.06),
-        0 0 18px rgba(56, 189, 248, 0.08);
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
-}
-
-#levelSelect:hover {
-    border-color: rgba(103, 232, 249, 0.55);
-}
-
-#levelSelect:focus {
-    border-color: rgba(250, 204, 21, 0.65);
-
-    box-shadow:
-        0 0 0 3px rgba(250, 204, 21, 0.1),
-        0 0 22px rgba(250, 204, 21, 0.12);
-}
-
-#levelSelect option {
-    background: #071521;
-    color: #ffffff;
-}
-
-/* Boja selekta prema aktivnom levelu */
-
-body.year-1 #levelSelect {
-    border-color: rgba(56, 189, 248, 0.42);
-}
-
-body.year-2 #levelSelect {
-    border-color: rgba(34, 197, 94, 0.42);
-}
-
-body.year-3 #levelSelect {
-    border-color: rgba(168, 85, 247, 0.48);
-}
-
-body.year-4 #levelSelect {
-    border-color: rgba(239, 68, 68, 0.48);
-}
-
-/* =========================================
-   FILM LABEL
-========================================= */
-
-.quiz-film {
-    display: inline-block;
-
-    margin-bottom: 10px;
-    padding: 5px 9px;
-
-    border: 1px solid rgba(103, 232, 249, 0.18);
-    border-radius: 8px;
-
-    background: rgba(3, 15, 25, 0.42);
-
-    color: rgba(165, 243, 252, 0.9);
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-}
-
-/* =========================================
-   SECRET LEVEL
+   21. SECRET LEVEL
 ========================================= */
 
 .secret-level-block .levels-grid {
@@ -1213,7 +1173,8 @@ body.year-4 #levelSelect {
 }
 
 .secret-level-block .quiz-card {
-    border-color: rgba(239, 68, 68, 0.16);
+    border-color:
+        rgba(239, 68, 68, 0.16);
 
     background:
         linear-gradient(
@@ -1228,15 +1189,18 @@ body.year-4 #levelSelect {
 }
 
 .secret-level-block .quiz-film {
-    border-color: rgba(248, 113, 113, 0.25);
+    border-color:
+        rgba(248, 113, 113, 0.25);
 
-    background: rgba(80, 12, 12, 0.25);
+    background:
+        rgba(80, 12, 12, 0.25);
 
     color: #fecaca;
 }
 
+
 /* =========================================
-   RESET SECRET BUTTON
+   22. RESET SECRET BUTTON
 ========================================= */
 
 .reset-secret-btn {
@@ -1246,7 +1210,8 @@ body.year-4 #levelSelect {
     margin-top: 20px;
     padding: 13px 16px;
 
-    border: 1px solid rgba(248, 113, 113, 0.35);
+    border:
+        1px solid rgba(248, 113, 113, 0.35);
     border-radius: 12px;
 
     background:
@@ -1279,35 +1244,9 @@ body.year-4 #levelSelect {
         0 0 20px rgba(239, 68, 68, 0.24);
 }
 
-/* =========================================
-   RESPONSIVE DODATAK
-========================================= */
-
-@media (max-width: 900px) {
-    .secret-level-block .levels-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-level-selector {
-        margin-right: auto;
-        margin-left: auto;
-        text-align: left;
-    }
-}
-
-@media (max-width: 600px) {
-    #levelSelect {
-        padding: 12px 38px 12px 13px;
-        font-size: 13px;
-    }
-
-    .hero-level-selector label {
-        font-size: 11px;
-    }
-}
 
 /* =========================================
-   SECRET ADMIN BUTTON
+   23. SECRET ADMIN BUTTON
 ========================================= */
 
 .secret-admin-toggle {
@@ -1321,12 +1260,14 @@ body.year-4 #levelSelect {
     padding: 10px 18px;
 
     color: #ffffff;
+
     font-size: 0.9rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border:
+        1px solid rgba(255, 255, 255, 0.22);
     border-radius: 10px;
 
     background:
@@ -1352,19 +1293,17 @@ body.year-4 #levelSelect {
 .secret-admin-toggle:hover {
     transform: translateY(-2px);
 
+    border-color:
+        rgba(255, 255, 255, 0.4);
+
     box-shadow:
         0 12px 26px rgba(0, 0, 0, 0.36),
         0 0 18px rgba(120, 140, 255, 0.18);
-
-    border-color:
-        rgba(255, 255, 255, 0.4);
 }
 
 .secret-admin-toggle:active {
     transform: translateY(0);
 }
-
-/* Zaključan Secret — gumb otključava */
 
 .secret-admin-toggle.secret-is-locked {
     color: #ffd7de;
@@ -1389,8 +1328,6 @@ body.year-4 #levelSelect {
         0 12px 28px rgba(0, 0, 0, 0.38),
         0 0 24px rgba(255, 40, 80, 0.3);
 }
-
-/* Otključan Secret — gumb zaključava */
 
 .secret-admin-toggle.secret-is-unlocked {
     color: #d9ffe8;
@@ -1417,7 +1354,7 @@ body.year-4 #levelSelect {
 }
 
 /* =========================================
-   SECRET FAILED — CENTER PROMPT
+   24. SECRET FAILED — OVERLAY
 ========================================= */
 
 .secret-failed-overlay {
@@ -1431,6 +1368,8 @@ body.year-4 #levelSelect {
 
     padding: 20px;
 
+    overflow-y: auto;
+
     background:
         radial-gradient(
             circle at center,
@@ -1439,21 +1378,27 @@ body.year-4 #levelSelect {
         );
 
     backdrop-filter: blur(8px);
-    overflow-y: auto;
+    -webkit-backdrop-filter: blur(8px);
 }
+
+
+/* =========================================
+   25. SECRET FAILED — PROMPT
+========================================= */
 
 .secret-failed-prompt {
     position: relative;
 
     width: min(520px, 100%);
     max-height: calc(100vh - 40px);
-    overflow-y: auto;
 
     padding: 26px;
+    overflow-y: auto;
 
     text-align: center;
 
-    border: 2px solid rgba(255, 45, 75, 0.72);
+    border:
+        2px solid rgba(255, 45, 75, 0.72);
     border-radius: 20px;
 
     background:
@@ -1474,10 +1419,12 @@ body.year-4 #levelSelect {
 
 .secret-failed-prompt::before {
     content: "";
+
     position: absolute;
     inset: 0;
 
     pointer-events: none;
+
     border-radius: inherit;
 
     background:
@@ -1489,8 +1436,14 @@ body.year-4 #levelSelect {
         );
 }
 
+
+/* =========================================
+   26. SECRET FAILED — KICKER I NASLOV
+========================================= */
+
 .secret-failed-kicker {
     position: relative;
+    z-index: 2;
 
     margin: 0 0 8px;
 
@@ -1504,6 +1457,7 @@ body.year-4 #levelSelect {
 
 .secret-failed-title {
     position: relative;
+    z-index: 2;
 
     margin: 0 0 20px;
 
@@ -1516,38 +1470,116 @@ body.year-4 #levelSelect {
         0 0 12px rgba(255, 50, 80, 0.65);
 }
 
+
+/* =========================================
+   27. SECRET FAILED — SLIKA
+========================================= */
+
 .secret-failed-image {
     position: relative;
+    z-index: 2;
 
     display: block;
 
     width: 100%;
     max-height: 52vh;
 
-    margin: 0 auto 22px;
+    margin: 0 auto 10px;
 
     object-fit: contain;
 
-    border: 1px solid rgba(255, 65, 95, 0.5);
+    border:
+        1px solid rgba(255, 65, 95, 0.5);
     border-radius: 14px;
 
     box-shadow:
         0 14px 35px rgba(0, 0, 0, 0.6);
 }
 
+
+/* =========================================
+   28. SECRET FAILED — GLAVNA PORUKA
+========================================= */
+
 .secret-failed-message {
     position: relative;
+    z-index: 2;
 
-    margin: 0 auto 20px;
+    width: fit-content;
+    max-width: 92%;
+
+    margin: 24px auto 22px;
+    padding: 16px 34px;
 
     color: #ffffff;
 
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
+
+    border-top:
+        2px solid rgba(255, 65, 95, 0.8);
+
+    border-bottom:
+        2px solid rgba(255, 65, 95, 0.8);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 35, 70, 0.14),
+            rgba(255, 35, 70, 0.26),
+            rgba(255, 35, 70, 0.14),
+            transparent
+        );
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.45),
+        0 0 18px rgba(255, 45, 80, 0.7);
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 30, 70, 0.05);
+
+    animation:
+        secretFailedMessageAppear 0.7s ease-out;
 }
+
+.secret-failed-message::before,
+.secret-failed-message::after {
+    content: "◆";
+
+    position: absolute;
+    top: 50%;
+
+    color: #ff4565;
+
+    font-size: 0.7rem;
+
+    transform: translateY(-50%);
+
+    text-shadow:
+        0 0 10px rgba(255, 45, 80, 0.9);
+}
+
+.secret-failed-message::before {
+    left: 10px;
+}
+
+.secret-failed-message::after {
+    right: 10px;
+}
+
+
+/* =========================================
+   29. SECRET FAILED — LOCK STATUS
+========================================= */
 
 .secret-failed-lock {
     position: relative;
+    z-index: 2;
 
     width: fit-content;
 
@@ -1560,16 +1592,72 @@ body.year-4 #levelSelect {
     font-weight: 900;
     letter-spacing: 0.08em;
 
-    border: 1px solid rgba(255, 70, 100, 0.45);
+    border:
+        1px solid rgba(255, 70, 100, 0.45);
     border-radius: 999px;
 
     background:
         rgba(255, 30, 65, 0.08);
 }
 
+
+/* =========================================
+   30. SECRET FAILED — POVRATAK
+========================================= */
+
+.secret-failed-back-btn {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    margin: 18px auto 0;
+    padding: 11px 20px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 65, 95, 0.95),
+            rgba(20, 25, 42, 0.95)
+        );
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.secret-failed-back-btn:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.4),
+        0 0 18px rgba(120, 150, 255, 0.25);
+}
+
+
+/* =========================================
+   31. SECRET FAILED — ANIMACIJE
+========================================= */
+
 @keyframes secretFailedAppear {
     from {
         opacity: 0;
+
         transform:
             scale(0.88)
             translateY(25px);
@@ -1577,49 +1665,38 @@ body.year-4 #levelSelect {
 
     to {
         opacity: 1;
+
         transform:
             scale(1)
             translateY(0);
     }
 }
 
-@media (max-width: 600px) {
-    .secret-failed-overlay {
-        padding: 12px;
+@keyframes secretFailedMessageAppear {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.9)
+            translateY(12px);
+
+        letter-spacing: 0.02em;
     }
 
-    .secret-failed-prompt {
-        padding: 20px 14px;
-        border-radius: 16px;
-    }
+    to {
+        opacity: 1;
 
-    .secret-failed-image {
-        max-height: 48vh;
-    }
+        transform:
+            scale(1)
+            translateY(0);
 
-    .secret-failed-message {
-        font-size: 0.95rem;
-    }
-
-    .secret-failed-lock {
-        width: 100%;
-
-        font-size: 0.72rem;
-        line-height: 1.4;
+        letter-spacing: 0.12em;
     }
 }
 
-@media (max-width: 700px) {
-    .secret-admin-toggle {
-        width: 100%;
-        margin-top: 12px;
-        padding: 11px 14px;
-        font-size: 0.82rem;
-    }
-}
 
 /* =========================================
-   RESPONSIVE — TABLET
+   32. RESPONSIVE — TABLET
 ========================================= */
 
 @media (max-width: 900px) {
@@ -1649,13 +1726,22 @@ body.year-4 #levelSelect {
         height: 420px;
     }
 
-    .levels-grid {
+    .levels-grid,
+    .secret-level-block .levels-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-level-selector {
+        margin-right: auto;
+        margin-left: auto;
+
+        text-align: left;
     }
 }
 
+
 /* =========================================
-   RESPONSIVE — MOBILE
+   33. RESPONSIVE — MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
@@ -1685,6 +1771,16 @@ body.year-4 #levelSelect {
         height: 360px;
     }
 
+    #levelSelect {
+        padding: 12px 38px 12px 13px;
+
+        font-size: 13px;
+    }
+
+    .hero-level-selector label {
+        font-size: 11px;
+    }
+
     .month-block {
         margin-bottom: 24px;
         padding: 18px;
@@ -1712,6 +1808,7 @@ body.year-4 #levelSelect {
 
     .levels-grid {
         grid-template-columns: 1fr;
+
         gap: 16px;
     }
 
@@ -1735,38 +1832,58 @@ body.year-4 #levelSelect {
 
         font-size: 12px;
     }
-}
 
-.secret-failed-back-btn {
-    display: block;
-    margin: 18px auto 0;
-    padding: 11px 20px;
+    #imageOverlay {
+        padding: 14px;
+    }
 
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 800;
+    #overlayImage {
+        max-width: 94vw;
+        max-height: 88vh;
 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
+        border-radius: 12px;
+    }
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(55, 65, 95, 0.95),
-            rgba(20, 25, 42, 0.95)
-        );
+    .secret-admin-toggle {
+        width: 100%;
 
-    cursor: pointer;
+        margin-top: 12px;
+        padding: 11px 14px;
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
+        font-size: 0.82rem;
+    }
 
-.secret-failed-back-btn:hover {
-    transform: translateY(-2px);
+    .secret-failed-overlay {
+        padding: 12px;
+    }
 
-    box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.4),
-        0 0 18px rgba(120, 150, 255, 0.25);
+    .secret-failed-prompt {
+        padding: 20px 14px;
+
+        border-radius: 16px;
+    }
+
+    .secret-failed-image {
+        max-height: 48vh;
+    }
+
+    .secret-failed-message {
+        max-width: 100%;
+
+        padding: 13px 26px;
+
+        font-size: 1.15rem;
+        letter-spacing: 0.08em;
+    }
+
+    .secret-failed-lock {
+        width: 100%;
+
+        font-size: 0.72rem;
+        line-height: 1.4;
+    }
+
+    .secret-failed-back-btn {
+        width: 100%;
+    }
 }
