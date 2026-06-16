@@ -1,5 +1,14 @@
 /* =========================================
-   01. REWARD FLIP CARD — CONTAINER
+   REWARD SYSTEM
+   - flip kartice
+   - zaključano / otključano stanje
+   - završne slike levela
+   - Secret reset gumb
+========================================= */
+
+
+/* =========================================
+   01. REWARD CARD — GLAVNI KONTEJNER
 ========================================= */
 
 .quiz-reward-card {
@@ -20,7 +29,7 @@
 
 
 /* =========================================
-   02. REWARD FLIP CARD — INNER
+   02. REWARD CARD — FLIP ELEMENT
 ========================================= */
 
 .reward-inner {
@@ -43,14 +52,12 @@
 }
 
 /*
-   Otključana kartica okreće se
-   na prednju reward stranu.
+   Kada se nagrada otključa,
+   unutarnji dio kartice okreće se za 180°.
 */
 
-.quiz-reward-card.unlocked
-.reward-inner {
-    transform:
-        rotateY(180deg);
+.quiz-reward-card.unlocked .reward-inner {
+    transform: rotateY(180deg);
 }
 
 
@@ -68,12 +75,8 @@
     overflow: hidden;
 
     border:
-        1px solid rgba(
-            255,
-            255,
-            255,
-            0.1
-        );
+        1px solid
+        rgba(255, 255, 255, 0.1);
 
     border-radius: 16px;
 
@@ -90,17 +93,26 @@
     transform-style: preserve-3d;
 
     box-shadow:
-        0 0 25px rgba(
-            0,
-            0,
-            0,
-            0.45
-        );
+        0 0 25px
+        rgba(0, 0, 0, 0.45);
 }
 
 
 /* =========================================
-   04. REWARD CARD — SLIKE
+   04. REWARD CARD — PREDNJA I STRAŽNJA STRANA
+========================================= */
+
+.reward-back {
+    transform: rotateY(0deg);
+}
+
+.reward-front {
+    transform: rotateY(180deg);
+}
+
+
+/* =========================================
+   05. REWARD CARD — SLIKE
 ========================================= */
 
 .reward-face img {
@@ -120,22 +132,7 @@
 
 
 /* =========================================
-   05. REWARD CARD — BACK I FRONT
-========================================= */
-
-.reward-back {
-    transform:
-        rotateY(0deg);
-}
-
-.reward-front {
-    transform:
-        rotateY(180deg);
-}
-
-
-/* =========================================
-   06. REWARD STATE — LOCKED
+   06. REWARD STATE — ZAKLJUČANO
 ========================================= */
 
 .quiz-reward-card.locked {
@@ -146,28 +143,18 @@
         brightness(0.82);
 }
 
-.quiz-reward-card.locked
-.reward-face {
+.quiz-reward-card.locked .reward-face {
     border-color:
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
+        rgba(255, 255, 255, 0.08);
 
     box-shadow:
-        0 0 20px rgba(
-            0,
-            0,
-            0,
-            0.55
-        );
+        0 0 20px
+        rgba(0, 0, 0, 0.55);
 }
 
 
 /* =========================================
-   07. REWARD STATE — UNLOCKED
+   07. REWARD STATE — OTKLJUČANO
 ========================================= */
 
 .quiz-reward-card.unlocked {
@@ -178,8 +165,7 @@
 .quiz-reward-card.unlocked:not(
     .placeholder-reward
 ):hover {
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 }
 
 
@@ -195,45 +181,32 @@
         brightness(0.72);
 }
 
-.quiz-reward-card.placeholder-reward
-.reward-face {
+.quiz-reward-card.placeholder-reward .reward-face {
     border-color:
-        rgba(
-            255,
-            255,
-            255,
-            0.06
-        );
+        rgba(255, 255, 255, 0.06);
 
     box-shadow:
-        0 0 18px rgba(
-            0,
-            0,
-            0,
-            0.5
-        );
+        0 0 18px
+        rgba(0, 0, 0, 0.5);
 }
 
 
 /* =========================================
-   09. REWARD IMAGE ZOOM
+   09. REWARD IMAGE — ZOOM CURSOR
 ========================================= */
 
-.reward-front
-.reward-zoom-image {
+.reward-front .reward-zoom-image {
     cursor: zoom-in;
 }
 
-.quiz-reward-card.locked
-.reward-zoom-image,
-.quiz-reward-card.placeholder-reward
-.reward-zoom-image {
+.quiz-reward-card.locked .reward-zoom-image,
+.quiz-reward-card.placeholder-reward .reward-zoom-image {
     cursor: default;
 }
 
 
 /* =========================================
-   10. NEWLY UNLOCKED ANIMATION
+   10. NOVO OTKLJUČANA NAGRADA
 ========================================= */
 
 .quiz-reward-card.newly-unlocked {
@@ -245,153 +218,349 @@
 
 @keyframes rewardPulse {
     0% {
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 
     35% {
-        transform:
-            scale(1.06);
+        transform: scale(1.06);
     }
 
     65% {
-        transform:
-            scale(0.99);
+        transform: scale(0.99);
     }
 
     100% {
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 }
 
 
 /* =========================================
-   11. LEVEL 1 REWARD GLOW
+   11. REWARD GLOW — LEVEL 1
 ========================================= */
 
 body.year-1
 .quiz-reward-card.unlocked
 .reward-face {
     border-color:
-        rgba(
-            56,
-            189,
-            248,
-            0.28
-        );
+        rgba(56, 189, 248, 0.28);
 
     box-shadow:
-        0 0 25px rgba(
-            56,
-            189,
-            248,
-            0.35
-        ),
-        0 0 55px rgba(
-            56,
-            189,
-            248,
-            0.14
-        );
+        0 0 25px
+        rgba(56, 189, 248, 0.35),
+
+        0 0 55px
+        rgba(56, 189, 248, 0.14);
 }
 
 
 /* =========================================
-   12. LEVEL 2 REWARD GLOW
+   12. REWARD GLOW — LEVEL 2
 ========================================= */
 
 body.year-2
 .quiz-reward-card.unlocked
 .reward-face {
     border-color:
-        rgba(
-            34,
-            197,
-            94,
-            0.28
-        );
+        rgba(34, 197, 94, 0.28);
 
     box-shadow:
-        0 0 25px rgba(
-            34,
-            197,
-            94,
-            0.35
-        ),
-        0 0 55px rgba(
-            34,
-            197,
-            94,
-            0.14
-        );
+        0 0 25px
+        rgba(34, 197, 94, 0.35),
+
+        0 0 55px
+        rgba(34, 197, 94, 0.14);
 }
 
 
 /* =========================================
-   13. LEVEL 3 REWARD GLOW
+   13. REWARD GLOW — LEVEL 3
 ========================================= */
 
 body.year-3
 .quiz-reward-card.unlocked
 .reward-face {
     border-color:
-        rgba(
-            168,
-            85,
-            247,
-            0.3
-        );
+        rgba(168, 85, 247, 0.3);
 
     box-shadow:
-        0 0 25px rgba(
-            168,
-            85,
-            247,
-            0.4
-        ),
-        0 0 55px rgba(
-            168,
-            85,
-            247,
-            0.16
-        );
+        0 0 25px
+        rgba(168, 85, 247, 0.4),
+
+        0 0 55px
+        rgba(168, 85, 247, 0.16);
 }
 
 
 /* =========================================
-   14. LEVEL 4 REWARD GLOW
+   14. REWARD GLOW — SECRET LEVEL
 ========================================= */
 
 body.year-4
 .quiz-reward-card.unlocked
 .reward-face {
     border-color:
-        rgba(
-            239,
-            68,
-            68,
-            0.32
-        );
+        rgba(239, 68, 68, 0.32);
 
     box-shadow:
-        0 0 25px rgba(
-            239,
-            68,
-            68,
-            0.4
+        0 0 25px
+        rgba(239, 68, 68, 0.4),
+
+        0 0 55px
+        rgba(239, 68, 68, 0.16);
+}
+
+
+/* =========================================
+   15. SECRET QUIZ — RESET GUMB
+========================================= */
+
+/*
+   Gumb se prikazuje ispod reward slike.
+*/
+
+.reset-secret-quiz-btn {
+    display: block;
+
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.2rem;
+
+    border: 0;
+    border-radius: 14px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #149dd1,
+            #2d6ee8
+        );
+
+    font-family: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.reset-secret-quiz-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.reset-secret-quiz-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   16. LEVEL COMPLETION — GLAVNI BLOK
+========================================= */
+
+.completion-section {
+    width:
+        min(
+            1200px,
+            calc(100% - 2rem)
+        );
+
+    margin: 3rem auto;
+
+    padding:
+        clamp(
+            1.5rem,
+            4vw,
+            3rem
+        );
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(89, 255, 177, 0.24);
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(26, 89, 75, 0.2),
+            transparent 42%
         ),
-        0 0 55px rgba(
+        rgba(4, 12, 17, 0.94);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 35px
+        rgba(41, 255, 157, 0.06);
+}
+
+
+/* =========================================
+   17. LEVEL COMPLETION — NASLOV
+========================================= */
+
+.completion-heading {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.completion-kicker {
+    margin-bottom: 0.6rem;
+
+    color: #55e2a5;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.completion-heading h2,
+.final-reward-heading h3 {
+    margin:
+        0
+        0
+        0.75rem;
+
+    color: #f3f8f6;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.completion-heading h2 {
+    font-size:
+        clamp(
+            1.8rem,
+            4vw,
+            3.4rem
+        );
+}
+
+.completion-heading p {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color:
+        rgba(
+            230,
+            245,
             239,
-            68,
-            68,
-            0.16
+            0.7
+        );
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   18. LEVEL COMPLETION — GALERIJA
+========================================= */
+
+.completion-gallery {
+    display: grid;
+    gap: 1.5rem;
+
+    width: 100%;
+}
+
+.completion-gallery-two {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+}
+
+.completion-gallery-final {
+    grid-template-columns: 1fr;
+}
+
+
+/* =========================================
+   19. LEVEL COMPLETION — IMAGE CARD
+========================================= */
+
+.completion-image-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(89, 255, 177, 0.2);
+
+    border-radius: 14px;
+
+    background:
+        rgba(2, 8, 12, 0.9);
+
+    box-shadow:
+        0 16px 35px
+        rgba(0, 0, 0, 0.45);
+}
+
+.completion-image {
+    display: block;
+
+    width: 100%;
+    height: 420px;
+
+    object-fit: contain;
+
+    cursor: zoom-in;
+}
+
+
+/* =========================================
+   20. FINAL REWARD IMAGE
+========================================= */
+
+.final-reward-heading {
+    margin:
+        3rem
+        0
+        1.5rem;
+
+    text-align: center;
+}
+
+.completion-image-final {
+    width: min(850px, 100%);
+    margin: 0 auto;
+
+    border-color:
+        rgba(255, 199, 82, 0.32);
+
+    box-shadow:
+        0 22px 60px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 35px
+        rgba(255, 194, 67, 0.08);
+}
+
+.completion-image-final .completion-image {
+    height:
+        min(
+            72vh,
+            750px
         );
 }
 
 
 /* =========================================
-   15. TEST REWARD BUTTON
+   21. TEST REWARD BUTTON
 ========================================= */
 
 #testRewardButton {
@@ -400,10 +569,14 @@ body.year-4
     bottom: 20px;
     z-index: 9999;
 
-    padding: 12px 18px;
+    padding:
+        12px
+        18px;
 
     border: none;
     border-radius: 12px;
+
+    color: #111827;
 
     background:
         linear-gradient(
@@ -412,28 +585,20 @@ body.year-4
             #f59e0b
         );
 
-    color: #111827;
-
     font-family: inherit;
     font-size: 14px;
     font-weight: 900;
+
     letter-spacing: 0.03em;
 
     cursor: pointer;
 
     box-shadow:
-        0 8px 22px rgba(
-            0,
-            0,
-            0,
-            0.32
-        ),
-        0 0 20px rgba(
-            250,
-            204,
-            21,
-            0.45
-        );
+        0 8px 22px
+        rgba(0, 0, 0, 0.32),
+
+        0 0 20px
+        rgba(250, 204, 21, 0.45);
 
     transition:
         transform 0.2s ease,
@@ -446,22 +611,14 @@ body.year-4
         translateY(-2px)
         scale(1.03);
 
-    filter:
-        brightness(1.07);
+    filter: brightness(1.07);
 
     box-shadow:
-        0 12px 26px rgba(
-            0,
-            0,
-            0,
-            0.38
-        ),
-        0 0 26px rgba(
-            250,
-            204,
-            21,
-            0.58
-        );
+        0 12px 26px
+        rgba(0, 0, 0, 0.38),
+
+        0 0 26px
+        rgba(250, 204, 21, 0.58);
 }
 
 #testRewardButton:active {
@@ -472,28 +629,24 @@ body.year-4
 
 
 /* =========================================
-   16. ACCESSIBILITY — REDUCED MOTION
+   22. RESPONSIVE — TABLET / MOBILE
 ========================================= */
 
-@media (
-    prefers-reduced-motion:
-    reduce
-) {
-    .reward-inner,
-    .quiz-reward-card,
-    #testRewardButton {
-        transition: none;
+@media (max-width: 750px) {
+    .completion-gallery-two {
+        grid-template-columns: 1fr;
     }
 
-    .quiz-reward-card.newly-unlocked {
-        animation: none;
+    .completion-image {
+        height: auto;
+        max-height: 620px;
+    }
+
+    .completion-image-final .completion-image {
+        height: auto;
+        max-height: 720px;
     }
 }
-
-
-/* =========================================
-   17. RESPONSIVE — MOBILE
-========================================= */
 
 @media (max-width: 600px) {
     .quiz-reward-card {
@@ -501,7 +654,8 @@ body.year-4
         height: 260px;
 
         margin:
-            1.5rem auto;
+            1.5rem
+            auto;
     }
 
     .reward-face {
@@ -513,8 +667,30 @@ body.year-4
         bottom: 12px;
 
         padding:
-            10px 14px;
+            10px
+            14px;
 
         font-size: 12px;
+    }
+}
+
+
+/* =========================================
+   23. ACCESSIBILITY — REDUCED MOTION
+========================================= */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+    .reward-inner,
+    .quiz-reward-card,
+    .reset-secret-quiz-btn,
+    #testRewardButton {
+        transition: none;
+    }
+
+    .quiz-reward-card.newly-unlocked {
+        animation: none;
     }
 }

@@ -179,7 +179,6 @@ const questions = {
         {
             group: "dystopia",
             question: "He-mana u filmu 'Masters of the Universe' glumi:",
-            imam,
             answers: [
                 "=*= Dolph Lundgren",
                 "=== Arnold Schwarzenegger",

@@ -407,3 +407,297 @@ function createTestRewardButton() {
         }
     );
 }
+
+/* =========================================
+   LEVEL / QUIZ COMPLETION REWARDS
+========================================= */
+
+/*
+    PUTANJE ZAVRŠNIH SLIKA
+
+    LEVEL 3:
+    - dvije završne slike
+    - nema konačne slike cijelog kviza
+
+    SECRET LEVEL:
+    - dvije završne slike
+    - jedna konačna slika cijelog kviza
+*/
+
+const COMPLETION_REWARD_IMAGES = {
+    level3: [
+        "assets/images/copyright-risk/YouMadeIt-Figures.png",
+        "assets/images/copyright-risk/IdontBelieveInNoWinScenario.png"
+    ],
+
+    secret: [
+        "assets/images/copyright-risk/reward-4-1-1.png",
+        "assets/images/copyright-risk/reward-4-1-2.png"
+    ],
+
+    final:
+        "assets/images/copyright-risk/reward-4-2-3.png"
+};
+
+/* =========================================
+   IMAGE HTML
+========================================= */
+
+function renderCompletionImage(
+    imagePath,
+    altText,
+    extraClass = ""
+) {
+    if (!imagePath) {
+        return "";
+    }
+
+    return `
+        <div
+            class="
+                completion-image-card
+                ${extraClass}
+            "
+        >
+            <img
+                src="${imagePath}"
+                alt="${altText}"
+                class="
+                    completion-image
+                    zoomable-image
+                "
+                loading="lazy"
+
+                onerror="
+                    const card =
+                        this.closest(
+                            '.completion-image-card'
+                        );
+
+                    if (card) {
+                        card.remove();
+                    }
+                "
+            >
+        </div>
+    `;
+}
+
+/* =========================================
+   LEVEL 3 COMPLETION CHECK
+========================================= */
+
+function isLevel3Completed() {
+    /*
+        Level 3 ima:
+
+        3 teme:
+        - machines
+        - dystopia
+        - aliens
+
+        3 težine:
+        - light
+        - medium
+        - hard
+
+        Ukupno 9 kvizova.
+    */
+
+    const difficulties = [
+        "light",
+        "medium",
+        "hard"
+    ];
+
+    const groups = [
+        "machines",
+        "dystopia",
+        "aliens"
+    ];
+
+    return groups.every(group => {
+        return difficulties.every(
+            difficulty => {
+                const completedKey = [
+                    "sfq",
+                    "level-3",
+                    difficulty,
+                    group,
+                    "completed"
+                ].join("-");
+
+                return (
+                    localStorage.getItem(
+                        completedKey
+                    ) === "true"
+                );
+            }
+        );
+    });
+}
+
+/* =========================================
+   LEVEL 3 COMPLETION RENDER
+========================================= */
+
+function renderLevel3Completion() {
+    if (!isLevel3Completed()) {
+        return "";
+    }
+
+    const images =
+        COMPLETION_REWARD_IMAGES
+            .level3
+            .map(
+                (imagePath, index) =>
+                    renderCompletionImage(
+                        imagePath,
+                        `Level 3 završna slika ${index + 1}`
+                    )
+            )
+            .join("");
+
+    return `
+        <section
+            class="
+                completion-section
+                level-3-completion
+            "
+        >
+            <div class="completion-heading">
+
+                <div class="completion-kicker">
+                    ARHIVA OSVOJENA
+                </div>
+
+                <h2>
+                    Level 3 završen!
+                </h2>
+
+                <p>
+                    Arhiva zabranjenih svjetova
+                    uspješno je završena.
+                </p>
+
+            </div>
+
+            <div
+                class="
+                    completion-gallery
+                    completion-gallery-two
+                "
+            >
+                ${images}
+            </div>
+
+        </section>
+    `;
+}
+
+/* =========================================
+   SECRET COMPLETION CHECK
+========================================= */
+
+function isSecretArchiveCompleted() {
+    const multipleChoiceCompleted =
+        localStorage.getItem(
+            "sfq-level-4-multipleChoice-completed"
+        ) === "true";
+
+    const yesNoCompleted =
+        localStorage.getItem(
+            "sfq-level-4-yesNo-completed"
+        ) === "true";
+
+    return (
+        multipleChoiceCompleted &&
+        yesNoCompleted
+    );
+}
+
+/* =========================================
+   SECRET COMPLETION RENDER
+========================================= */
+
+function renderSecretCompletion() {
+    if (!isSecretArchiveCompleted()) {
+        return "";
+    }
+
+    const secretImages =
+        COMPLETION_REWARD_IMAGES
+            .secret
+            .map(
+                (imagePath, index) =>
+                    renderCompletionImage(
+                        imagePath,
+                        `Secret Archive nagrada ${index + 1}`
+                    )
+            )
+            .join("");
+
+    const finalImage =
+        renderCompletionImage(
+            COMPLETION_REWARD_IMAGES.final,
+            "Konačna nagrada SF kviza",
+            "completion-image-final"
+        );
+
+    return `
+        <section
+            class="
+                completion-section
+                secret-completion
+            "
+        >
+            <div class="completion-heading">
+
+                <div class="completion-kicker">
+                    ARHIVA OSVOJENA
+                </div>
+
+                <h2>
+                    Hardcore Archive završen!
+                </h2>
+
+                <p>
+                    Secret Level je uspješno završen.
+                    Konačna arhiva je otključana.
+                </p>
+
+            </div>
+
+            <div
+                class="
+                    completion-gallery
+                    completion-gallery-two
+                "
+            >
+                ${secretImages}
+            </div>
+
+            <div class="final-reward-heading">
+
+                <div class="completion-kicker">
+                    FINAL REWARD
+                </div>
+
+                <h3>
+                    SF Quiz Progression završen
+                </h3>
+
+            </div>
+
+            <div
+                class="
+                    completion-gallery
+                    completion-gallery-final
+                "
+            >
+                ${finalImage}
+            </div>
+
+        </section>
+    `;
+}

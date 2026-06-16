@@ -420,20 +420,17 @@ function changeActiveLevel(newLevel) {
         return;
     }
 
+    /*
+       Provjera pristupa vrijedi samo
+       za Secret Level.
+    */
+
     if (
-        typeof canUserOpenLevel ===
-        "function" &&
-        !canUserOpenLevel(parsedLevel)
+        parsedLevel === 4 &&
+        typeof canUserOpenLevel === "function" &&
+        !canUserOpenLevel(4)
     ) {
-        activeLevel = 1;
-
-        localStorage.setItem(
-            LEVEL_STORAGE_KEY,
-            "1"
-        );
-
-        renderApp();
-
+        renderLevelSelect();
         return;
     }
 
@@ -670,6 +667,61 @@ function resetQuiz(
             )
         );
     }
+
+    renderApp();
+}
+
+function resetSecretQuiz(
+    questionType
+) {
+    if (!questionType) {
+        return;
+    }
+
+    localStorage.removeItem(
+        getSecretScoreKey(
+            questionType
+        )
+    );
+
+    localStorage.removeItem(
+        getSecretCompletedKey(
+            questionType
+        )
+    );
+
+    /*
+       Brišemo i stanje osvojene nagrade.
+
+       multipleChoice = week 1
+       yesNo = week 2
+    */
+
+    const secretWeek =
+        questionType === "multipleChoice"
+            ? 1
+            : 2;
+
+    if (
+        typeof getRewardKey === "function"
+    ) {
+        localStorage.removeItem(
+            getRewardKey(
+                4,
+                1,
+                secretWeek
+            )
+        );
+    }
+
+    /*
+       Ako je Secret Level ranije pao,
+       uklanjamo i failure stanje.
+    */
+
+    localStorage.removeItem(
+        "sfq-secret-level-failed"
+    );
 
     renderApp();
 }
@@ -1456,14 +1508,59 @@ function renderSecretQuiz(
             )
         );
 
+    /*
+       Secret Level ima dvije reward kartice:
+
+       multipleChoice = week 1
+       yesNo = week 2
+    */
+
+    const secretWeek =
+        questionType === "multipleChoice"
+            ? 1
+            : 2;
+
+    /*
+       Ako je Secret kviz već ranije završen
+       s maksimalnim rezultatom, sinkroniziramo
+       reward ključ u localStorageu.
+
+       Ovo popravlja stare rezultate spremljene
+       prije dodavanja Secret reward kartica.
+    */
+
+    if (
+        completed &&
+        savedScore === questions.length &&
+        typeof getRewardKey === "function"
+    ) {
+        localStorage.setItem(
+            getRewardKey(
+                4,
+                1,
+                secretWeek
+            ),
+            "unlocked"
+        );
+    }
+
+    const rewardHtml =
+        typeof renderQuizReward === "function"
+            ? renderQuizReward(
+                4,
+                1,
+                secretWeek
+            )
+            : "";
+
     return `
         <div
             class="
                 week-block
                 ${completed
-            ? "week-completed"
-            : "week-active"
-        }
+                    ? "week-completed"
+                    : "week-active"
+                }
                 quiz-section
             "
             data-secret-type="${questionType}"
@@ -1471,9 +1568,9 @@ function renderSecretQuiz(
 
             <div class="week-title">
                 ${completed
-            ? "🟢"
-            : "🟡"
-        }
+                    ? "🟢"
+                    : "🟡"
+                }
 
                 ${title}
             </div>
@@ -1486,29 +1583,42 @@ function renderSecretQuiz(
             </div>
 
             ${completed
-            ? `
-                        <div class="quiz-result success">
-                            Rezultat:
-                            ${savedScore}
-                            /
-                            ${questions.length}
-                        </div>
-                    `
+                ? `
+                    <div class="quiz-result success">
+                        Rezultat:
+                        ${savedScore}
+                        /
+                        ${questions.length}
+                    </div>
 
-            : `
-                        <div class="quiz-list">
+                    ${rewardHtml}
 
-                            ${questions
-                .map(
-                    renderQuestionCard
-                )
-                .join("")}
+                    <button
+                        type="button"
+                        class="reset-secret-quiz-btn"
+                        data-secret-type="${questionType}"
+                    >
+                        Ponovi ovaj kviz
+                    </button>
+                `
 
-                        </div>
+                : `
+                    <div class="quiz-list">
 
-                        <div class="quiz-live-result"></div>
-                    `
-        }
+                        ${questions
+                            .map(
+                                renderQuestionCard
+                            )
+                            .join("")
+                        }
+
+                    </div>
+
+                    ${rewardHtml}
+
+                    <div class="quiz-live-result"></div>
+                `
+            }
 
         </div>
     `;
@@ -1585,8 +1695,7 @@ function getSecretFailedState() {
 function renderApp() {
     if (
         activeLevel === 4 &&
-        typeof canUserOpenLevel ===
-        "function" &&
+        typeof canUserOpenLevel === "function" &&
         !canUserOpenLevel(4)
     ) {
         activeLevel = 1;
@@ -1601,9 +1710,7 @@ function renderApp() {
     renderHeroText();
 
     const app =
-        document.getElementById(
-            "app"
-        );
+        document.getElementById("app");
 
     if (!app) {
         return;
@@ -1612,49 +1719,67 @@ function renderApp() {
     if (activeLevel === 4) {
         if (getSecretFailedState()) {
             app.innerHTML =
-                typeof renderSecretFailed ===
-                    "function"
+                typeof renderSecretFailed === "function"
                     ? renderSecretFailed()
                     : `
-                            <section class="secret-failed-screen">
-                                <div class="secret-failed-content">
-                                    <h2>
-                                        SECRET ARCHIVE FAILED
-                                    </h2>
-                                    <p>
-                                        Pogrešan odgovor.
-                                        Pristup je zaključan.
-                                    </p>
-                                </div>
-                            </section>
-                        `;
+                        <section class="secret-failed-screen">
+                            <div class="secret-failed-content">
+
+                                <h2>
+                                    SECRET ARCHIVE FAILED
+                                </h2>
+
+                                <p>
+                                    Pogrešan odgovor.
+                                    Pristup je zaključan.
+                                </p>
+
+                            </div>
+                        </section>
+                    `;
         } else {
             app.innerHTML =
-                renderSecretLevel() +
-                (
-                    typeof renderSecretCompletion ===
-                        "function"
-                        ? renderSecretCompletion()
-                        : ""
+                renderSecretLevel();
+
+            if (
+                typeof renderSecretCompletion === "function"
+            ) {
+                app.insertAdjacentHTML(
+                    "beforeend",
+                    renderSecretCompletion()
                 );
+            }
         }
     } else {
+        /*
+           Prvo se crtaju pitanja i nagrade
+           za Level 1, 2 ili 3.
+        */
+
         app.innerHTML =
             QUIZ_GROUPS
                 .map(renderGroupBlock)
-                .join("") +
-            (
-                typeof renderLevel3Completion ===
-                    "function"
-                    ? renderLevel3Completion()
-                    : ""
+                .join("");
+
+        /*
+           Završni blok dodaje se samo
+           nakon završetka Levela 3.
+        */
+
+        if (
+            activeLevel === 3 &&
+            typeof renderLevel3Completion === "function"
+        ) {
+            app.insertAdjacentHTML(
+                "beforeend",
+                renderLevel3Completion()
             );
+        }
     }
 
     setTimeout(() => {
         if (
-            typeof restoreQuizRewards ===
-            "function"
+            typeof restoreQuizRewards === "function"
         ) {
             restoreQuizRewards();
         }
@@ -1919,6 +2044,19 @@ document.addEventListener(
             return;
         }
 
+        const resetSecretButton =
+            event.target.closest(
+                ".reset-secret-quiz-btn"
+            );
+
+        if (resetSecretButton) {
+            resetSecretQuiz(
+                resetSecretButton.dataset.secretType
+            );
+
+            return;
+        }
+
         const resetButton =
             event.target.closest(
                 ".reset-quiz-btn"
@@ -1932,6 +2070,7 @@ document.addEventListener(
 
             return;
         }
+
 
         const clickedButton =
             event.target.closest(

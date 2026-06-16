@@ -566,7 +566,7 @@ const questions3 = {
                 "Zaustaviti vrijeme",
                 "Teleportirati samo ljudsku posadu"
             ),
-            qq3(
+            q3(
                 "q3-hard-machines-stargate-01",
                 "Stargate",
                 "Koji je sedmi simbol potreban za određivanje odredišta i aktiviranje Zvjezdanih vrata?",

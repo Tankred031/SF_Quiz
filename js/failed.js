@@ -32,7 +32,8 @@ const SECRET_FAILED_OPTIONS = [
             "assets/images/copyright-risk/YouKnowNothing.png",
 
         text:
-            "YOU KNOW NOTHING. QUIZ IS ONLY A WORD. REALITY IS MUCH, MUCH WORSE!"
+            "YOU KNOW NOTHING." 
+            //QUIZ IS ONLY A WORD. REALITY IS MUCH, MUCH WORSE!"
     },
 
     {

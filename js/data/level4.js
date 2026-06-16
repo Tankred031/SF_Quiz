@@ -118,7 +118,7 @@ const questions4 = {
         q4MultipleChoice(
             "q4-hardcore-outland-01",
             "Outland",
-            "Kako se zove kompanija koja upravlja rudarskom postajom Con-Am 27 u filmu Outland?",
+            "Kako se zove kompanija koja upravlja rudarskom postajom u filmu Outland?",
             "Con-Amalgamate",
             "Weyland-Yutani",
             "Omni Consumer Products"
