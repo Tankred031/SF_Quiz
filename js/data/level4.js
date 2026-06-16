@@ -81,12 +81,12 @@ const questions4 = {
         ),
 
         q4MultipleChoice(
-            "q4-hardcore-bttf-2-01",
-            "Back to the Future Part II",
-            "Koje razdoblje pokriva Grays Sports Almanac u filmu Back to the Future Part II?",
-            "1950.–2000.",
-            "1925.–1975.",
-            "2000.–2050."
+            "q4-hardcore-highlander-2-01",
+            "Highlander II: The Quickening",
+            "Kako se zove glavni negativac kojeg Michael Ironside glumi u filmu Highlander II: The Quickening?",
+            "General Katana",
+            "General Ramirez",
+            "David Blake"
         ),
 
         q4MultipleChoice(
@@ -108,14 +108,13 @@ const questions4 = {
         ),
 
         q4MultipleChoice(
-            "q4-hardcore-logans-run-01",
-            "Logan's Run",
-            "Kako se zove kristal ugrađen u dlan koji pokazuje dob stanovnika u filmu Logan's Run?",
-            "Life-clock",
-            "Time-flower",
-            "Age-core"
+            "q4-hardcore-mimic-01",
+            "Mimic",
+            "Kako se zove genetski stvorena vrsta kukaca u filmu Mimic?",
+            "Judas Breed",
+            "Strickler Breed",
+            "Mantis Species"
         ),
-
         q4MultipleChoice(
             "q4-hardcore-outland-01",
             "Outland",
@@ -126,12 +125,12 @@ const questions4 = {
         ),
 
         q4MultipleChoice(
-            "q4-hardcore-andromeda-01",
-            "The Andromeda Strain",
-            "Koji je član tima, prema hipotezi 'odd man', ovlašten deaktivirati nuklearni mehanizam u Wildfireu?",
-            "Dr. Mark Hall",
-            "Dr. Jeremy Stone",
-            "Dr. Ruth Leavitt"
+            "q4-hardcore-species-01",
+            "Species",
+            "Kako se zove ljudsko-izvanzemaljski hibrid kojeg tim pokušava pronaći u filmu Species?",
+            "Sil",
+            "Eve",
+            "Susan"
         ),
 
         q4MultipleChoice(
@@ -176,9 +175,9 @@ const questions4 = {
 
 
         q4YesNo(
-            "q4-yes-no-andromeda-01",
-            "The Andromeda Strain",
-            "Je li The Andromeda Strain hladniji i znanstveniji oblik SF prijetnje od klasičnog čudovišnog alien filma?",
+            "q4-yes-no-the-fifth-element-01",
+            "The Fifth Element",
+            "Je li Leeloo peti element potreban za aktiviranje drevnog oružja protiv Velikog zla?",
             "Da"
         ),
 
