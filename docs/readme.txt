@@ -1,25 +1,33 @@
-# SF Quiz Progression
+# SF Quiz Progression 1.0
 
-An interactive progression-based science fiction quiz application built with Vanilla JavaScript.
+An interactive progression-based science fiction movie quiz built with Vanilla JavaScript.
+The project originally started as a training progression system and was later completely redesigned into a thematic quiz focused on classic science fiction movies.
+The application combines level progression, thematic quiz groups, difficulty settings, role-based access, randomized questions, unlockable rewards, and persistent user progress.
+SF Quiz Progression 1.0 is the completed Vanilla JavaScript version of the project and serves as the foundation and content reference for the future Vue-based 2.0 rebuild.
 
-The project started as a training progression system, but was later redesigned into a thematic SF movie quiz focused on classic science fiction, progression logic, role-based access, dynamic rendering, and state-driven user experience.
+---
 
-The application uses a progression structure based on:
+## Quiz Structure
+
+The application uses a progression system based on:
 
 * levels
 * thematic quiz groups
-* locked / active / completed states
-* admin-controlled unlocking
+* difficulty settings
+* locked, active, and completed states
+* trainer-controlled unlocking
 * randomized quiz questions
+* collectible reward cards
 * persistent user progress
 
 The main quiz themes are:
 
-* machines — robots, androids, cyborgs, artificial intelligence, and human-made systems
-* dystopia — social control, collapse, corporations, police states, and broken futures
-* aliens — extraterrestrials, unknown life forms, first contact, invasions, and strange organisms
+- **machines** — robots, androids, cyborgs, artificial intelligence, computers, and human-made systems
+- **dystopia** — social control, collapse, corporations, police states, survival, and broken futures
+- **aliens** — extraterrestrials, unknown life forms, invasions, first contact, and strange organisms
 
-This project was created as a Vanilla JavaScript practice application after working primarily with React-based frontend development.
+
+The quiz primarily focuses on classic science fiction movies from the 1960s through the 1990s.
 
 ---
 
@@ -29,7 +37,8 @@ This project was created as a Vanilla JavaScript practice application after work
 * HTML5
 * CSS3
 * LocalStorage API
-* Dynamic DOM Manipulation
+* Dynamic DOM manipulation
+* Modular JavaScript files
 
 ---
 
@@ -37,100 +46,114 @@ This project was created as a Vanilla JavaScript practice application after work
 
 ### Role-Based System
 
-* Admin mode
+* Trainer mode
 * User mode
-* Conditional UI rendering
+* Conditional interface rendering
 * Permission-based controls
-* Separate access logic for locked and active quiz sections
+* Separate access rules for locked and active quiz sections
+* Trainer-controlled progression unlocking
 
-### Quiz Progression System
+### Quiz Progression
 
-* Level-based progression
-* Locked / active / completed states
-* Admin-controlled unlocking
-* Thematic quiz months
-* Difficulty-based quiz levels
-* Dynamic quiz rendering
+* Multi-level progression structure
+* Locked, active, and completed states
+* Difficulty-based quiz stages
+* Theme-based quiz groups
+* Level completion tracking
+* Unlockable rewards
+* Secret quiz content
 
-### Science Fiction Quiz Structure
+### Quiz System
 
-* Questions divided by difficulty:
+Questions are divided by difficulty:
 
-  * light
-  * medium
-  * hard
+* light
+* medium
+* hard
 
-* Questions divided by theme:
+Questions are also divided by theme:
 
-  * machines
-  * dystopia
-  * aliens
+* machines
+* dystopia
+* aliens
+* mythic
 
-* Each quiz level pulls questions based on:
+Each quiz session selects questions according to:
 
-  * selected difficulty
-  * selected theme
-  * requested question count
+* active level
+* selected theme
+* selected difficulty
+* required question count
 
 ### Dynamic Rendering
 
-* Data-driven UI generation
-* Dynamic quiz question rendering
-* Year / level-based content switching
-* Theme-based hero section
-* Randomized answer order
+* Data-driven interface generation
+* Dynamic level and quiz rendering
+* Level-based content switching
+* Theme-based hero sections
 * Randomized question selection
+* Randomized answer order
+* Dynamic result feedback
+* Reward card rendering
 
-### Persistence System
+### Persistence
 
-* LocalStorage-based state saving
-* Progress persistence
-* Admin unlock persistence
-* Feedback persistence
-* Selected level persistence
-* User role persistence
+The application stores progress through LocalStorage, including:
+
+* completed quizzes
+* unlocked levels
+* trainer changes
+* selected level
+* user role
+* feedback state
+* reward progress
 
 ### User Experience
 
 * Retro science fiction visual style
-* Dynamic hero banner
-* Click-to-zoom hero images
-* Level-based color themes
 * CRT-inspired login screen
-* Interactive quiz feedback
-* Responsive layout structure
+* Dynamic hero banners
+* Level-specific visual themes
+* Click-to-zoom images
+* Flip-card rewards
+* Interactive answer feedback
+* Responsive layout
+* Progression-focused interface
 
 ---
 
 ## Project Structure
 
-The application is organized into separate files for better readability and maintainability:
+The application is separated into multiple JavaScript and CSS files for improved organization and maintainability.
 
-* `login.js` — login and role logic
-* `admin.js` — admin controls and unlock system
+Examples include:
+
+* `login.js` — login and role management
+* `admin.js` — trainer controls and unlocking logic
 * `user.js` — user access helpers
 * `trening.js` — main rendering and quiz logic
 * `questions.js` — quiz question database
-* `year-one.js`, `year-two.js`, `year-three.js` — progression data
-* `trening.css` — visual design and responsive layout
+* progression data files — level, theme, and reward configuration
+* `trening.css` — main visual design and responsive styling
 
 ---
 
 ## Project Goal
 
-The goal of this project was to practice building a structured interactive application using core frontend technologies without relying on a framework.
+The goal of this project was to build a complete interactive application using core frontend technologies without relying on a framework.
 
-Special focus was placed on:
+The project focused on:
 
 * application architecture
-* modular JavaScript structure
-* dynamic rendering
+* modular JavaScript
+* dynamic DOM rendering
 * state management
-* localStorage persistence
-* role-based UI behavior
-* quiz logic
+* LocalStorage persistence
+* role-based interface behavior
+* randomized quiz logic
 * progression systems
 * reusable data structures
+* responsive interface design
 
 ---
 
@@ -139,34 +162,43 @@ Special focus was placed on:
 Through this project I practiced:
 
 * dynamic DOM rendering
-* application state logic
-* localStorage persistence
+* application state management
+* LocalStorage persistence
 * modular JavaScript organization
 * conditional rendering
 * role-based application behavior
 * randomized quiz generation
-* UI state management
-* data-driven application structure
-* refactoring an existing app into a new concept
+* progression and unlocking logic
+* data-driven interface generation
+* reusable quiz structures
+* refactoring an existing application into a new concept
+* managing a larger Vanilla JavaScript project
 
 ---
 
-## Future Improvements
+## Version Status
 
-* Add backend integration
-* Add real user authentication
-* Store quiz progress in a database
-* Add score tracking
-* Add final results and statistics
-* Add secret bonus levels
-* Add audio feedback
-* Add expanded SF movie categories
-* Add accessibility improvements
-* Improve mobile-first layout
-* Add cloud synchronization
+SF Quiz Progression 1.0 is complete and preserved as the stable Vanilla JavaScript version of the application.
+
+Future development will continue separately in SF Quiz Progression 2.0, which is being rebuilt with Vue.
+
+---
+
+## Possible Future Improvements
+
+* Backend integration
+* Database storage
+* Real user authentication
+* Cloud synchronization
+* Player profiles
+* Expanded statistics
+* Accessibility improvements
+* Additional classic science fiction categories
+* Additional levels and secret content
 
 ---
 
 ## Author
 
 Created by Tankred Kralj
+
