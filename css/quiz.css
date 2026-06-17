@@ -1887,3 +1887,17 @@ body.year-4 #overlayImage {
         width: 100%;
     }
 }
+
+.site-footer {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    font-style: italic;
+}
+
+.site-footer p {
+    margin: 0;
+}

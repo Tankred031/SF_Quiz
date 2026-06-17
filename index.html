@@ -4,28 +4,15 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SF Quiz Progression</title>
 
-    <link
-        rel="stylesheet"
-        href="css/quiz.css"
-    >
+    <link rel="stylesheet" href="css/quiz.css">
 
-    <link
-        rel="stylesheet"
-        href="css/reward.css"
-    >
+    <link rel="stylesheet" href="css/reward.css">
 
-    <link
-        rel="shortcut icon"
-        href="assets/images/extraterrestrial.png"
-        type="image/png"
-    >
+    <link rel="shortcut icon" href="assets/images/extraterrestrial.png" type="image/png">
 
     <script src="js/login.js" defer></script>
     <script src="js/failed.js" defer></script>
@@ -44,10 +31,7 @@
 
 <body class="logged-out">
 
-    <section
-        class="hero"
-        id="hero"
-    >
+    <section class="hero" id="hero">
         <div class="hero-content">
 
             <div class="hero-left">
@@ -56,55 +40,34 @@
                     SF QUIZ PROGRESSION
                 </div>
 
-                <h1
-                    id="heroTitle"
-                    class="hero-main-text"
-                >
+                <h1 id="heroTitle" class="hero-main-text">
                     Dani prošle budućnosti
                 </h1>
 
-                <div
-                    id="heroSubtext"
-                    class="hero-subtext"
-                >
+                <div id="heroSubtext" class="hero-subtext">
                     Prođi kroz kultne SF filmove, otključavaj sve teže
                     kvizove i testiraj znanje o distopijama, strojevima
                     i izvanzemaljcima.
                 </div>
 
-                <div
-                    id="userYearDisplay"
-                    class="user-year-display"
-                ></div>
+                <div id="userYearDisplay" class="user-year-display"></div>
 
             </div>
 
             <div class="hero-image">
 
-                <img
-                    id="heroImage"
-                    class="zoomable-image"
-                    src="assets/images/year1.png"
-                    alt="SF Quiz Progression"
-                >
+                <img id="heroImage" class="zoomable-image" src="assets/images/year1.png" alt="SF Quiz Progression">
 
             </div>
 
         </div>
     </section>
 
-    <main
-        id="appView"
-        style="display: none;"
-    >
+    <main id="appView" style="display: none;">
         <div id="app"></div>
     </main>
 
-    <button
-        id="logoutBtn"
-        type="button"
-        onclick="logout()"
-    >
+    <button id="logoutBtn" type="button" onclick="logout()">
         LOGOUT
     </button>
 
@@ -124,10 +87,7 @@
                         POZDRAVLJAMO TE KORISNIČE
                     </h2>
 
-                    <div
-                        class="login-subtitle"
-                        id="loginSubtitle"
-                    >
+                    <div class="login-subtitle" id="loginSubtitle">
                         <p>
                             Bojiš se da će nas vlastiti izumi prerasti? —
                             Želiš da stvorimo savršenu inteligenciju,
@@ -147,17 +107,9 @@
                         </p>
                     </div>
 
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="ACCESS CODE"
-                        autocomplete="current-password"
-                    >
+                    <input id="password" type="password" placeholder="ACCESS CODE" autocomplete="current-password">
 
-                    <button
-                        type="button"
-                        onclick="login()"
-                    >
+                    <button type="button" onclick="login()">
                         START MISSION
                     </button>
 
@@ -170,13 +122,13 @@
     </div>
 
     <div id="imageOverlay">
-    <img
-        id="overlayImage"
-        src=""
-        alt="Povećana slika"
-    >
-</div>
+        <img id="overlayImage" src="" alt="Povećana slika">
+    </div>
 
+    <footer class="site-footer">
+        <p>&copy; SF Quiz 2026</p>
+        <p>Created by: Tankred Kralj</p>
+    </footer>
 </body>
 
 </html>
