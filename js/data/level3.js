@@ -132,20 +132,20 @@ const questions3 = {
                 "Joanna i Bobby"
             ),
             q3(
-                "q3-light-dystopia-the-omega-man-01",
-                "The Omega Man",
-                "Tko glumi Roberta Nevillea u filmu The Omega Man?",
-                "Charlton Heston",
-                "Vincent Price",
-                "Donald Sutherland"
+                "q3-medium-machines-lawnmower-man-01",
+                "The Lawnmower Man",
+                "Koja tehnologija je ključna za transformaciju Jobea u filmu The Lawnmower Man?",
+                "Virtualna stvarnost",
+                "Kibernetički implantati",
+                "Vanzemaljski signal"
             ),
             q3(
-                "q3-light-dystopia-the-quiet-earth-01",
-                "The Quiet Earth",
-                "Kako se zove znanstvenik koji se budi u gotovo praznom svijetu?",
-                "Zac Hobson",
-                "Robert Neville",
-                "David Herdeg"
+                "q3-light-dystopia-highlander-01",
+                "Highlander",
+                "Koja je najpoznatija rečenica povezana s filmom Highlander?",
+                "There can be only one",
+                "I'll be back",
+                "Live long and prosper"
             ),
             q3(
                 "q3-light-dystopia-split-second-01",
@@ -284,12 +284,12 @@ const questions3 = {
                 "Cooper"
             ),
             q3(
-                "q3-medium-machines-blue-thunder-01",
-                "Blue Thunder",
-                "Koji glumac tumači pilota Franka Murphyja u filmu Blue Thunder?",
-                "Roy Scheider",
-                "Robert Forster",
-                "Michael Ironside"
+                "q3-light-dystopia-back-to-the-future-2-01",
+                "Back to the Future Part II",
+                "U koju godinu Marty i Doc putuju u budućnost u filmu Back to the Future Part II?",
+                "2015.",
+                "2025.",
+                "1999."
             ),
             q3(
                 "q3-medium-machines-futureworld-02",
@@ -335,20 +335,20 @@ const questions3 = {
                 "Bila je u bolničkoj komori"
             ),
             q3(
-                "q3-medium-dystopia-the-omega-man-01",
-                "The Omega Man",
-                "Kako se zove vođa skupine The Family?",
-                "Matthias",
-                "Dutch",
-                "Zachary"
+                "q3-medium-dystopia-total-recall-02",
+                "Total Recall",
+                "Na kojem mjestu Quaid pronalazi uređaj za praćenje skriven u glavi?",
+                "U JohnnyCabu",
+                "Na aerodromu",
+                "U Rekall laboratoriju"
             ),
             q3(
-                "q3-medium-dystopia-the-quiet-earth-01",
-                "The Quiet Earth",
-                "Kako se zove projekt povezan s nestankom stanovništva?",
-                "Project Flashlight",
-                "Project Genesis",
-                "Project Horizon"
+                "q3-medium-machines-lawnmower-man-01",
+                "The Lawnmower Man",
+                "Koja tehnologija je ključna za transformaciju Jobea u filmu The Lawnmower Man?",
+                "Virtualna stvarnost",
+                "Kibernetički implantati",
+                "Vanzemaljski signal"
             ),
             q3(
                 "q3-medium-dystopia-split-second-01",
@@ -394,12 +394,12 @@ const questions3 = {
 
         aliens: [
             q3(
-                "q3-medium-aliens-battle-beyond-the-stars-01",
-                "Battle Beyond the Stars",
-                "Kako se zove bivši plaćenik kojeg glumi Robert Vaughn?",
-                "Gelt",
-                "Sador",
-                "Cayman"
+                "q3-medium-machines-johnny-mnemonic-01",
+                "Johnny Mnemonic",
+                "Što Johnny nosi u vlastitom mozgu u filmu Johnny Mnemonic?",
+                "Digitalne podatke",
+                "AI svijest",
+                "Vojni virus za androide"
             ),
             q3(
                 "q3-medium-aliens-the-andromeda-strain-01",
@@ -410,12 +410,12 @@ const questions3 = {
                 "Stone Base"
             ),
             q3(
-                "q3-medium-aliens-innerspace-01",
-                "Innerspace",
-                "Kako se zove liječnica i Tuckova djevojka koju glumi Meg Ryan?",
-                "Lydia Maxwell",
-                "Veronica Quaife",
-                "Jenny Hayden"
+                "q3-medium-aliens-lifeforce-01",
+                "Lifeforce",
+                "Što astronauti pronalaze u napuštenom izvanzemaljskom brodu u filmu Lifeforce?",
+                "Tri humanoidna bića u kapsulama",
+                "Robotsku vojsku",
+                "Crnu monolitnu ploču"
             ),
             q3(
                 "q3-medium-aliens-krull-01",
@@ -458,12 +458,12 @@ const questions3 = {
                 "Dr. Ruth Leavitt"
             ),
             q3(
-                "q3-medium-aliens-innerspace-02",
-                "Innerspace",
-                "Koji glumac tumači pilota Tucka Pendletona?",
-                "Dennis Quaid",
-                "Martin Short",
-                "Sam Neill"
+                "q3-medium-aliens-lifeforce-02",
+                "Lifeforce",
+                "Kako se zove svemirski brod koji pronalazi izvanzemaljsku letjelicu skrivenu u Halleyevu kometu?",
+                "Churchill",
+                "Lewis and Clark",
+                "Discovery One"
             ),
             q3(
                 "q3-medium-aliens-species-01",
@@ -677,12 +677,12 @@ const questions3 = {
 
         aliens: [
             q3(
-                "q3-hard-aliens-battle-beyond-the-stars-01",
-                "Battle Beyond the Stars",
-                "Kako se zove Sadorovo oružje koje može uništiti čitav planet?",
-                "Stellar Converter",
-                "Genesis Device",
-                "Death Blossom"
+                "q3-hard-machines-johnny-mnemonic-02",
+                "Johnny Mnemonic",
+                "Kako se zove bolest koja se širi u svijetu filma Johnny Mnemonic?",
+                "NAS",
+                "NEXUS",
+                "SYNAPSE"
             ),
             q3(
                 "q3-hard-aliens-the-andromeda-strain-01",
@@ -693,12 +693,12 @@ const questions3 = {
                 "Piedmont"
             ),
             q3(
-                "q3-hard-aliens-innerspace-01",
-                "Innerspace",
-                "Koji predmet Tuck mora vratiti kako bi se mogao povećati na normalnu veličinu?",
-                "Računalni čip",
-                "Mikroskopsku bateriju",
-                "Kristal goriva"
+                "q3-hard-aliens-the-day-the-earth-stood-still-01",
+                "The Day the Earth Stood Still",
+                "Koju slavnu zapovijed Helen mora izgovoriti robotu Gortu?",
+                "Klaatu barada nikto",
+                "Gort barada Klaatu",
+                "Nikto Klaatu Gort"
             ),
             q3(
                 "q3-hard-aliens-starship-troopers-02",
@@ -709,12 +709,12 @@ const questions3 = {
                 "Planet P"
             ),
             q3(
-                "q3-hard-aliens-battle-beyond-the-stars-02",
-                "Battle Beyond the Stars",
-                "Kako se zove ratnička rasa koju predstavlja Saint-Exmin?",
-                "Valkyries",
-                "Dracons",
-                "Krell"
+                "q3-hard-aliens-et-01",
+                "E.T. the Extra-Terrestrial",
+                "Kako se zove dječak kojeg E.T. najviše povezuje tijekom filma?",
+                "Elliott",
+                "Michael",
+                "Greg"
             ),
             q3(
                 "q3-hard-aliens-the-andromeda-strain-02",
@@ -741,12 +741,12 @@ const questions3 = {
                 "Bespin"
             ),
             q3(
-                "q3-hard-aliens-battle-beyond-the-stars-03",
-                "Battle Beyond the Stars",
-                "Tko je skladao glazbu za film Battle Beyond the Stars?",
-                "James Horner",
-                "Jerry Goldsmith",
-                "John Barry"
+                "q3-hard-aliens-innerspace-03",
+                "Innerspace",
+                "Kako se zove industrijalac koji želi ukrasti tehnologiju minijaturizacije?",
+                "Victor Scrimshaw",
+                "Barry Convex",
+                "Charles Luther"
             ),
             q3(
                 "q3-hard-aliens-starship-troopers-01",
@@ -765,12 +765,12 @@ const questions3 = {
                 "Tim Roth"
             ),
             q3(
-                "q3-hard-aliens-innerspace-03",
-                "Innerspace",
-                "Kako se zove industrijalac koji želi ukrasti tehnologiju minijaturizacije?",
-                "Victor Scrimshaw",
-                "Barry Convex",
-                "Charles Luther"
+                "q3-hard-aliens-et-03",
+                "E.T. the Extra-Terrestrial",
+                "Koju biljku E.T.-jevo zdravstveno stanje tijekom filma izravno odražava?",
+                "Cvijet u tegli",
+                "Ružu u vazi",
+                "Kaktus"
             )
         ]
     }
