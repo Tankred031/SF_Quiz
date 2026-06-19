@@ -626,12 +626,12 @@ const questions3 = {
                 "Posjedovanjem jedinog svemirskog broda"
             ),
             q3(
-                "q3-hard-dystopia-the-omega-man-01",
-                "The Omega Man",
-                "Zašto je Neville imun na bolest?",
-                "Ubrizgao si je eksperimentalno cjepivo",
-                "Prirodno je imun",
-                "Bio je u kriogenoj komori"
+                "q3-hard-dystopia-mad-max-2-01",
+                "Mad Max 2",
+                "Koliko osoba preživi završnu vožnju kamiona-mamca u filmu Mad Max 2?",
+                "Troje",
+                "Dvoje",
+                "Četvero"
             ),
             q3(
                 "q3-hard-dystopia-total-recall-01",
